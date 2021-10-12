@@ -146,7 +146,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnWenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWenActionPerformed
-        // TODO add your handling code here:
+        scrMain.setViewportView(new WenPanel());
     }//GEN-LAST:event_btnWenActionPerformed
 
     private void btnChangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangActionPerformed
