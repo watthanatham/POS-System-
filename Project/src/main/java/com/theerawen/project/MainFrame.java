@@ -169,7 +169,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPaeActionPerformed
 
     private void btnPloyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPloyActionPerformed
-        // TODO add your handling code here:
+        scrMain.setViewportView(new PloyPanel());
     }//GEN-LAST:event_btnPloyActionPerformed
 
     private void btnJeabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJeabActionPerformed
