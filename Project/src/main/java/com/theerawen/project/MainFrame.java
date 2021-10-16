@@ -64,7 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnNumm.setText("Numm");
+        btnNumm.setText("Noom");
         btnNumm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNummActionPerformed(evt);
@@ -161,7 +161,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBankActionPerformed
 
     private void btnNummActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNummActionPerformed
-        // TODO add your handling code here:
+        scrMain.setViewportView(new NoomPanel());
     }//GEN-LAST:event_btnNummActionPerformed
 
     private void btnPaeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaeActionPerformed
