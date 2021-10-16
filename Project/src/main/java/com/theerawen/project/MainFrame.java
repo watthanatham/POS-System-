@@ -173,7 +173,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPloyActionPerformed
 
     private void btnJeabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJeabActionPerformed
-        // TODO add your handling code here:
+       scrMain.setViewportView(new JeabPanel());
     }//GEN-LAST:event_btnJeabActionPerformed
 
     /**
