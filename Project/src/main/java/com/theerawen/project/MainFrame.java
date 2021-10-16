@@ -16,6 +16,9 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        ChangPanel chpanel = new ChangPanel();
+        this.add(chpanel);
+        this.pack();
     }
 
     /**
@@ -150,7 +153,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnWenActionPerformed
 
     private void btnChangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangActionPerformed
-        // TODO add your handling code here:
+        scrMain.setViewportView(new ChangPanel());
     }//GEN-LAST:event_btnChangActionPerformed
 
     private void btnBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBankActionPerformed
