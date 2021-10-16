@@ -157,7 +157,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnChangActionPerformed
 
     private void btnBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBankActionPerformed
-        // TODO add your handling code here:
+        scrMain.setViewportView(new BankPanel());
     }//GEN-LAST:event_btnBankActionPerformed
 
     private void btnNummActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNummActionPerformed
