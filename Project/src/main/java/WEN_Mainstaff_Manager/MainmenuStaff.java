@@ -9,12 +9,12 @@ package WEN_Mainstaff_Manager;
  *
  * @author Windows10
  */
-public class MainmenuManager extends javax.swing.JPanel {
+public class MainmenuStaff extends javax.swing.JPanel {
 
     /**
      * Creates new form WenPanel
      */
-    public MainmenuManager() {
+    public MainmenuStaff() {
         initComponents();
     }
 
@@ -122,7 +122,7 @@ public class MainmenuManager extends javax.swing.JPanel {
         btnLogo.setText("LOGO");
 
         jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelMainManager.setText("Main Menu of Manager");
+        jLabelMainManager.setText("Main Menu of Staff");
 
         javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
         jPanelTop.setLayout(jPanelTopLayout);
