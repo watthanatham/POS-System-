@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.theerawen.project;
+package Noom;
 
 /**
  *
- * @author 66945
+ * @author saharudseerakoon
  */
-public class PaePanel extends javax.swing.JPanel {
+public class NoomPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form PaePanel
+     * Creates new form NoomPanel
      */
-    public PaePanel() {
+    public NoomPanel() {
         initComponents();
     }
 
@@ -27,32 +27,30 @@ public class PaePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblName = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        lblName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblName.setText("Pae");
+        jLabel2.setText("Noom");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(167, 167, 167)
+                .addComponent(jLabel2)
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(122, 122, 122)
+                .addComponent(jLabel2)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

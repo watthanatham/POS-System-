@@ -3,7 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.theerawen.project;
+package Main;
+
+import Noom.NoomPanel;
+import Ploy.PloyPanel;
+import Pae.PaePanel;
+import Wen.WenPanel;
+import Jeab.JeabPanel;
+import Chang.ChangPanel;
+import bank.BankPanel;
 
 /**
  *
