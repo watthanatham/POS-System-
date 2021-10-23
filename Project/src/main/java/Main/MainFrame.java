@@ -8,7 +8,7 @@ package Main;
 import Noom.NoomPanel;
 import Ploy.PloyPanel;
 import Pae.PaePanel;
-import Wen.WenPanel;
+import WEN_Mainstaff_Manager.MainmenuManager;
 import Jeab.JeabPanel;
 import Chang.ChangPanel;
 import bank.BankPanel;
@@ -157,7 +157,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnWenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWenActionPerformed
-        scrMain.setViewportView(new WenPanel());
+        scrMain.setViewportView(new MainmenuManager());
     }//GEN-LAST:event_btnWenActionPerformed
 
     private void btnChangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangActionPerformed
