@@ -54,6 +54,11 @@ public class MainmenuManager extends javax.swing.JPanel {
         btnPointofsell.setText("Point of Sell");
 
         btnStockManagement.setText("Stock Management");
+        btnStockManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStockManagementActionPerformed(evt);
+            }
+        });
 
         btnEmployeeManagement.setText("Employee Management");
 
@@ -168,6 +173,10 @@ public class MainmenuManager extends javax.swing.JPanel {
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStockManagementActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
