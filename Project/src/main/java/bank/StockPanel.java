@@ -16,7 +16,7 @@ import model.Product;
 
 /**
  *
- * @author gaiga
+ * 
  */
 public class StockPanel extends javax.swing.JPanel {
 

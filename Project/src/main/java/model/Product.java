@@ -8,7 +8,7 @@ package model;
 import java.util.ArrayList;
 /**
  *
- * @author gaiga
+ * 
  */
 public class Product {
     private int id;
