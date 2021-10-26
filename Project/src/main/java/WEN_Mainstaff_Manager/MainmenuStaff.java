@@ -16,6 +16,8 @@ public class MainmenuStaff extends javax.swing.JPanel {
      */
     public MainmenuStaff() {
         initComponents();
+      // Image1 Image1 = new Image1();
+       // jPanelMain.add(Image1);
         
    
 
@@ -41,6 +43,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         btnUserManagement = new javax.swing.JButton();
         scrMain2 = new javax.swing.JScrollPane();
+        jPanelMain = new javax.swing.JPanel();
         jPanelTop = new javax.swing.JPanel();
         btnLogo = new javax.swing.JButton();
         jLabelMainManager = new javax.swing.JLabel();
@@ -113,6 +116,19 @@ public class MainmenuStaff extends javax.swing.JPanel {
 
         scrMenu.setViewportView(pnlMenu);
 
+        javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
+        jPanelMain.setLayout(jPanelMainLayout);
+        jPanelMainLayout.setHorizontalGroup(
+            jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 777, Short.MAX_VALUE)
+        );
+        jPanelMainLayout.setVerticalGroup(
+            jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 442, Short.MAX_VALUE)
+        );
+
+        scrMain2.setViewportView(jPanelMain);
+
         btnLogo.setText("LOGO");
 
         jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -145,8 +161,8 @@ public class MainmenuStaff extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(scrMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(scrMain2)
+                .addContainerGap())
             .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -183,6 +199,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
     private javax.swing.JButton btnStockManagement;
     private javax.swing.JButton btnUserManagement;
     private javax.swing.JLabel jLabelMainManager;
+    private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JScrollPane scrMain2;
