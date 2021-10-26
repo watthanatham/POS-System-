@@ -16,6 +16,9 @@ public class MainmenuStaff extends javax.swing.JPanel {
      */
     public MainmenuStaff() {
         initComponents();
+        
+   
+
     }
 
     /**
@@ -37,8 +40,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
         btnCustomerManagement = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnUserManagement = new javax.swing.JButton();
-        scrMain = new javax.swing.JScrollPane();
-        jPanelMain = new javax.swing.JPanel();
+        scrMain2 = new javax.swing.JScrollPane();
         jPanelTop = new javax.swing.JPanel();
         btnLogo = new javax.swing.JButton();
         jLabelMainManager = new javax.swing.JLabel();
@@ -111,19 +113,6 @@ public class MainmenuStaff extends javax.swing.JPanel {
 
         scrMenu.setViewportView(pnlMenu);
 
-        javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
-        jPanelMain.setLayout(jPanelMainLayout);
-        jPanelMainLayout.setHorizontalGroup(
-            jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
-        );
-        jPanelMainLayout.setVerticalGroup(
-            jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
-        );
-
-        scrMain.setViewportView(jPanelMain);
-
         btnLogo.setText("LOGO");
 
         jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -156,7 +145,8 @@ public class MainmenuStaff extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(scrMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrMain))
+                .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -166,12 +156,15 @@ public class MainmenuStaff extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(scrMenu)
-                    .addComponent(scrMain, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(scrMain2)
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        // TODO add your handling code here:
+        System.out.println("test");
+
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
@@ -190,10 +183,9 @@ public class MainmenuStaff extends javax.swing.JPanel {
     private javax.swing.JButton btnStockManagement;
     private javax.swing.JButton btnUserManagement;
     private javax.swing.JLabel jLabelMainManager;
-    private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JPanel pnlMenu;
-    private javax.swing.JScrollPane scrMain;
+    private javax.swing.JScrollPane scrMain2;
     private javax.swing.JScrollPane scrMenu;
     // End of variables declaration//GEN-END:variables
 }

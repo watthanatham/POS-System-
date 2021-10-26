@@ -6,6 +6,9 @@
 
 package WEN_Mainstaff_Manager;
 
+import java.util.ArrayList;
+import javax.swing.JPanel;
+
 
 
 /**
@@ -21,7 +24,7 @@ public class TestStaff extends javax.swing.JDialog {
         MainmenuStaff panel = new MainmenuStaff();
         this.add(panel);
         this.pack();
-        picChart.add(picChart1());
+  
     }
 
     /** This method is called from within the constructor to
