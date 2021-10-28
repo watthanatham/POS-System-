@@ -28,7 +28,7 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int id = -1;
         try {
-            String sql = "INSERT INTO [order] ([User Type],Total)\n" +
+            String sql = "INSERT INTO order ([User Type],Total)" +
 "                    VALUES ('?','?');";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, object.getUsertype());
@@ -53,15 +53,11 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT ID,\n "+
-"       Date of Sale,\n"+
-"       User Type,\n" +
-"       Total,\n" +        
-"  FROM [order];";
+            String sql = "SELECT Id,'Date of Sell','User Type',total FROM [order] ";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
-                int id = result.getInt("ID");
+                int id = result.getInt("Id");
                 String date = result.getString("Date of Sale");
                 String type = result.getString("User Type");
                 double total = result.getDouble("Total");
@@ -82,11 +78,7 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT ID,\n" +
-"       Date of Sale,\n" +
-"       User Type,\n"    +
-"       Total,\n"        +
-"  FROM Order WHERE ID='" + id+"'";
+            String sql = "SELECT Id,'Date of Sell','User Type',total FROM [order] Where Id = " + id;
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             if(result.next()) {
@@ -111,8 +103,7 @@ public class OrderDao implements DaoInterface<Order>{
         int row = 0;
 
         try {
-            String sql = "DELETE FROM [order]\n" +
-"      WHERE Id = ? ";
+            String sql = "DELETE FROM [order] WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             row =stmt.executeUpdate();
@@ -131,12 +122,7 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE [order]\n" +
-"   SET Id = '?',\n" +
-"       [Date of Sale] = '?',\n" +
-"       [User Type] = '?',\n" +
-"       Total = '?'\n" +
-" WHERE Id = ? ";
+            String sql = "UPDATE [order] SET 'Date of Sell' = '?', 'Use Type' = '?' , total = '?' WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, object.getDate());
             stmt.setString(2, object.getUsertype());
