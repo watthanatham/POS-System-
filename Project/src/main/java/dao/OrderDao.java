@@ -28,7 +28,7 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int id = -1;
         try {
-            String sql = "INSERT INTO order (User Type,Total) VALUES (?,?)";
+            String sql = "INSERT INTO order (UserType,Total) VALUES (?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, object.getUsertype());
             stmt.setDouble(2, object.getTotal());
@@ -52,13 +52,13 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id,Date ,UserType,total FROM order ;";
+            String sql = "SELECT Id,Date,UserType,Total FROM [order] ;";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
                 int id = result.getInt("Id");
-                String date = result.getString("Date of Sale");
-                String type = result.getString("User Type");
+                String date = result.getString("Date");
+                String type = result.getString("UserType");
                 double total = result.getDouble("Total");
                 Order order = new Order(id, date, type, total);
                 list.add(order);
@@ -77,13 +77,13 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id,'Date of Sell','User Type',total FROM order Where Id = " + id;
+            String sql = "SELECT Id,Date,UserType,Total FROM [order] Where Id = " + id;
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             if(result.next()) {
                 int orid = result.getInt("ID");
-                String date = result.getString("Date of Sale");
-                String type = result.getString("User Type");
+                String date = result.getString("Date");
+                String type = result.getString("UserType");
                 double total = result.getDouble("Total");
                 Order order = new Order(orid, date, type,total);
                 return order;
@@ -121,7 +121,7 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE order SET 'Date of Sell' = '?', 'Use Type' = '?' , total = '?' WHERE id = ?";
+            String sql = "UPDATE order SET Date = '?', UseType = '?' , Total = '?' WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, object.getDate());
             stmt.setString(2, object.getUsertype());
