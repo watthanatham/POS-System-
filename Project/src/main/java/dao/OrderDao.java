@@ -28,8 +28,7 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int id = -1;
         try {
-            String sql = "INSERT INTO order ([User Type],Total)" +
-"                    VALUES ('?','?');";
+            String sql = "INSERT INTO order (User Type,Total) VALUES (?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, object.getUsertype());
             stmt.setDouble(2, object.getTotal());
@@ -53,7 +52,7 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id,'Date of Sell','User Type',total FROM [order] ";
+            String sql = "SELECT Id,Date ,UserType,total FROM order ;";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
@@ -78,7 +77,7 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id,'Date of Sell','User Type',total FROM [order] Where Id = " + id;
+            String sql = "SELECT Id,'Date of Sell','User Type',total FROM order Where Id = " + id;
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             if(result.next()) {
@@ -103,7 +102,7 @@ public class OrderDao implements DaoInterface<Order>{
         int row = 0;
 
         try {
-            String sql = "DELETE FROM [order] WHERE id = ?";
+            String sql = "DELETE FROM order WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             row =stmt.executeUpdate();
@@ -122,7 +121,7 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE [order] SET 'Date of Sell' = '?', 'Use Type' = '?' , total = '?' WHERE id = ?";
+            String sql = "UPDATE order SET 'Date of Sell' = '?', 'Use Type' = '?' , total = '?' WHERE id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, object.getDate());
             stmt.setString(2, object.getUsertype());

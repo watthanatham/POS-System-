@@ -5,6 +5,8 @@
  */
 package WEN_Mainstaff_Manager;
 
+import bank.TestStockDialog;
+
 /**
  *
  * @author Windows10
@@ -246,7 +248,9 @@ public class MainmenuStaff extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        setVisible(false);
+        new TestStockDialog(null, true).show();
     }//GEN-LAST:event_btnStockManagementActionPerformed
 
     private void btnPointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointofsellActionPerformed
