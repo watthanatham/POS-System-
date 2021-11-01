@@ -5,6 +5,7 @@
  */
 package WEN_Mainstaff_Manager;
 
+import Pae.OrderManagement;
 import bank.TestStockDialog;
 
 /**
@@ -79,6 +80,11 @@ public class MainmenuStaff extends javax.swing.JPanel {
         btnEmployeeManagement.setText("Employee Management");
 
         btnOrderManagement.setText("Order Management");
+        btnOrderManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderManagementActionPerformed(evt);
+            }
+        });
 
         btnCustomerManagement.setText("Customer Management");
 
@@ -243,21 +249,27 @@ public class MainmenuStaff extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        System.out.println("test");
-
+        scrMain2.setViewportView(new MainmenuStaff());        
+        
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
         this.setVisible(false);
         setVisible(false);
         new TestStockDialog(null, true).show();
+        
     }//GEN-LAST:event_btnStockManagementActionPerformed
 
     private void btnPointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointofsellActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPointofsellActionPerformed
 
+    private void btnOrderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderManagementActionPerformed
+        scrMain2.setViewportView(new OrderManagement());
+    }//GEN-LAST:event_btnOrderManagementActionPerformed
 
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomerManagement;
     private javax.swing.JButton btnEmployeeManagement;
