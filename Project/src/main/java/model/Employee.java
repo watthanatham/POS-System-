@@ -14,22 +14,23 @@ public class Employee {
     private String name;
     private String tel;
     private String type;
-    private String timeAt;
-    private String timeDe;
-    private String dateAt;
-    private String salePerDay;
+    private String timeAM;
+    private String timePM;
+    private String date;
+    private String sale;
 
-    public Employee(int id, String name, String tel, String type, String timeAt, String timeDe, String dateAt, String salePerDay) {
+    public Employee(int id, String name, String tel, String type, String timeAM, String timePM, String date, String sale) {
         this.id = id;
         this.name = name;
         this.tel = tel;
         this.type = type;
-        this.timeAt = timeAt;
-        this.timeDe = timeDe;
-        this.dateAt = dateAt;
-        this.salePerDay = salePerDay;
+        this.timeAM = timeAM;
+        this.timePM = timePM;
+        this.date = date;
+        this.sale = sale;
     }
 
+ 
     public int getId() {
         return id;
     }
@@ -62,42 +63,42 @@ public class Employee {
         this.type = type;
     }
 
-    public String getTimeAt() {
-        return timeAt;
+    public String getTimeAM() {
+        return timeAM;
     }
 
-    public void setTimeAt(String timeAt) {
-        this.timeAt = timeAt;
+    public void setTimeAM(String timeAM) {
+        this.timeAM = timeAM;
     }
 
-    public String getTimeDe() {
-        return timeDe;
+    public String getTimePM() {
+        return timePM;
     }
 
-    public void setTimeDe(String timeDe) {
-        this.timeDe = timeDe;
+    public void setTimePM(String timePM) {
+        this.timePM = timePM;
     }
 
-    public String getDateAt() {
-        return dateAt;
+    public String getDate() {
+        return date;
     }
 
-    public void setDateAt(String dateAt) {
-        this.dateAt = dateAt;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getSalePerDay() {
-        return salePerDay;
+    public String getSale() {
+        return sale;
     }
 
-    public void setSalePerDay(String salePerDay) {
-        this.salePerDay = salePerDay;
+    public void setSale(String sale) {
+        this.sale = sale;
     }
 
     @Override
     public String toString() {
-        return "Employee{" + "id=" + id + ", name=" + name + ", tel=" + tel + ", type=" + type + ", timeAt=" + timeAt + ", timeDe=" + timeDe + ", dateAt=" + dateAt + ", salePerDay=" + salePerDay + '}';
+        return "Employee{" + "id = " + id + ", name = " + name + ", tel = " + tel + ", type = " + type + ", timeAM = " + timeAM + ", timePM = " + timePM + ", date = " + date + ", sale = " + sale + '}';
     }
     
-    
 }
+    
