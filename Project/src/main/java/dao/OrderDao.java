@@ -28,11 +28,11 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int id = -1;
         try {
-            String sql = "INSERT INTO order (UserType,Total) VALUES (?,?)";
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String sql = "INSERT INTO Order (UserType , Total)" + "VALUES ( ? , ? )";
+            PreparedStatement stmt = conn.prepareStatement(sql);      
             stmt.setString(1, object.getUsertype());
             stmt.setDouble(2, object.getTotal());
-           
+         
             int row = stmt.executeUpdate();
             ResultSet result = stmt.getGeneratedKeys();
             if(result.next()) {
@@ -102,7 +102,7 @@ public class OrderDao implements DaoInterface<Order>{
         int row = 0;
 
         try {
-            String sql = "DELETE FROM order WHERE id = ?";
+            String sql = "DELETE FROM [order] WHERE Id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             row =stmt.executeUpdate();
@@ -121,12 +121,12 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE order SET Date = '?', UseType = '?' , Total = '?' WHERE id = ?";
+            String sql = "UPDATE [order] SET , UserType = ? , Total = ? WHERE Id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, object.getDate());
-            stmt.setString(2, object.getUsertype());
-            stmt.setDouble(3, object.getTotal());
-            stmt.setInt(4, object.getId());
+//            stmt.setString(1, object.getDate());
+            stmt.setString(1, object.getUsertype());
+            stmt.setDouble(2, object.getTotal());
+            stmt.setInt(3, object.getId());
             
             row = stmt.executeUpdate();
         } catch (SQLException ex) {

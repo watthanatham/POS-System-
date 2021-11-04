@@ -5,7 +5,7 @@
  */
 package WEN_Mainstaff_Manager;
 
-import Pae.OrderManagement;
+import Pae.OrderPanel;
 import bank.StockPanel;
 import bank.TestStockDialog;
 
@@ -264,7 +264,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPointofsellActionPerformed
 
     private void btnOrderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderManagementActionPerformed
-        scrMain2.setViewportView(new OrderManagement());
+        scrMain2.setViewportView(new OrderPanel());
     }//GEN-LAST:event_btnOrderManagementActionPerformed
 
 

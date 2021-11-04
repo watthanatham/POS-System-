@@ -17,7 +17,7 @@ public class TestOrderDialog extends javax.swing.JDialog {
     public TestOrderDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        OrderManagement order = new OrderManagement();
+        OrderPanel order = new OrderPanel();
         this.add(order);
         this.pack();
     }
