@@ -27,7 +27,7 @@ public class EmployeeDao implements DaoInterface<Employee> {
         conn = db.getConnection();
         int no = -1;
         try {
-            String sql = "INSERT INTO employee (name,telephone,type,timeAM,timePM,data,sale) VALUES (? , ? , ? , ? , ? , ? , ?)";
+            String sql = "INSERT INTO employee (Em_name,Em_tel,Em_type,Em_timeAt,Em_timeDe,Em_dateAt,Em_salePerDay) VALUES (? , ? , ? , ? , ? , ? , ?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, object.getName());
@@ -89,18 +89,18 @@ public class EmployeeDao implements DaoInterface<Employee> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT id,name,telephone,type,timeAM,timePM,data,sale FROM employee WHERE id =" + no;
+            String sql = "SELECTE m_id , Em_name , Em_tel , Em_type , Em_timeAt , Em_timeDe,Em_dateAt,Em_salePerDay WHERE m_id = " + no;
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             if (result.next()) {
-                int id = result.getInt("id");
-                String name = result.getString("name");
-                String telephone = result.getString("telephone");
-                String type = result.getString("type");
-                String timeAM = result.getString("timeAM");
-                String timePM = result.getString("timePM");
-                String data = result.getString("data");
-                String sale = result.getString("sale");
+                int id = result.getInt("Em_id");
+                String name = result.getString("Em_name");
+                String telephone = result.getString("Em_tel");
+                String type = result.getString("Em_type");
+                String timeAM = result.getString("Em_timeAt");
+                String timePM = result.getString("Em_timeDe");
+                String data = result.getString("Em_dateAt");
+                String sale = result.getString("Em_salePerDay");
                 
                Employee employee = new Employee(id, name, telephone, type, timeAM, timePM, data, sale);
                 return employee;
@@ -119,7 +119,7 @@ public class EmployeeDao implements DaoInterface<Employee> {
         int row = 0;
 
         try {
-            String sql = "DELETE FROM employee WHERE id =  ?";
+            String sql = "DELETE FROM employee WHERE Em_id =  ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, no);
             row = stmt.executeUpdate();
@@ -138,7 +138,7 @@ public class EmployeeDao implements DaoInterface<Employee> {
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE employee SET name = ? , telephone = ? , type = ? , timeAM = ? , timePM = ? , data = ? , sale = ? WHERE id = ? ";
+            String sql = "UPDATE employee SET Em_name = ? , Em_tel = ? , Em_type = ? , Em_timeAt = ? , Em_timeDe = ? , Em_dateAt = ? , Em_salePerDay = ? WHERE Em_id = ? ";
             PreparedStatement stmt = conn.prepareStatement(sql);
            
             stmt.setString(1, object.getName());
@@ -157,10 +157,5 @@ public class EmployeeDao implements DaoInterface<Employee> {
 
         db.close();
         return row;
-    }
-    
-    public static void main(String[] args) {
-        EmployeeDao dao = new EmployeeDao();
-        System.out.println(dao.getAll());
     }
 }

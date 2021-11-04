@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
-import model.Customer;
 import model.Employee;
 
 /**
@@ -43,7 +42,6 @@ public class EmployeePanel extends javax.swing.JPanel {
                 editedEmployee = employeeList.get(tblEmployee.getSelectedRow());
                 loadEmployeeToForm();
             }
-
         });
     }
 
@@ -56,6 +54,16 @@ public class EmployeePanel extends javax.swing.JPanel {
         txtTimePM.setText(editedEmployee.getTimePM());
         txtDate.setText(editedEmployee.getDate());
         txtSale.setText(editedEmployee.getSale());
+    }
+
+    public void loadFormToEmployee() {
+        editedEmployee.setName(txtName.getText());
+        editedEmployee.setTel(txtTelephone.getText());
+        editedEmployee.setType(txtType.getText());
+        editedEmployee.setTimeAM(txtTimeAM.getText());
+        editedEmployee.setTimePM(txtTimePM.getText());
+        editedEmployee.setDate(txtDate.getText());
+        editedEmployee.setSale(txtSale.getText());
     }
 
     /**
@@ -369,18 +377,33 @@ public class EmployeePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-//        loadFormToEmployee();
-//        EmployeeDao dao = new  EmployeeDao();
-//        if (editedEmployee.getNo() >= 0) {
-//            dao.update(editedEmployee);
-//        } else {
-//            dao.add(editedEmployee);
-//
-//        }
-//        refershTable();
-//        clearEditForm();
-
+        loadFormToEmployee();
+        EmployeeDao dao = new EmployeeDao();
+        dao.update(editedEmployee);
+        refershTable();
+        clearEditForm();
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    public void refershTable() {
+        EmployeeDao dao = new EmployeeDao();
+        ArrayList<Employee> newList = dao.getAll();
+        employeeList.clear();
+        employeeList.addAll(newList);
+        tblEmployee.revalidate();
+        tblEmployee.repaint();
+    }
+    
+       public void clearEditForm() {
+        editedEmployee = null;
+        lblid.setText("");
+        txtName.setText("");
+        txtTelephone.setText("");
+        txtType.setText("");
+        txtTimeAM.setText("");
+        txtTimePM.setText("");
+        txtDate.setText("");
+        txtSale.setText("");
+    }
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
 //        editedEmployee = new Employee(-1, "", "", "", 0.0, 0);
@@ -430,28 +453,7 @@ public class EmployeePanel extends javax.swing.JPanel {
     private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
-    public void refershTable() {
-//        EmployeeDao dao = new EmployeeDao();
-//        ArrayList<Employee> newList = dao.getAll();
-//        employeeList.clear();
-//        employeeList.addAll(newList);
-//        tblEmployee.revalidate();
-//        tblEmployee.repaint();
-    }
 
-    public void clearEditForm() {
-//        editedEmployee = null;
-//        lblid.setText("");
-//        txtName.setText("");
-//        txtTelephone.setText("");
-//        txtType.setText("");
-//        txtTimeAM.setText("");
-//        txtTimePM.setText("");
-//        txtDate.setText("");
-//        txtSale.setText("");
-//        initForm();
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
