@@ -19,8 +19,8 @@ import model.Employee;
  */
 public class EmployeePanel extends javax.swing.JPanel {
 
-    private final ArrayList<Employee> employeeList;
-    private final EmployeeTableModel model;
+    private ArrayList<Employee> employeeList;
+    private EmployeeTableModel model;
     Employee editedEmployee;
 
     /**
@@ -30,66 +30,32 @@ public class EmployeePanel extends javax.swing.JPanel {
     public EmployeePanel() {
         initComponents();
         EmployeeDao dao = new EmployeeDao();
+        loadTable(dao);
+    }
+
+    public void loadTable(EmployeeDao dao) {
         employeeList = dao.getAll();
         model = new EmployeeTableModel(employeeList);
         tblEmployee.setModel(model);
+        tblEmployee.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                editedEmployee = employeeList.get(tblEmployee.getSelectedRow());
+                loadEmployeeToForm();
+            }
 
+        });
     }
 
-    public void initForm() {
-//        lblid.setEnabled(false);
-//        txtName.setEnabled(false);
-//        txtTelephone.setEnabled(false);
-//        txtType.setEnabled(false);
-//        txtTimeAM.setEditable(false);
-//        txtTimePM.setEditable(false);
-//        txtDate.setEditable(false);
-//        txtSale.setEditable(false);
-//        btnSave.setEnabled(false);
-//        btnCancel.setEnabled(false);
-
-    }
-
-    private void loadTable(EmployeeDao dao) {
-//        EmployeeList = dao.getAll();
-//        model = new EmployeeTableModel(employeeList);
-//        tblEmployee.setModel(model);
-//        tblProduct.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-//            @Override
-//            public void valueChanged(ListSelectionEvent event) {
-//                editedProduct = productList.get(tblProduct.getSelectedRow());
-//                loadProductToForm();
-//            }
-//        });
-
-    }
-
-    public void loadCustomerToForm() {
-//        if (editedEmployee.getNo() >= 0) {
-//            lblID.setText(" " + editedEmployee.getNo());
-//        }
-//        txtEmployee_ID.setText(" " + editedEmployee.getId());
-//        txtName.setText(" " + editedEmployee.getName());
-//        txtTelephone.setText(" " + editedEmployee.getTel());
-//        txtType.setText(" " + editedEmployee.getPoint());
-//        txtSale.setText(" " + editedEmployee.getPurshase());
-//        lblID.setEnabled(true);
-//        txtEmployee_ID.setEnabled(true);
-//        txtName.setEnabled(true);
-//        txtTelephone.setEnabled(true);
-//        txtType.setEnabled(true);
-//        txtSale.setEnabled(true);
-//        btnSave.setEnabled(true);
-//        btnCancel.setEnabled(true);
-
-    }
-
-    public void loadFormToEmployee() {
-//        editedEmployee.setId(txtEmployee_ID.getText());
-//        editedEmployee.setName(txtName.getText());
-//        editedEmployee.setTel(txtTelephone.getText());
-//        editedEmployee.setPoint(Double.parseDouble(txtType.getText()));
-//        editedEmployee.setPurshase(Integer.parseInt(txtSale.getText()));
+    private void loadEmployeeToForm() {
+        lblid.setText(" " + editedEmployee.getId());
+        txtName.setText(editedEmployee.getName());
+        txtTelephone.setText(editedEmployee.getTel());
+        txtType.setText(editedEmployee.getType());
+        txtTimeAM.setText(editedEmployee.getTimeAM());
+        txtTimePM.setText(editedEmployee.getTimePM());
+        txtDate.setText(editedEmployee.getDate());
+        txtSale.setText(editedEmployee.getSale());
     }
 
     /**
@@ -399,7 +365,7 @@ public class EmployeePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        clearEditForm();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -519,7 +485,8 @@ public class EmployeePanel extends javax.swing.JPanel {
 
         private final ArrayList<Employee> data;
         String[] columnName = {"Employee ID", "Name", "Telephone", "Employee Type", "Time Attendance",
-        "Time Departure", "Date of Attendance", "Sale per Day"};
+            "Time Departure", "Date of Attendance", "Sale per Day"};
+
         public EmployeeTableModel(ArrayList<Employee> data) {
             this.data = data;
         }
@@ -563,6 +530,7 @@ public class EmployeePanel extends javax.swing.JPanel {
             }
             return "";
         }
+
         @Override
         public String getColumnName(int column) {
             return columnName[column];
