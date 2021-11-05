@@ -5,9 +5,10 @@
  */
 package WEN_Mainstaff_Manager;
 
+import Noom.CustomerPanel;
 import Pae.OrderPanel;
 import bank.StockPanel;
-import bank.TestStockDialog;
+
 
 /**
  *
@@ -88,6 +89,11 @@ public class MainmenuStaff extends javax.swing.JPanel {
         });
 
         btnCustomerManagement.setText("Customer Management");
+        btnCustomerManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomerManagementActionPerformed(evt);
+            }
+        });
 
         btnLogout.setText("Logout");
 
@@ -266,6 +272,10 @@ public class MainmenuStaff extends javax.swing.JPanel {
     private void btnOrderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderManagementActionPerformed
         scrMain2.setViewportView(new OrderPanel());
     }//GEN-LAST:event_btnOrderManagementActionPerformed
+
+    private void btnCustomerManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerManagementActionPerformed
+        scrMain2.setViewportView(new CustomerPanel());
+    }//GEN-LAST:event_btnCustomerManagementActionPerformed
 
 
     
