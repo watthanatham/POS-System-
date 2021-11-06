@@ -81,12 +81,5 @@ public class Customer {
         return "Customer{" + "no=" + no + ", id=" + id + ", name=" + name + ", tel=" + tel + ", point=" + point + ", purshase=" + Purshase + '}';
     }
 
-    /*public static ArrayList<Product> genCustomerList() {
-        ArrayList<Customer> list = new ArrayList<>();
-        list.add(new Customer(1, "CUS0001", "Saharat","0804604230",1300, 32);
-        list.add(new Customer(2, "Espresso", 30, "2.jpg"));
-        list.add(new Customer(3, "Cappuccino", 40, "3.jpg"));
-        
-        return list;
-    }*/
+   
 }
