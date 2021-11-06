@@ -225,6 +225,11 @@ public class StockPanel extends javax.swing.JPanel {
 
         txtSearch.setBackground(new java.awt.Color(241, 237, 237));
         txtSearch.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
 
         btnSearch.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
         btnSearch.setText("Search");
@@ -444,6 +449,10 @@ public class StockPanel extends javax.swing.JPanel {
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

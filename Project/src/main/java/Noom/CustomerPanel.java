@@ -7,6 +7,7 @@ package Noom;
 
 import dao.CustomerDao;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
@@ -54,6 +55,25 @@ public class CustomerPanel extends javax.swing.JPanel {
 
     }
 
+    public void initFromTrue() {
+        JNo.setVisible(true);
+        JId.setVisible(true);
+        JName.setVisible(true);
+        JTelePhone.setVisible(true);
+        JPoint.setVisible(true);
+        JPurshase.setVisible(true);
+        btnSave.setVisible(true);
+        btnCancel.setVisible(true);
+        lblID.setVisible(true);
+        txtCustomer_ID.setVisible(true);
+        txtName.setVisible(true);
+        txtTelePhone.setVisible(true);
+        txtPoint.setVisible(true);
+        txtPurshase.setVisible(true);
+        btnSave.setVisible(true);
+        btnCancel.setVisible(true);
+    }
+
     private void loadTable(CustomerDao dao) {
         customerList = dao.getAll();
         model = new CustomerTableModel(customerList);
@@ -77,22 +97,7 @@ public class CustomerPanel extends javax.swing.JPanel {
         txtTelePhone.setText("" + editedCustomer.getTel());
         txtPoint.setText("" + editedCustomer.getPoint());
         txtPurshase.setText("" + editedCustomer.getPurshase());
-        JNo.setVisible(true);
-        JId.setVisible(true);
-        JName.setVisible(true);
-        JTelePhone.setVisible(true);
-        JPoint.setVisible(true);
-        JPurshase.setVisible(true);
-        btnSave.setVisible(true);
-        btnCancel.setVisible(true);
-        lblID.setVisible(true);
-        txtCustomer_ID.setVisible(true);
-        txtName.setVisible(true);
-        txtTelePhone.setVisible(true);
-        txtPoint.setVisible(true);
-        txtPurshase.setVisible(true);
-        btnSave.setVisible(true);
-        btnCancel.setVisible(true);
+        initFromTrue();
 
     }
 
@@ -132,6 +137,9 @@ public class CustomerPanel extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
+        btnAdd1 = new javax.swing.JButton();
+        JSearch = new javax.swing.JLabel();
         scProctPane = new javax.swing.JScrollPane();
         tblCustomer = new javax.swing.JTable();
 
@@ -270,6 +278,7 @@ public class CustomerPanel extends javax.swing.JPanel {
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
 
         btnAdd.setBackground(new java.awt.Color(0, 51, 204));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
@@ -298,12 +307,40 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
+        txtSearch.setForeground(new java.awt.Color(204, 204, 204));
+        txtSearch.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtSearch.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+
+        btnAdd1.setBackground(new java.awt.Color(0, 51, 204));
+        btnAdd1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd1.setText("Search");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
+
+        JSearch.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JSearch.setText("Search Data");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(JSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAdd1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEdit)
@@ -318,7 +355,10 @@ public class CustomerPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnDelete)
-                    .addComponent(btnEdit))
+                    .addComponent(btnEdit)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd1)
+                    .addComponent(JSearch))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -421,6 +461,28 @@ public class CustomerPanel extends javax.swing.JPanel {
     private void txtPurshaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPurshaseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPurshaseActionPerformed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+       
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        search();
+    }//GEN-LAST:event_btnAdd1ActionPerformed
+   
+    public void search(){
+       /* CustomerDao dao = new CustomerDao();
+        customerList = dao.get();
+        System.out.println(customerList);
+        if (customerList.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No Data !!!");
+            loadTable(dao);
+        } else {
+            model = new CustomerTableModel(customerList);
+           tblCustomer.setModel(model);
+        }*/
+    }
+    
     public void refershTable() {
         CustomerDao dao = new CustomerDao();
         ArrayList<Customer> newList = dao.getAll();
@@ -448,8 +510,10 @@ public class CustomerPanel extends javax.swing.JPanel {
     private javax.swing.JLabel JNo;
     private javax.swing.JLabel JPoint;
     private javax.swing.JLabel JPurshase;
+    private javax.swing.JLabel JSearch;
     private javax.swing.JLabel JTelePhone;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
@@ -463,6 +527,7 @@ public class CustomerPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPoint;
     private javax.swing.JTextField txtPurshase;
+    private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtTelePhone;
     // End of variables declaration//GEN-END:variables
 
