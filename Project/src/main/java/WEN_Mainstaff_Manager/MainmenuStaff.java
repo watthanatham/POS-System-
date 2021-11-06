@@ -8,6 +8,8 @@ package WEN_Mainstaff_Manager;
 import Pae.OrderManagement;
 import bank.StockPanel;
 import bank.TestStockDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -195,7 +197,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMainLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(870, Short.MAX_VALUE))
+                .addContainerGap(924, Short.MAX_VALUE))
         );
 
         scrMain2.setViewportView(jPanelMain);
@@ -250,7 +252,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        scrMain2.setViewportView(new MainmenuStaff());        
+        scrMain2.setViewportView(jPanelMain);
         
     }//GEN-LAST:event_btnHomeActionPerformed
 
@@ -290,4 +292,8 @@ public class MainmenuStaff extends javax.swing.JPanel {
     private javax.swing.JScrollPane scrMain2;
     private javax.swing.JScrollPane scrMenu;
     // End of variables declaration//GEN-END:variables
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5,7 +5,11 @@
  */
 package WEN_Mainstaff_Manager;
 
+import Pae.OrderManagement;
+import bank.StockPanel;
 import bank.TestStockDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,6 +22,11 @@ public class MainmenuManager extends javax.swing.JPanel {
      */
     public MainmenuManager() {
         initComponents();
+      // Image1 Image1 = new Image1();
+       // jPanelMain.add(Image1);
+        
+   
+
     }
 
     /**
@@ -39,8 +48,9 @@ public class MainmenuManager extends javax.swing.JPanel {
         btnCustomerManagement = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnUserManagement = new javax.swing.JButton();
-        scrMain = new javax.swing.JScrollPane();
+        scrMain2 = new javax.swing.JScrollPane();
         jPanelMain = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jPanelTop = new javax.swing.JPanel();
         btnLogo = new javax.swing.JButton();
         jLabelMainManager = new javax.swing.JLabel();
@@ -54,6 +64,11 @@ public class MainmenuManager extends javax.swing.JPanel {
         });
 
         btnPointofsell.setText("Point of Sell");
+        btnPointofsell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPointofsellActionPerformed(evt);
+            }
+        });
 
         btnStockManagement.setText("Stock Management");
         btnStockManagement.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +80,11 @@ public class MainmenuManager extends javax.swing.JPanel {
         btnEmployeeManagement.setText("Employee Management");
 
         btnOrderManagement.setText("Order Management");
+        btnOrderManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderManagementActionPerformed(evt);
+            }
+        });
 
         btnCustomerManagement.setText("Customer Management");
 
@@ -108,30 +128,45 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addComponent(btnUserManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(627, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         scrMenu.setViewportView(pnlMenu);
 
-        jPanelMain.setPreferredSize(new java.awt.Dimension(1000, 1000));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 442, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 253, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
         jPanelMain.setLayout(jPanelMainLayout);
         jPanelMainLayout.setHorizontalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(jPanelMainLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(865, Short.MAX_VALUE))
         );
         jPanelMainLayout.setVerticalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(jPanelMainLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(924, Short.MAX_VALUE))
         );
 
-        scrMain.setViewportView(jPanelMain);
+        scrMain2.setViewportView(jPanelMain);
 
         btnLogo.setText("LOGO");
 
         jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelMainManager.setText("Main Menu of Manager");
+        jLabelMainManager.setText("Main Menu of Staff");
 
         javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
         jPanelTop.setLayout(jPanelTopLayout);
@@ -141,7 +176,7 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addComponent(btnLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelMainManager, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(554, Short.MAX_VALUE))
         );
         jPanelTopLayout.setVerticalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,8 +195,8 @@ public class MainmenuManager extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(scrMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrMain, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
             .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -172,22 +207,31 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(scrMenu)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        // TODO add your handling code here:
+        scrMain2.setViewportView(jPanelMain);
+        
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
-        this.setVisible(false);
-        setVisible(false);
-        new TestStockDialog(null, true).show();
+        scrMain2.setViewportView(new StockPanel());
+        
     }//GEN-LAST:event_btnStockManagementActionPerformed
 
+    private void btnPointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointofsellActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPointofsellActionPerformed
 
+    private void btnOrderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderManagementActionPerformed
+        scrMain2.setViewportView(new OrderManagement());
+    }//GEN-LAST:event_btnOrderManagementActionPerformed
+
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomerManagement;
     private javax.swing.JButton btnEmployeeManagement;
@@ -199,10 +243,15 @@ public class MainmenuManager extends javax.swing.JPanel {
     private javax.swing.JButton btnStockManagement;
     private javax.swing.JButton btnUserManagement;
     private javax.swing.JLabel jLabelMainManager;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JPanel pnlMenu;
-    private javax.swing.JScrollPane scrMain;
+    private javax.swing.JScrollPane scrMain2;
     private javax.swing.JScrollPane scrMenu;
     // End of variables declaration//GEN-END:variables
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
