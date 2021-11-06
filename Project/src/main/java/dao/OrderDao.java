@@ -28,7 +28,7 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int id = -1;
         try {
-            String sql = "INSERT INTO Order (UserType , Total)" + "VALUES ( ? , ? )";
+            String sql = "INSERT INTO [Order] (UserType , Total)" + "VALUES ( ? , ? )";
             PreparedStatement stmt = conn.prepareStatement(sql);      
             stmt.setString(1, object.getUsertype());
             stmt.setDouble(2, object.getTotal());
@@ -121,7 +121,7 @@ public class OrderDao implements DaoInterface<Order>{
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE [order] SET , UserType = ? , Total = ? WHERE Id = ?";
+            String sql = "UPDATE [order] SET  UserType = ? , Total = ? WHERE Id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
 //            stmt.setString(1, object.getDate());
             stmt.setString(1, object.getUsertype());
