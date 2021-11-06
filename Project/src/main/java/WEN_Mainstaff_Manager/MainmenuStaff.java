@@ -32,10 +32,10 @@ import model.Product;
  * @author Windows10
  */
 public class MainmenuStaff extends javax.swing.JPanel {
+
     private ArrayList<Product> productList;
     String[] columnName = {"No", "Product Name", "Quantity (price)"};
     private MainmenuStaffTableModel model;
-    Product editedCustomer;
 
     /**
      * Creates new form WenPanel
@@ -45,9 +45,9 @@ public class MainmenuStaff extends javax.swing.JPanel {
         Datetime();
         ProductDao dao = new ProductDao();
         //System.out.println(dao.getMainmenuProduct());
-        
+
         loadTable(dao);
-        
+
         File file = new File("image/best seller.png");
         try {
             BufferedImage image = ImageIO.read(file);
@@ -56,7 +56,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
         } catch (IOException ex) {
 
         }
-         file = new File("image/logo.jpg");
+        file = new File("image/logo.jpg");
         try {
             BufferedImage image = ImageIO.read(file);
 
@@ -64,17 +64,15 @@ public class MainmenuStaff extends javax.swing.JPanel {
         } catch (IOException ex) {
 
         }
-        
 
     }
-    public void Datetime(){
-         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
-         LocalDateTime now = LocalDateTime.now();
-         System.out.println(dtf.format(now));
-         lblTime.setText(dtf.format(now));
-    }
 
-  
+    public void Datetime() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(dtf.format(now));
+        lblTime.setText(dtf.format(now));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,8 +207,6 @@ public class MainmenuStaff extends javax.swing.JPanel {
                 .addGap(36, 36, 36))
         );
 
-        lblimage1.setText("image");
-
         lblTime.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTime.setText("dateTime");
@@ -261,10 +257,10 @@ public class MainmenuStaff extends javax.swing.JPanel {
                     .addComponent(jPanelTime, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblimage1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jpanelTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblimage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(481, Short.MAX_VALUE))
         );
         jPanelMainLayout.setVerticalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,7 +372,9 @@ public class MainmenuStaff extends javax.swing.JPanel {
         model = new MainmenuStaffTableModel(productList);
         tblProduct.setModel(model);
     }
+
     private class MainmenuStaffTableModel extends AbstractTableModel {
+
         private int numberid = 1;
         private final ArrayList<Product> data;
 
@@ -415,5 +413,5 @@ public class MainmenuStaff extends javax.swing.JPanel {
             return columnName[column];
         }
 
-}
+    }
 }

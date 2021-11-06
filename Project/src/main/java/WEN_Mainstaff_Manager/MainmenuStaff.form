@@ -129,11 +129,11 @@
                           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblimage1" min="-2" pref="423" max="-2" attributes="0"/>
-                          <Component id="jpanelTable" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jpanelTable" max="32767" attributes="0"/>
+                          <Component id="lblimage1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="438" max="32767" attributes="0"/>
+                      <EmptySpace pref="481" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -260,9 +260,6 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JLabel" name="lblimage1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="image"/>
-              </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanelTime">
 
