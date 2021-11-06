@@ -5,7 +5,7 @@
  */
 package WEN_Mainstaff_Manager;
 
-import Pae.OrderManagement;
+
 import bank.StockPanel;
 import bank.TestStockDialog;
 import javax.swing.JFrame;
@@ -166,7 +166,7 @@ public class MainmenuManager extends javax.swing.JPanel {
         btnLogo.setText("LOGO");
 
         jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelMainManager.setText("Main Menu of Staff");
+        jLabelMainManager.setText("Main Menu of Manager");
 
         javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
         jPanelTop.setLayout(jPanelTopLayout);
@@ -227,7 +227,7 @@ public class MainmenuManager extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPointofsellActionPerformed
 
     private void btnOrderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderManagementActionPerformed
-        scrMain2.setViewportView(new OrderManagement());
+      //  scrMain2.setViewportView(new OrderManagement());
     }//GEN-LAST:event_btnOrderManagementActionPerformed
 
 
