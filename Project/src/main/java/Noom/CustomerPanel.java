@@ -35,14 +35,22 @@ public class CustomerPanel extends javax.swing.JPanel {
     }
 
     public void initForm() {
-        lblID.setEnabled(false);
-        txtCustomer_ID.setEnabled(false);
-        txtName.setEnabled(false);
-        txtTelePhone.setEnabled(false);
-        txtPoint.setEnabled(false);
-        txtPurshase.setEnabled(false);
-        btnSave.setEnabled(false);
-        btnCancel.setEnabled(false);
+        JNo.setVisible(false);
+        JId.setVisible(false);
+        JName.setVisible(false);
+        JTelePhone.setVisible(false);
+        JPoint.setVisible(false);
+        JPurshase.setVisible(false);
+        btnSave.setVisible(false);
+        btnCancel.setVisible(false);
+        lblID.setVisible(false);
+        txtCustomer_ID.setVisible(false);
+        txtName.setVisible(false);
+        txtTelePhone.setVisible(false);
+        txtPoint.setVisible(false);
+        txtPurshase.setVisible(false);
+        btnSave.setVisible(false);
+        btnCancel.setVisible(false);
 
     }
 
@@ -69,14 +77,22 @@ public class CustomerPanel extends javax.swing.JPanel {
         txtTelePhone.setText("" + editedCustomer.getTel());
         txtPoint.setText("" + editedCustomer.getPoint());
         txtPurshase.setText("" + editedCustomer.getPurshase());
-        lblID.setEnabled(true);
-        txtCustomer_ID.setEnabled(true);
-        txtName.setEnabled(true);
-        txtTelePhone.setEnabled(true);
-        txtPoint.setEnabled(true);
-        txtPurshase.setEnabled(true);
-        btnSave.setEnabled(true);
-        btnCancel.setEnabled(true);
+        JNo.setVisible(true);
+        JId.setVisible(true);
+        JName.setVisible(true);
+        JTelePhone.setVisible(true);
+        JPoint.setVisible(true);
+        JPurshase.setVisible(true);
+        btnSave.setVisible(true);
+        btnCancel.setVisible(true);
+        lblID.setVisible(true);
+        txtCustomer_ID.setVisible(true);
+        txtName.setVisible(true);
+        txtTelePhone.setVisible(true);
+        txtPoint.setVisible(true);
+        txtPurshase.setVisible(true);
+        btnSave.setVisible(true);
+        btnCancel.setVisible(true);
 
     }
 
@@ -98,20 +114,20 @@ public class CustomerPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        JNo = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        JId = new javax.swing.JLabel();
         txtCustomer_ID = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        JName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         txtTelePhone = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        JTelePhone = new javax.swing.JLabel();
         txtPoint = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        JPoint = new javax.swing.JLabel();
         txtPurshase = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        JPurshase = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -119,11 +135,15 @@ public class CustomerPanel extends javax.swing.JPanel {
         scProctPane = new javax.swing.JScrollPane();
         tblCustomer = new javax.swing.JTable();
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("No :");
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Customer_ID ");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        JNo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JNo.setText("No :");
+
+        JId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JId.setText("Customer_ID ");
 
         txtCustomer_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +151,8 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Name ");
+        JName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JName.setText("Name ");
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +160,8 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(0, 102, 204));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +169,7 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(204, 204, 204));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,8 +183,8 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("TelePhone ");
+        JTelePhone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JTelePhone.setText("TelePhone ");
 
         txtPoint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,8 +192,8 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText(" Point ");
+        JPoint.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JPoint.setText(" Point ");
 
         txtPurshase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,8 +201,8 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Number of Purshase ");
+        JPurshase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JPurshase.setText("Number of Purshase ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,35 +210,35 @@ public class CustomerPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jLabel1)
+                .addComponent(JNo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(JId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCustomer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JName, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(JTelePhone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTelePhone, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(JPoint)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 11, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -228,16 +251,16 @@ public class CustomerPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
+                            .addComponent(JNo)
+                            .addComponent(JId)
+                            .addComponent(JName)
                             .addComponent(txtCustomer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
+                            .addComponent(JTelePhone)
                             .addComponent(txtTelePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
+                            .addComponent(JPoint)
                             .addComponent(txtPoint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
+                            .addComponent(JPurshase)
                             .addComponent(txtPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -246,6 +269,10 @@ public class CustomerPanel extends javax.swing.JPanel {
                         .addGap(25, 25, 25))))
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnAdd.setBackground(new java.awt.Color(0, 51, 204));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +280,8 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(204, 0, 0));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,6 +289,8 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEdit.setBackground(new java.awt.Color(0, 153, 0));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,6 +333,7 @@ public class CustomerPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblCustomer.setSelectionBackground(new java.awt.Color(153, 153, 153));
         scProctPane.setViewportView(tblCustomer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -361,9 +393,7 @@ public class CustomerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-//        ProductDao dao = new ProductDao();
-//        dao.delete(editedProduct.getId());
-//        refershTable();
+
         if (tblCustomer.getSelectedRow() >= 0) {
             CustomerDao dao = new CustomerDao();
             editedCustomer = customerList.get(tblCustomer.getSelectedRow());
@@ -413,17 +443,17 @@ public class CustomerPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JId;
+    private javax.swing.JLabel JName;
+    private javax.swing.JLabel JNo;
+    private javax.swing.JLabel JPoint;
+    private javax.swing.JLabel JPurshase;
+    private javax.swing.JLabel JTelePhone;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblID;
