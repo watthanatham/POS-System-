@@ -17,7 +17,7 @@ public class TestUserManagement extends javax.swing.JDialog {
     public TestUserManagement(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        UserManagement panelUsMa = new UserManagement();
+        UserManagementPanel panelUsMa = new UserManagementPanel();
         this.add(panelUsMa);
         this.pack();
     }
@@ -61,6 +61,12 @@ public class TestUserManagement extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TestUserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
