@@ -5,6 +5,8 @@
  */
 package Chang;
 
+import java.awt.GridLayout;
+
 /**
  *
  * @author watan
@@ -16,6 +18,15 @@ public class PosPanel extends javax.swing.JPanel {
      */
     public PosPanel() {
         initComponents();
+        int productSize = 7;
+        productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
     }
 
     /**
@@ -43,6 +54,7 @@ public class PosPanel extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
+        productsPanel = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -180,6 +192,19 @@ public class PosPanel extends javax.swing.JPanel {
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        javax.swing.GroupLayout productsPanelLayout = new javax.swing.GroupLayout(productsPanel);
+        productsPanel.setLayout(productsPanelLayout);
+        productsPanelLayout.setHorizontalGroup(
+            productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 611, Short.MAX_VALUE)
+        );
+        productsPanelLayout.setVerticalGroup(
+            productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 597, Short.MAX_VALUE)
+        );
+
+        jScrollPane3.setViewportView(productsPanel);
+
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("Inthanin Coffee");
 
@@ -207,7 +232,7 @@ public class PosPanel extends javax.swing.JPanel {
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addGap(10, 10, 10)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -289,5 +314,6 @@ public class PosPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JPanel productsPanel;
     // End of variables declaration//GEN-END:variables
 }
