@@ -5,6 +5,9 @@
  */
 package Chang;
 
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
 /**
  *
  * @author watan
@@ -17,6 +20,15 @@ public class TestProductDialog extends javax.swing.JDialog {
     public TestProductDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        int productSize = 7;
+        productsPanel.setLayout(new GridLayout(productSize/2+productSize%2, 2));
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
+        productsPanel.add(new ProductPanel());
     }
 
     /**
@@ -28,17 +40,29 @@ public class TestProductDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        productsPanel = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        productsPanel.setLayout(new java.awt.GridLayout(10, 2));
+        jScrollPane1.setViewportView(productsPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(547, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -87,5 +111,7 @@ public class TestProductDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel productsPanel;
     // End of variables declaration//GEN-END:variables
 }
