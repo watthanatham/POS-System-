@@ -82,6 +82,7 @@ public class Product {
     public String toList() {
         return "Product" + "id=" + id + ", name=" + name + ", price=" + price+"\n";
     }
+<<<<<<< HEAD
     
 
     public static ArrayList<Product> genProductList() {
@@ -101,3 +102,6 @@ public class Product {
 
    
 }
+=======
+ }
+>>>>>>> 7b3a281b4ba72b1df55d2dd8948b84743e273bd3
