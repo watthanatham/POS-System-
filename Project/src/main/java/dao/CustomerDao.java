@@ -28,8 +28,8 @@ public class CustomerDao implements DaoInterface<Customer> {
         conn = db.getConnection();
         int no = -1;
         try {
-            String sql = "INSERT INTO Customer (Customer_ID, Customer_Name, "
-                    + "Customer_TelePhone, Customer_Point, Customer_Purshase) "
+            String sql = "INSERT INTO Customer (CUS_ID, CUS_NAME, "
+                    + "CUS_TELE, CUS_POINT, CUS_PURCHASES) "
                     + "VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, object.getId());
@@ -57,22 +57,22 @@ public class CustomerDao implements DaoInterface<Customer> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Customer_No,\n"
-                    + "Customer_ID,\n"
-                    + "Customer_Name,\n"
-                    + "Customer_TelePhone,\n"
-                    + "Customer_Point,\n"
-                    + "Customer_Purshase\n"
+            String sql = "SELECT CUS_NO,\n"
+                    + "CUS_ID,\n"
+                    + "CUS_NAME,\n"
+                    + "CUS_TELE,\n"
+                    + "CUS_POINT,\n"
+                    + "CUS_PURCHASES\n"
                     + "FROM Customer;";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
-                int no = result.getInt("Customer_No");
-                String id = result.getString("Customer_ID");
-                String name = result.getString("Customer_Name");
-                String tel = result.getString("Customer_TelePhone");
-                double point = result.getDouble("Customer_Point");
-                int purshase = result.getInt("Customer_Purshase");
+                int no = result.getInt("CUS_NO");
+                String id = result.getString("CUS_ID");
+                String name = result.getString("CUS_NAME");
+                String tel = result.getString("CUS_TELE");
+                double point = result.getDouble("CUS_POINT");
+                int purshase = result.getInt("CUS_PURCHASES");
                 Customer customer = new Customer(no, id, name, tel, point, purshase);
                 list.add(customer);
                 System.out.println(customer);
@@ -85,22 +85,52 @@ public class CustomerDao implements DaoInterface<Customer> {
 
     }
 
+    public ArrayList<Customer> getsearch(String name) {
+        ArrayList list = new ArrayList();
+        Connection conn = null;
+        Database db = Database.getInstance();
+        conn = db.getConnection();
+
+        try {
+
+            String sql = "SELECT * FROM Customer WHERE CUS_NAME = \'" + name + "\'";
+            Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(sql);
+            while (result.next()) {
+                int cno = result.getInt("CUS_NO");
+                String cid = result.getString("CUS_ID");
+                String cname = result.getString("CUS_NAME");
+                String ctel = result.getString("CUS_TELE");
+                double cpoint = result.getDouble("CUS_POINT");
+                int cpurshase = result.getInt("CUS_PURCHASES");
+                Customer customer = new Customer(cno, cid, cname, ctel, cpoint, cpurshase);
+                list.add(customer);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error : Unable to select product name " + name + "!!");
+        }
+        db.close();
+        return list;
+
+    }
+
     @Override
     public Customer get(int no) {
         Connection conn = null;
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Customer_No, Customer_ID, Customer_Name,Customer_TelePhone, Customer_Point, Customer_Purshase FROM Customer WHERE Customer_No =" + no;
+            String sql = "SELECT CUS_NO, CUS_ID, CUS_NAME, CUS_TELE, CUS_POINT, CUS_PURCHASES FROM Customer WHERE CUS_NO =" + no;
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             if (result.next()) {
-                int pno = result.getInt("Customer_No");
-                String pid = result.getString("Customer_ID");
-                String pname = result.getString("Customer_Name");
-                String ptel = result.getString("Customer_TelePhone");
-                double ppoint = result.getDouble("Customer_Point");
-                int ppurshase = result.getInt("Customer_Purshase");
+                int pno = result.getInt("CUS_NO");
+                String pid = result.getString("CUS_ID");
+                String pname = result.getString("CUS_NAME");
+                String ptel = result.getString("CUS_TELE");
+                double ppoint = result.getDouble("CUS_POINT");
+                int ppurshase = result.getInt("CUS_PURCHASE");
                 Customer customer = new Customer(pno, pid, pname, ptel, ppoint, ppurshase);
                 return customer;
             }
@@ -118,7 +148,7 @@ public class CustomerDao implements DaoInterface<Customer> {
         int row = 0;
 
         try {
-            String sql = "DELETE FROM Customer WHERE Customer_No = ?";
+            String sql = "DELETE FROM Customer WHERE CUS_NO = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, no);
             row = stmt.executeUpdate();
@@ -137,9 +167,9 @@ public class CustomerDao implements DaoInterface<Customer> {
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE Customer SET Customer_ID = ?, Customer_Name = ?, Customer_TelePhone = ? , Customer_Point= ? , Customer_Purshase = ? WHERE Customer_No = ?";
+            String sql = "UPDATE Customer SET CUS_ID = ?, CUS_NAME = ?, CUS_TELE = ? , CUS_POINT = ? , CUS_PURCHASES = ? WHERE CUS_NO = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            
+
             stmt.setString(1, object.getId());
             stmt.setString(2, object.getName());
             stmt.setString(3, object.getTel());
