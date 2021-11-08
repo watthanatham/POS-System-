@@ -8,11 +8,13 @@ package WEN_Mainstaff_Manager;
 import Noom.CustomerPanel;
 import Pae.OrderPanel;
 import bank.StockPanel;
+import WEN_Mainstaff_Manager.MainMenuStaffPanel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import bank.TestStockDialog;
 import dao.ProductDao;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -33,30 +35,14 @@ import model.Product;
  */
 public class MainmenuStaff extends javax.swing.JPanel {
 
-    private ArrayList<Product> productList;
-    String[] columnName = {"No", "Product Name", "Quantity (price)"};
-    private MainmenuStaffTableModel model;
-
     /**
      * Creates new form WenPanel
      */
     public MainmenuStaff() {
+
         initComponents();
-        Datetime();
-        ProductDao dao = new ProductDao();
-        //System.out.println(dao.getMainmenuProduct());
 
-        loadTable(dao);
-
-        File file = new File("image/best seller.png");
-        try {
-            BufferedImage image = ImageIO.read(file);
-
-            lblimage1.setIcon(new ImageIcon(image));
-        } catch (IOException ex) {
-
-        }
-        file = new File("image/logo.jpg");
+        File file = new File("image/logo.png");
         try {
             BufferedImage image = ImageIO.read(file);
 
@@ -65,13 +51,6 @@ public class MainmenuStaff extends javax.swing.JPanel {
 
         }
 
-    }
-
-    public void Datetime() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println(dtf.format(now));
-        lblTime.setText(dtf.format(now));
     }
 
     /**
@@ -90,17 +69,6 @@ public class MainmenuStaff extends javax.swing.JPanel {
         btnStockManagement = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         scrMain2 = new javax.swing.JScrollPane();
-        jPanelMain = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabelTimestamp = new javax.swing.JLabel();
-        lblimage1 = new javax.swing.JLabel();
-        jPanelTime = new javax.swing.JPanel();
-        lblTime = new javax.swing.JLabel();
-        jpanelTable = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblProduct = new javax.swing.JTable();
         jPanelTop = new javax.swing.JPanel();
         jLabelMainManager = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
@@ -158,125 +126,6 @@ public class MainmenuStaff extends javax.swing.JPanel {
 
         scrMenu.setViewportView(pnlMenu);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"2020-10-08", "10:10:59", "17:00:00"},
-                {"2020-10-08", "08:00:00", "17:00:00"},
-                {"2020-10-08", "09:00:01", "17:00:00"},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Date", "Time In", "Time Out"
-            }
-        ));
-        jTable1.setToolTipText("");
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jTable1);
-
-        jLabelTimestamp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelTimestamp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTimestamp.setText("Timestamp");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabelTimestamp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTimestamp, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
-        );
-
-        lblTime.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTime.setText("dateTime");
-
-        javax.swing.GroupLayout jPanelTimeLayout = new javax.swing.GroupLayout(jPanelTime);
-        jPanelTime.setLayout(jPanelTimeLayout);
-        jPanelTimeLayout.setHorizontalGroup(
-            jPanelTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-        );
-        jPanelTimeLayout.setVerticalGroup(
-            jPanelTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTimeLayout.createSequentialGroup()
-                .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
-        );
-
-        tblProduct.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tblProduct);
-
-        javax.swing.GroupLayout jpanelTableLayout = new javax.swing.GroupLayout(jpanelTable);
-        jpanelTable.setLayout(jpanelTableLayout);
-        jpanelTableLayout.setHorizontalGroup(
-            jpanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-        );
-        jpanelTableLayout.setVerticalGroup(
-            jpanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
-        jPanelMain.setLayout(jPanelMainLayout);
-        jPanelMainLayout.setHorizontalGroup(
-            jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMainLayout.createSequentialGroup()
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanelTime, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jpanelTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblimage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(481, Short.MAX_VALUE))
-        );
-        jPanelMainLayout.setVerticalGroup(
-            jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMainLayout.createSequentialGroup()
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblimage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(777, Short.MAX_VALUE))
-        );
-
-        scrMain2.setViewportView(jPanelMain);
-
         jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelMainManager.setText("Main Menu of Staff");
 
@@ -326,7 +175,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        scrMain2.setViewportView(jPanelMain);
+        scrMain2.setViewportView(new MainMenuStaffPanel());
 
     }//GEN-LAST:event_btnHomeActionPerformed
 
@@ -345,73 +194,14 @@ public class MainmenuStaff extends javax.swing.JPanel {
     private javax.swing.JButton btnPointofsell;
     private javax.swing.JButton btnStockManagement;
     private javax.swing.JLabel jLabelMainManager;
-    private javax.swing.JLabel jLabelTimestamp;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelMain;
-    private javax.swing.JPanel jPanelTime;
     private javax.swing.JPanel jPanelTop;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JPanel jpanelTable;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblTime;
-    private javax.swing.JLabel lblimage1;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JScrollPane scrMain2;
     private javax.swing.JScrollPane scrMenu;
-    private javax.swing.JTable tblProduct;
     // End of variables declaration//GEN-END:variables
 
     private void dispose() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void loadTable(ProductDao dao) {
-        productList = dao.getMainmenuProduct();
-        model = new MainmenuStaffTableModel(productList);
-        tblProduct.setModel(model);
-    }
-
-    private class MainmenuStaffTableModel extends AbstractTableModel {
-
-        private int numberid = 1;
-        private final ArrayList<Product> data;
-
-        public MainmenuStaffTableModel(ArrayList<Product> data) {
-            this.data = data;
-        }
-
-        @Override
-        public int getRowCount() {
-            return this.data.size();
-        }
-
-        @Override
-        public int getColumnCount() {
-            return 3;
-        }
-
-        @Override
-        public Object getValueAt(int rowIndex, int columnIndex) {
-            Product product = this.data.get(rowIndex);
-            if (columnIndex == 0) {
-                return numberid++;
-            }
-            if (columnIndex == 1) {
-                return product.getName();
-            }
-            if (columnIndex == 2) {
-                return product.getAmount();
-            }
-            return "";
-
-        }
-
-        @Override
-        public String getColumnName(int column) {
-            return columnName[column];
-        }
-
     }
 }
