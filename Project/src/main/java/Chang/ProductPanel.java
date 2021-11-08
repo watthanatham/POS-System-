@@ -14,7 +14,7 @@ import model.Product;
 public class ProductPanel extends javax.swing.JPanel {
 
     private final Product product;
-
+    private int amount = 0;
     /**
      * Creates new form ProductPanel
      */
@@ -29,6 +29,7 @@ public class ProductPanel extends javax.swing.JPanel {
         lblName.setText(product1.getName());
         lblPrice.setText("" + product1.getPrice());
         btnImage.setText(product1.getImage());
+        txtAmount.setText(""+ amount);
     }
 
     /**
@@ -41,7 +42,7 @@ public class ProductPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnImage = new javax.swing.JButton();
-        edtAmount = new javax.swing.JTextField();
+        txtAmount = new javax.swing.JTextField();
         btnMinus = new javax.swing.JButton();
         btnPlus = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
@@ -52,17 +53,22 @@ public class ProductPanel extends javax.swing.JPanel {
         btnImage.setMinimumSize(new java.awt.Dimension(200, 200));
         btnImage.setPreferredSize(new java.awt.Dimension(200, 200));
 
-        edtAmount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        edtAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        edtAmount.setText("0");
-        edtAmount.addActionListener(new java.awt.event.ActionListener() {
+        txtAmount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAmount.setText("0");
+        txtAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtAmountActionPerformed(evt);
+                txtAmountActionPerformed(evt);
             }
         });
 
         btnMinus.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         btnMinus.setText("-");
+        btnMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinusActionPerformed(evt);
+            }
+        });
 
         btnPlus.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         btnPlus.setText("+");
@@ -90,7 +96,7 @@ public class ProductPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -111,28 +117,35 @@ public class ProductPanel extends javax.swing.JPanel {
                     .addComponent(lblName, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(edtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(23, 23, 23))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void edtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtAmountActionPerformed
+    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_edtAmountActionPerformed
+    }//GEN-LAST:event_txtAmountActionPerformed
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
-        // TODO add your handling code here:
+        amount++;
+        txtAmount.setText(""+amount);
     }//GEN-LAST:event_btnPlusActionPerformed
+
+    private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusActionPerformed
+        if(amount == 0) return;
+        amount--;
+        txtAmount.setText(""+amount);
+    }//GEN-LAST:event_btnMinusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImage;
     private javax.swing.JButton btnMinus;
     private javax.swing.JButton btnPlus;
-    private javax.swing.JTextField edtAmount;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPrice;
+    private javax.swing.JTextField txtAmount;
     // End of variables declaration//GEN-END:variables
 }
