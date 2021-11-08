@@ -21,14 +21,7 @@ public class TestProductDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         int productSize = 7;
-        productsPanel.setLayout(new GridLayout(productSize/2+productSize%2, 2));
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
+        productsPanel.add(new PosPanel());
     }
 
     /**
@@ -53,16 +46,15 @@ public class TestProductDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(547, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1187, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE))
         );
 
         pack();
