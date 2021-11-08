@@ -19,8 +19,7 @@
           <Group type="102" attributes="0">
               <Component id="scrMenu" min="-2" pref="177" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="scrMain2" pref="0" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="scrMain2" max="32767" attributes="0"/>
           </Group>
           <Component id="jPanelTop" alignment="0" max="32767" attributes="0"/>
       </Group>
@@ -32,10 +31,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="scrMenu" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="scrMain2" pref="0" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="scrMain2" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -47,6 +43,11 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="pnlMenu">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -119,6 +120,11 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelTop">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -148,6 +154,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabelMainManager">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="33" red="66" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
             </Property>
@@ -155,6 +164,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLogo">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

@@ -21,16 +21,16 @@ import model.Product;
  *
  * @author Windows10
  */
-public class MainMenuStaffPanel extends javax.swing.JPanel {
+public class MainMenuManagerPanel extends javax.swing.JPanel {
  private ArrayList<Product> productList;
 String[] columnName = {"No", "Product Name", "Quantity (price)"};
- private MainMenuStaffPanel.MainmenuStaffTableModel model;
+ private MainMenuManagerPanel.MainmenuStaffTableModel model;
     /**
      * Creates new form MainMenuStaffPanel
      */
-    public MainMenuStaffPanel() {
+    public MainMenuManagerPanel() {
         initComponents();
-        Datetime();
+        
         File file = new File("image/best seller.png");
         try {
             BufferedImage image = ImageIO.read(file);
@@ -39,14 +39,32 @@ String[] columnName = {"No", "Product Name", "Quantity (price)"};
         } catch (IOException ex) {
 
         }
+        file = new File("image/picDay.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblimageDay.setIcon(new ImageIcon(new ImageIcon("image/picDay.png").getImage().getScaledInstance(500, 200, image.SCALE_DEFAULT)));
+        } catch (IOException ex) {
+
+        }
+        file = new File("image/picMonths.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblimageMonths.setIcon(new ImageIcon(new ImageIcon("image/picMonths.png").getImage().getScaledInstance(500, 200, image.SCALE_DEFAULT)));
+        } catch (IOException ex) {
+
+        }
+        file = new File("image/picYears.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblimageYear.setIcon(new ImageIcon(new ImageIcon("image/picYears.png").getImage().getScaledInstance(500, 200, image.SCALE_DEFAULT)));
+        } catch (IOException ex) {
+
+        }
         ProductDao dao = new ProductDao();
         loadTable(dao);
-    }
-     public void Datetime() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println(dtf.format(now));
-        lblTime.setText(dtf.format(now));
     }
 
     /**
@@ -59,67 +77,17 @@ String[] columnName = {"No", "Product Name", "Quantity (price)"};
     private void initComponents() {
 
         jpanelMainStaff = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        lblTime = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblimage = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"20-11-2020", "19.00.20", "24.00.00"},
-                {"21-11-2020", "19.00.08", "21.30.54"},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Date", "Time in", "Time out"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        lblTime.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTime.setText("DateTime");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
+        image = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        lblimageDay = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblimageMonths = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblimageYear = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,15 +97,12 @@ String[] columnName = {"No", "Product Name", "Quantity (price)"};
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblimage, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+            .addComponent(lblimage, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"20", null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null}
@@ -156,14 +121,65 @@ String[] columnName = {"No", "Product Name", "Quantity (price)"};
         });
         jScrollPane2.setViewportView(jTable2);
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblimageDay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblimageDay, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblimageMonths, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblimageMonths, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblimageYear, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblimageYear, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout imageLayout = new javax.swing.GroupLayout(image);
+        image.setLayout(imageLayout);
+        imageLayout.setHorizontalGroup(
+            imageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imageLayout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        imageLayout.setVerticalGroup(
+            imageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(imageLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout jpanelMainStaffLayout = new javax.swing.GroupLayout(jpanelMainStaff);
         jpanelMainStaff.setLayout(jpanelMainStaffLayout);
         jpanelMainStaffLayout.setHorizontalGroup(
             jpanelMainStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelMainStaffLayout.createSequentialGroup()
-                .addGroup(jpanelMainStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpanelMainStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -172,14 +188,10 @@ String[] columnName = {"No", "Product Name", "Quantity (price)"};
         jpanelMainStaffLayout.setVerticalGroup(
             jpanelMainStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelMainStaffLayout.createSequentialGroup()
-                .addGroup(jpanelMainStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpanelMainStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -196,15 +208,18 @@ String[] columnName = {"No", "Product Name", "Quantity (price)"};
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel image;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JPanel jpanelMainStaff;
-    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblimage;
+    private javax.swing.JLabel lblimageDay;
+    private javax.swing.JLabel lblimageMonths;
+    private javax.swing.JLabel lblimageYear;
     // End of variables declaration//GEN-END:variables
  private void loadTable(ProductDao dao) {
         productList = dao.getMainmenuProduct();
