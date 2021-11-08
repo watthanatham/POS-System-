@@ -30,6 +30,10 @@ public class Product {
         this.price = price;
         this.image = image;
     }
+
+    public Product() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public int getId() {
         return id;
@@ -73,7 +77,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + '}';
+        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", amount=" + amount + '}';
     }
     public String toList() {
         return "Product" + "id=" + id + ", name=" + name + ", price=" + price+"\n";

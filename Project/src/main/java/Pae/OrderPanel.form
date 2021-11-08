@@ -161,12 +161,12 @@
                   <Component id="jLabel2" min="-2" pref="73" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lbldate" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lbltype" min="-2" pref="65" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" pref="69" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="txttype" min="-2" pref="113" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="lbltotal" min="-2" pref="65" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="69" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="txttotal" min="-2" pref="113" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
@@ -188,11 +188,11 @@
                       <Component id="jLabel2" max="32767" attributes="0"/>
                       <Component id="lblid" alignment="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbltype" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="txttype" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbltotal" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="txttotal" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <Component id="lbldate" max="32767" attributes="0"/>
                   </Group>
@@ -209,17 +209,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblid">
         </Component>
-        <Component class="javax.swing.JLabel" name="lbltype">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="User Type :"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbldate">
         </Component>
         <Component class="javax.swing.JTextField" name="txttype">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbltotal">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Total :"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txttotal">
         </Component>
@@ -244,11 +236,19 @@
             <Property name="text" type="java.lang.String" value="Id Order :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbldate">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Date of Sell :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="User Type :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total :"/>
           </Properties>
         </Component>
       </SubComponents>

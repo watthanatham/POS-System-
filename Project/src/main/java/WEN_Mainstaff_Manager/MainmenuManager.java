@@ -5,7 +5,19 @@
  */
 package WEN_Mainstaff_Manager;
 
+import bank.StockPanel;
 import bank.TestStockDialog;
+import dao.ProductDao;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.table.AbstractTableModel;
+import model.Product;
 
 /**
  *
@@ -13,11 +25,54 @@ import bank.TestStockDialog;
  */
 public class MainmenuManager extends javax.swing.JPanel {
 
+    private ArrayList<Product> productList;
+    String[] columnName = {"No", "Product Name", "Quantity (price)"};
+    private MainmenuManagerTableModel model;
+
     /**
      * Creates new form WenPanel
      */
     public MainmenuManager() {
         initComponents();
+        ProductDao dao = new ProductDao();
+        //System.out.println(dao.getMainmenuProduct());
+
+        loadTable(dao);
+
+
+        File file = new File("image/PicDay.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblPicDay.setIcon(new ImageIcon(image.getScaledInstance(400, 190, 20)));
+        } catch (IOException ex) {
+
+        }
+        file = new File("image/PicMonths.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblPicMonths.setIcon(new ImageIcon(image.getScaledInstance(400, 150, 20)));
+        } catch (IOException ex) {
+
+        }
+        file = new File("image/PicMonths.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblPicYears.setIcon(new ImageIcon(image.getScaledInstance(400, 150, 20)));
+        } catch (IOException ex) {
+
+        }
+        file = new File("image/best seller.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+           lblBest.setIcon(new ImageIcon(image));
+        } catch (IOException ex) {
+
+        }
+
     }
 
     /**
@@ -39,8 +94,18 @@ public class MainmenuManager extends javax.swing.JPanel {
         btnCustomerManagement = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnUserManagement = new javax.swing.JButton();
-        scrMain = new javax.swing.JScrollPane();
+        scrMain2 = new javax.swing.JScrollPane();
         jPanelMain = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lblPicDay = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        lblPicMonths = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblPicYears = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProduct = new javax.swing.JTable();
+        lblBest = new javax.swing.JLabel();
         jPanelTop = new javax.swing.JPanel();
         btnLogo = new javax.swing.JButton();
         jLabelMainManager = new javax.swing.JLabel();
@@ -54,6 +119,11 @@ public class MainmenuManager extends javax.swing.JPanel {
         });
 
         btnPointofsell.setText("Point of Sell");
+        btnPointofsell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPointofsellActionPerformed(evt);
+            }
+        });
 
         btnStockManagement.setText("Stock Management");
         btnStockManagement.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +135,11 @@ public class MainmenuManager extends javax.swing.JPanel {
         btnEmployeeManagement.setText("Employee Management");
 
         btnOrderManagement.setText("Order Management");
+        btnOrderManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderManagementActionPerformed(evt);
+            }
+        });
 
         btnCustomerManagement.setText("Customer Management");
 
@@ -108,25 +183,112 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addComponent(btnUserManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(627, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         scrMenu.setViewportView(pnlMenu);
 
-        jPanelMain.setPreferredSize(new java.awt.Dimension(1000, 1000));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblPicDay, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblPicDay, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+
+        jPanel3.setPreferredSize(new java.awt.Dimension(400, 160));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblPicMonths, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(lblPicMonths, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 160));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblPicYears, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblPicYears, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 437, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 291, Short.MAX_VALUE)
+        );
+
+        tblProduct.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblProduct);
 
         javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
         jPanelMain.setLayout(jPanelMainLayout);
         jPanelMainLayout.setHorizontalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(jPanelMainLayout.createSequentialGroup()
+                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMainLayout.createSequentialGroup()
+                        .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBest, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelMainLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(889, 889, 889)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 231, Short.MAX_VALUE))
         );
         jPanelMainLayout.setVerticalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(jPanelMainLayout.createSequentialGroup()
+                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMainLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBest, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
+                .addGap(0, 749, Short.MAX_VALUE))
         );
 
-        scrMain.setViewportView(jPanelMain);
+        scrMain2.setViewportView(jPanelMain);
 
         btnLogo.setText("LOGO");
 
@@ -141,7 +303,7 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addComponent(btnLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelMainManager, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(554, Short.MAX_VALUE))
         );
         jPanelTopLayout.setVerticalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,8 +322,8 @@ public class MainmenuManager extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(scrMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrMain, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
             .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -171,21 +333,27 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(scrMenu)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        // TODO add your handling code here:
+        scrMain2.setViewportView(jPanelMain);
+
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
-        this.setVisible(false);
-        setVisible(false);
-        new TestStockDialog(null, true).show();
+        scrMain2.setViewportView(new StockPanel());
+
     }//GEN-LAST:event_btnStockManagementActionPerformed
+
+    private void btnPointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointofsellActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPointofsellActionPerformed
+
+    private void btnOrderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderManagementActionPerformed
+        //  scrMain2.setViewportView(new OrderManagement());
+    }//GEN-LAST:event_btnOrderManagementActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -199,10 +367,71 @@ public class MainmenuManager extends javax.swing.JPanel {
     private javax.swing.JButton btnStockManagement;
     private javax.swing.JButton btnUserManagement;
     private javax.swing.JLabel jLabelMainManager;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelTop;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblBest;
+    private javax.swing.JLabel lblPicDay;
+    private javax.swing.JLabel lblPicMonths;
+    private javax.swing.JLabel lblPicYears;
     private javax.swing.JPanel pnlMenu;
-    private javax.swing.JScrollPane scrMain;
+    private javax.swing.JScrollPane scrMain2;
     private javax.swing.JScrollPane scrMenu;
+    private javax.swing.JTable tblProduct;
     // End of variables declaration//GEN-END:variables
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void loadTable(ProductDao dao) {
+        productList = dao.getMainmenuProduct();
+        model = new MainmenuManagerTableModel(productList);
+        tblProduct.setModel(model);
+    }
+
+    private class MainmenuManagerTableModel extends AbstractTableModel {
+
+        private int numberid = 1;
+        private final ArrayList<Product> data;
+
+        public MainmenuManagerTableModel(ArrayList<Product> data) {
+            this.data = data;
+        }
+
+        @Override
+        public int getRowCount() {
+            return this.data.size();
+        }
+
+        @Override
+        public int getColumnCount() {
+            return 3;
+        }
+
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            Product product = this.data.get(rowIndex);
+            if (columnIndex == 0) {
+                return numberid++;
+            }
+            if (columnIndex == 1) {
+                return product.getName();
+            }
+            if (columnIndex == 2) {
+                return product.getAmount();
+            }
+            return "";
+
+        }
+
+        @Override
+        public String getColumnName(int column) {
+            return columnName[column];
+        }
+    }
 }

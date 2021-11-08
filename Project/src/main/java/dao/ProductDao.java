@@ -207,6 +207,34 @@ public class ProductDao implements DaoInterface<Product>{
         db.close();
         return list;
     }
+    public ArrayList<Product> getMainmenuProduct() {
+        ArrayList list = new ArrayList();
+        Connection conn = null;
+        Database db = Database.getInstance();
+        conn = db.getConnection();
+        try {
+            String sql = "SELECT Product_ID,\n" +
+"       Product_Name,\n" +
+"       Product_Price,\n" +
+"       Product_Amount\n" +
+"  FROM Product Order by Product_Amount asc ;";
+            Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(sql);
+            while (result.next()) {
+                int id = result.getInt("Product_ID");
+                String name = result.getString("Product_Name");
+                double price = result.getDouble("Product_Price");
+                int amount = result.getInt("Product_Amount");
+                Product product = new Product(id, name, price, amount);
+                list.add(product);
+                System.out.println(product);
+            }
+        } catch (SQLException ex) {
+           System.out.println("Error : Unable to select all product!! " + ex.getMessage());
+        }
+        db.close();
+        return list;
+    }
 
     @Override
     public int delete(int id) {
