@@ -6,6 +6,9 @@
 package Chang;
 
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import model.Product;
+
 
 /**
  *
@@ -13,20 +16,20 @@ import java.awt.GridLayout;
  */
 public class PosPanel extends javax.swing.JPanel {
 
+    private final ArrayList<Product> productList;
+
     /**
      * Creates new form PosPanel
      */
     public PosPanel() {
         initComponents();
-        int productSize = 7;
+        
+        productList = Product.genProductList();
+        int productSize = productList.size();
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
-        productsPanel.add(new ProductPanel());
+        for(Product product: productList) {
+            productsPanel.add(new ProductPanel());
+        }
     }
 
     /**
