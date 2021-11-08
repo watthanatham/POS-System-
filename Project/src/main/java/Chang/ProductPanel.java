@@ -29,12 +29,11 @@ public class ProductPanel extends javax.swing.JPanel {
         initComponents();
         this.product = product;
         setProductData(product);
-        loadImage();
         
     }
      private void loadImage() {
         try {
-            File file = new File(this.product.getImage());
+            File file = new File("image/"+this.product.getImage());
             BufferedImage image = ImageIO.read(file);
             btnImage.setIcon(new ImageIcon(image));
         } catch (IOException ex) {
@@ -47,6 +46,7 @@ public class ProductPanel extends javax.swing.JPanel {
         lblPrice.setText("" + product1.getPrice());
         btnImage.setText(product1.getImage());
         txtAmount.setText(""+ amount);
+        loadImage();
     }
 
     /**
@@ -69,6 +69,11 @@ public class ProductPanel extends javax.swing.JPanel {
         btnImage.setMaximumSize(new java.awt.Dimension(200, 200));
         btnImage.setMinimumSize(new java.awt.Dimension(200, 200));
         btnImage.setPreferredSize(new java.awt.Dimension(200, 200));
+        btnImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImageActionPerformed(evt);
+            }
+        });
 
         txtAmount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -109,18 +114,19 @@ public class ProductPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnImage, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnImage, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -155,6 +161,10 @@ public class ProductPanel extends javax.swing.JPanel {
         amount--;
         txtAmount.setText(""+amount);
     }//GEN-LAST:event_btnMinusActionPerformed
+
+    private void btnImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImageActionPerformed
+        System.out.print("Product Panel: " + product + "Amount: " + amount);
+    }//GEN-LAST:event_btnImageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
