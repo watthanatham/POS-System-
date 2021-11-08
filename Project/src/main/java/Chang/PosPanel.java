@@ -28,7 +28,7 @@ public class PosPanel extends javax.swing.JPanel {
         int productSize = productList.size();
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
         for(Product product: productList) {
-            productsPanel.add(new ProductPanel());
+            productsPanel.add(new ProductPanel(product));
         }
     }
 
