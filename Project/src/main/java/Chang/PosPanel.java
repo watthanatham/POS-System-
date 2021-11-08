@@ -48,6 +48,8 @@ public class PosPanel extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         jPanel4.setBackground(new java.awt.Color(202, 128, 54));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
