@@ -5,7 +5,6 @@
  */
 package Chang;
 
-import dao.ProductDao;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
@@ -19,23 +18,17 @@ import model.Product;
 public class PosPanel extends javax.swing.JPanel {
 
     private final ArrayList<Product> productList;
-    private final ProductTableModel model;
 
     /**
      * Creates new form PosPanel
      */
     public PosPanel() {
         initComponents();
-        ProductDao dao = new ProductDao();
         productList = Product.genProductList();
-        model = new ProductTableModel(productList);
-        tblProducts.setModel(model);
         int productSize = productList.size();
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
         for(Product product: productList) {
-            ProductPanel p = new ProductPanel(product);
-            p.addOnBuyProductListener((ProductPanel.OnBuyProductListener) this);
-            productsPanel.add(p);
+            productsPanel.add(new ProductPanel(product));
         }
     }
 
