@@ -6,9 +6,6 @@
 package bank;
 
 import dao.ProductDao;
-//import java.sql.Connection;
-//import java.sql.ResultSet;
-//import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
@@ -412,7 +409,7 @@ public class StockPanel extends javax.swing.JPanel {
         stockList = dao.getStock(txtSearch.getText());
         System.out.println(stockList);
         if (stockList.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No Data !!!");
+            JOptionPane.showMessageDialog(this, "No Data");
             loadTable(dao);
         } else {
             model = new StockTableModel(stockList);
@@ -452,10 +449,10 @@ public class StockPanel extends javax.swing.JPanel {
         ProductDao dao = new ProductDao();
         if (editedStock.getId() >= 0) {
             dao.update(editedStock);
-            JOptionPane.showMessageDialog(null, "Edit Success !!!");
+            JOptionPane.showMessageDialog(null, "Edit Success");
         } else {
             dao.add(editedStock);
-            JOptionPane.showMessageDialog(null, "Add Success !!!");
+            JOptionPane.showMessageDialog(null, "Add Success");
         }
         refershTable();
         clearEditForm();
