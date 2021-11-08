@@ -8,6 +8,7 @@ package Chang;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -164,9 +165,17 @@ public class ProductPanel extends javax.swing.JPanel {
 
     private void btnImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImageActionPerformed
         System.out.print("Product Panel: " + product + "Amount: " + amount);
+        for(OnBuyProductListener subscriber: subscribers) {
+            subscriber.buy(product, amount);
+        }
     }//GEN-LAST:event_btnImageActionPerformed
-
-
+    public interface OnBuyProductListener {
+        public void buy(Product product, int amount);
+    }
+    public void addOnBuyProductListener(OnBuyProductListener subscriber) {
+        subscribers.add(subscriber);
+    }
+    private ArrayList<OnBuyProductListener> subscribers = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImage;
     private javax.swing.JButton btnMinus;

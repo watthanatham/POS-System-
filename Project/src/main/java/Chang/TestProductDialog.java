@@ -7,17 +7,18 @@ package Chang;
 
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import model.Product;
 
 /**
  *
  * @author watan
  */
-public class TestProductDialog extends javax.swing.JDialog {
+public class TestProductDialog extends javax.swing.JDialog implements ProductPanel.OnBuyProductListener{
 
     /**
      * Creates new form TestProductDialog
      */
-    public TestProductDialog(java.awt.Frame parent, boolean modal) {
+    public TestProductDialog(java.awt.Frame parent, boolean modal)  {
         super(parent, modal);
         initComponents();
         int productSize = 7;
@@ -106,4 +107,9 @@ public class TestProductDialog extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel productsPanel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void buy(Product product, int amount) {
+        System.out.println(product + " amount: "+ amount);
+    }
 }
