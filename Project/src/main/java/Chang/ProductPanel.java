@@ -5,6 +5,7 @@
  */
 package Chang;
 
+import dao.ProductDao;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.table.AbstractTableModel;
 import model.Product;
 
 /**
@@ -28,6 +30,8 @@ public class ProductPanel extends javax.swing.JPanel {
      */
     ProductPanel(Product product) {
         initComponents();
+        ProductDao dao = new ProductDao();
+        ArrayList<Product> productList = dao.getAll();
         this.product = product;
         setProductData(product);
         
@@ -185,3 +189,5 @@ public class ProductPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAmount;
     // End of variables declaration//GEN-END:variables
 }
+ 
+

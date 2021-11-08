@@ -5,8 +5,10 @@
  */
 package Chang;
 
+import dao.ProductDao;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import javax.swing.table.AbstractTableModel;
 import model.Product;
 
 
@@ -17,14 +19,17 @@ import model.Product;
 public class PosPanel extends javax.swing.JPanel {
 
     private final ArrayList<Product> productList;
+    private final ProductTableModel model;
 
     /**
      * Creates new form PosPanel
      */
     public PosPanel() {
         initComponents();
-        
+        ProductDao dao = new ProductDao();
         productList = Product.genProductList();
+        model = new ProductTableModel(productList);
+        tblProducts.setModel(model);
         int productSize = productList.size();
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
         for(Product product: productList) {
@@ -48,7 +53,7 @@ public class PosPanel extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblProducts = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -91,7 +96,7 @@ public class PosPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -103,7 +108,7 @@ public class PosPanel extends javax.swing.JPanel {
                 "No.", "Product Name", "Price", "Qty", "Amount"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblProducts);
 
         jPanel2.setBackground(new java.awt.Color(202, 128, 54));
 
@@ -317,8 +322,48 @@ public class PosPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel productsPanel;
+    private javax.swing.JTable tblProducts;
     // End of variables declaration//GEN-END:variables
 }
+class ProductTableModel extends AbstractTableModel {
+     
+     private final ArrayList<Product>data;
+     String [] columnName = {"ID","Name","Price"};
+     
+     public ProductTableModel(ArrayList<Product> data) {
+         this.data = data;
+     }
+
+    @Override
+    public int getRowCount() {
+        return this.data.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return 5;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        Product product = this.data.get(rowIndex);
+        if(columnIndex == 0) {
+            return product.getId();
+        }
+        if(columnIndex == 1) {
+            return product.getName();
+        }
+        if(columnIndex == 2) {
+            return product.getPrice();
+        } 
+        return "";
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return columnName[column];
+    }
+     
+ }
