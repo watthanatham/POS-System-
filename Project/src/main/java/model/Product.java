@@ -86,12 +86,12 @@ public class Product {
 
     public static ArrayList<Product> genProductList() {
         ArrayList<Product> productList = new ArrayList<>();
-        productList.add(new Product(1, "Americano", 50, "americano.png"));
-        productList.add(new Product(2, "Espresso", 60, "espresso.png"));
-        productList.add(new Product(3, "Mocca", 55, "mocca.png"));
-        productList.add(new Product(4, "Black Coffee Honey", 65, "coffeehoney.jpg"));
-        productList.add(new Product(5, "All Day", 60, "allday.jpg"));
-        productList.add(new Product(6, "Latte", 60, "latte.png"));
+        productList.add(new Product(1, "Americano", 50, "1.png"));
+        productList.add(new Product(2, "Espresso", 60, "2.png"));
+        productList.add(new Product(3, "Mocca", 55, "3.png"));
+        productList.add(new Product(4, "Black Coffee Honey", 65, "4.jpg"));
+        productList.add(new Product(5, "All Day", 60, "5.jpg"));
+        productList.add(new Product(6, "Latte", 60, "6.png"));
         return productList;
     }
     

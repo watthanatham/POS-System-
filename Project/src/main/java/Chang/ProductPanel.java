@@ -5,6 +5,13 @@
  */
 package Chang;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import model.Product;
 
 /**
@@ -22,7 +29,17 @@ public class ProductPanel extends javax.swing.JPanel {
         initComponents();
         this.product = product;
         setProductData(product);
+        loadImage();
         
+    }
+     private void loadImage() {
+        try {
+            File file = new File(this.product.getImage());
+            BufferedImage image = ImageIO.read(file);
+            btnImage.setIcon(new ImageIcon(image));
+        } catch (IOException ex) {
+            Logger.getLogger(ProductPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void setProductData(Product product1) {
