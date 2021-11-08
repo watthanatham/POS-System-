@@ -23,14 +23,30 @@ public class EmployeePanel extends javax.swing.JPanel {
     Employee editedEmployee;
 
     /**
-     * ,
      * Creates new form ProductPanel
      */
     public EmployeePanel() {
         initComponents();
         EmployeeDao dao = new EmployeeDao();
+        initForm();
         loadTable(dao);
+
     }
+    
+        public void initForm() {
+        lblid.setEnabled(false);
+        txtName.setEnabled(false);
+        txtTelephone.setEnabled(false);
+        cbbType.setEnabled(false);
+        sntimeAt.setEnabled(false);
+        sntimeDe.setEnabled(false);
+        sndataAt.setEnabled(false);
+        txtSale.setEnabled(false);
+
+        btnSave.setEnabled(false);
+        btnCancel.setEnabled(false);
+    }
+    
 
     public void loadTable(EmployeeDao dao) {
         employeeList = dao.getAll();
@@ -46,15 +62,37 @@ public class EmployeePanel extends javax.swing.JPanel {
     }
 
     private void loadEmployeeToForm() {
-        lblid.setText(" " + editedEmployee.getId());
+        if (editedEmployee.getId() >= 0) {
+            lblid.setText(" " + editedEmployee.getId());
+        }
         txtName.setText(editedEmployee.getName());
         txtTelephone.setText(editedEmployee.getTel());
+        
+         if (editedEmployee.getType().equals("Full-Time")) {
+            cbbType.setSelectedIndex(0);
+        } else {
+            cbbType.setSelectedIndex(1);
+        }
+        
         txtSale.setText(editedEmployee.getSale());
+        
+        lblid.setEnabled(true);
+        txtName.setEnabled(true);
+        txtTelephone.setEnabled(true);
+        cbbType.setEnabled(true);
+        sntimeAt.setEnabled(true);;
+        sntimeDe.setEnabled(true);
+        sndataAt.setEnabled(true);
+        txtSale.setEnabled(true);
+
+        btnSave.setEnabled(true);
+        btnCancel.setEnabled(true);
     }
 
     public void loadFormToEmployee() {
         editedEmployee.setName(txtName.getText());
         editedEmployee.setTel(txtTelephone.getText());
+        editedEmployee.setType(cbbType.getSelectedItem().toString());
         editedEmployee.setSale(txtSale.getText());
     }
 
@@ -344,13 +382,19 @@ public class EmployeePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        clearEditForm();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         loadFormToEmployee();
         EmployeeDao dao = new EmployeeDao();
-        dao.update(editedEmployee);
+        System.out.println(editedEmployee.toString());
+        if (editedEmployee.getId() >= 0) {
+            dao.update(editedEmployee);
+        } else {
+            dao.add(editedEmployee);
+        }
+
         refershTable();
         clearEditForm();
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -374,31 +418,31 @@ public class EmployeePanel extends javax.swing.JPanel {
         sntimeDe.setEnabled(false);
         sndataAt.setEnabled(false);
         txtSale.setText("");
+        
+        btnSave.setEnabled(false);
+        btnCancel.setEnabled(false);
     }
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-//        editedEmployee = new Employee(-1, "", "", "", 0.0, 0);
-//        loadCustomerToForm();
+        editedEmployee = new Employee(-1, "", "", "","","","","");
+        loadEmployeeToForm();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-//        ProductDao dao = new ProductDao();
-//        dao.delete(editedProduct.getId());
-//        refershTable();
-//        if (tblEmployee.getSelectedRow() >= 0) {
-//             EmployeeDao dao = new  EmployeeDao();
-//            editedEmployee = employeeList.get(tblEmployee.getSelectedRow());
-//            dao.delete(editedEmployee.getNo());
-//        }
-//        refershTable();
+
+        if (tblEmployee.getSelectedRow() >= 0) {
+            EmployeeDao dao = new EmployeeDao ();
+            editedEmployee = employeeList.get(tblEmployee.getSelectedRow());
+            dao.delete(editedEmployee.getId());
+        }
+        refershTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-//        if (tblEmployee.getSelectedRow() >= 0) {
-//
-//            editedEmployee = employeeList.get(tblEmployee.getSelectedRow());
-//            loadCustomerToForm();
-//        }
+        if (tblEmployee.getSelectedRow() >= 0) {
+            editedEmployee = employeeList.get(tblEmployee.getSelectedRow());
+            loadEmployeeToForm();
+        }
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void txtTelephoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelephoneActionPerformed
