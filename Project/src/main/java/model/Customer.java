@@ -30,6 +30,11 @@ public class Customer {
         this.name = name;
         this.tel = tel;
     }
+    public Customer(String name, String tel) {
+        this.name = name;
+        this.tel = tel;
+    }
+    
 
 
     public int getNo() {

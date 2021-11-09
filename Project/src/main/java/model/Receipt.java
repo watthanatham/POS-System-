@@ -35,8 +35,8 @@ public class Receipt {
         receiptDetail.add(new ReceiptDetail(id, product, amount, price, this));
     }
     
-    public void addReceiptDetail(Product product , int amount, double price) {
-        addReceiptDetail(-1, product, amount, price);
+    public void addReceiptDetail(Product product , int amount) {
+        addReceiptDetail(-1, product, amount, product.getPrice());
     }
     
     public double getTotal() {
@@ -85,6 +85,11 @@ public class Receipt {
 
     public void setReceiptDetail(ArrayList<ReceiptDetail> receiptDetail) {
         this.receiptDetail = receiptDetail;
+    }
+
+    @Override
+    public String toString() {
+        return "Receipt{" + "id=" + id + ", created=" + created + ", seller=" + seller + ", customer=" + customer + ", receiptDetail=" + receiptDetail + '}';
     }
     
     
