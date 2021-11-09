@@ -118,7 +118,6 @@ public class OrderPanel extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        txtseach.setText("Seach");
         txtseach.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtseachActionPerformed(evt);

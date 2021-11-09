@@ -54,7 +54,11 @@ public class Order {
         this.total = total;
     }
 
+<<<<<<< HEAD
     public Order(int Id,int no_order ,String date, String Usertype, double total) {
+=======
+    public Order(int Id,String no_order ,String date, String Usertype, double total) {
+>>>>>>> 2c9ea2b4a3017eaf74e0b8665da251c66ee3a618
         this.Id = Id;
         this.no_order = no_order;
         this.date = date;
