@@ -18,6 +18,7 @@ public class Product {
     private double price;
     private int amount;
     private String image;
+    private String type;
 
     public Product(int id, String name, double price, int amount) {
         this.id = id;
@@ -26,11 +27,12 @@ public class Product {
         this.amount = amount;
     }
 
-    public Product(int id, String name, double price, String image) {
+    public Product(int id, String name, double price, String image, String type) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.image = image;
+        this.type = type;
     }
 
     public Product() {
@@ -86,15 +88,5 @@ public class Product {
         return "Product" + "id=" + id + ", name=" + name + ", price=" + price + "\n";
     }
 
-    public static ArrayList<Product> getProductList() {
-        ArrayList<Product> productList = new ArrayList<>();
-        productList.add(new Product(1, "Americano", 50, "1.png"));
-        productList.add(new Product(2, "Espresso", 60, "2.png"));
-        productList.add(new Product(3, "Mocca", 55, "3.png"));
-        productList.add(new Product(4, "Black Coffee Honey", 65, "4.png"));
-        productList.add(new Product(5, "Cappuchino", 60, "5.png"));
-        productList.add(new Product(6, "Premium Matcha Latte", 60, "6.png"));
-        return productList;
-    }
 
 }

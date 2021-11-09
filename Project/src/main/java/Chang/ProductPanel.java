@@ -180,6 +180,7 @@ public class ProductPanel extends javax.swing.JPanel {
         //System.out.print("Product Panel: " + product + "Amount: " + amount);
         for(OnBuyProductListener subscriber: subscribers) {
             subscriber.buy(product, amount);
+            System.out.println(amount);
         }
     }//GEN-LAST:event_btnImageActionPerformed
     public interface OnBuyProductListener {

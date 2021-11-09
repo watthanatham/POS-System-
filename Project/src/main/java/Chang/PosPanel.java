@@ -6,6 +6,7 @@
 package Chang;
 
 import Chang.ProductPanel.OnBuyProductListener;
+import dao.ProductDao;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import model.Product;
  */
 public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener{
 
-    private final ArrayList<Product> productList;
+    private ArrayList<Product> productList;
     private final ArrayList<Product> selectProduct = new ArrayList();
     private double total = 0;
     private double promoDiscount = 0;
@@ -32,7 +33,8 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
      */
     public PosPanel() {
         initComponents();
-        productList = Product.getProductList();
+        ProductDao dao = new ProductDao();
+        productList = dao.getAll();
         int productSize = productList.size();
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
         for(Product product: productList) {
@@ -84,8 +86,8 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         productsPanel = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnCoffee = new javax.swing.JButton();
+        btnFruity = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -398,15 +400,25 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
         jScrollPane3.setViewportView(productsPanel);
 
-        jButton4.setBackground(new java.awt.Color(204, 102, 0));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Inthanin Coffee");
+        btnCoffee.setBackground(new java.awt.Color(204, 102, 0));
+        btnCoffee.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCoffee.setForeground(new java.awt.Color(255, 255, 255));
+        btnCoffee.setText("Inthanin Coffee");
+        btnCoffee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCoffeeActionPerformed(evt);
+            }
+        });
 
-        jButton5.setBackground(new java.awt.Color(204, 102, 0));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Fruity");
+        btnFruity.setBackground(new java.awt.Color(204, 102, 0));
+        btnFruity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnFruity.setForeground(new java.awt.Color(255, 255, 255));
+        btnFruity.setText("Fruity");
+        btnFruity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFruityActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(204, 102, 0));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -448,9 +460,9 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jButton4)
+                                .addComponent(btnCoffee)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnFruity, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -470,8 +482,8 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFruity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCoffee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -536,13 +548,45 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         add.setVisible(true);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    private void btnFruityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFruityActionPerformed
+        ProductDao dao = new ProductDao();
+        productList = dao.getFruity();
+        productsPanel.removeAll();
+        productsPanel.revalidate();
+        productsPanel.repaint();
+        int productSize = productList.size();
+        productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
+        for(Product product: productList) {
+            ProductPanel p = new ProductPanel(product);
+            p.addOnBuyProductListener(this);     
+            productsPanel.add(p);
+            
+        }
+    }//GEN-LAST:event_btnFruityActionPerformed
+
+    private void btnCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCoffeeActionPerformed
+        ProductDao dao = new ProductDao();
+        productList = dao.getAll();
+        productsPanel.removeAll();
+        productsPanel.revalidate();
+        productsPanel.repaint();
+        int productSize = productList.size();
+        productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
+        for(Product product: productList) {
+            ProductPanel p = new ProductPanel(product);
+            p.addOnBuyProductListener(this);     
+            productsPanel.add(p);
+            
+        }
+    }//GEN-LAST:event_btnCoffeeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCoffee;
+    private javax.swing.JButton btnFruity;
     private javax.swing.JButton btnMembership;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -580,14 +624,24 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
     @Override
     public void buy(Product product, int amount) {
+        System.out.println(product);
+        product.setAmount(amount);
         if(!selectProduct.contains(product)) {
             selectProduct.add(product);
         }else {
             int pList = selectProduct.indexOf(product);
             selectProduct.set(pList, product);
         }
+        int index = selectProduct.indexOf(product);
+        if(amount == 0) {
+            selectProduct.remove(index);
+        }
+        loadTable();
     }
-
+    public void loadTable() {
+        ProductTableModel model = new ProductTableModel(selectProduct);
+        tblProducts.setModel(model);
+    }
     private class ProductTableModel extends AbstractTableModel {
      private final ArrayList<Product>data;
      String [] columnName = {"ID","Name","Price","Qty","Amount"};

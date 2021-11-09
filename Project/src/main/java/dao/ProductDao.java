@@ -51,22 +51,43 @@ public class ProductDao implements DaoInterface<Product> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Stock_ID,\n"
-                    + "       Stock_Name,\n"
-                    + "       Stock_Price,\n"
-                    + "       Stock_Amount\n"
-                    + "  FROM Stock;";
+            String sql = "SELECT * FROM Product";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
-                int id = result.getInt("Stock_ID");
-                String name = result.getString("Stock_Name");
-                int amount = result.getInt("Stock_Amount");
-                double price = result.getDouble("Stock_Price");
+                int id = result.getInt("prod_id");
+                String name = result.getString("prod_name");
+                double price = result.getDouble("prod_price");
+                String img = result.getString("prod_img");
+                String ptype = result.getString("prod_type"); 
 
-                Product product = new Product(id, name, price, amount);
+                Product product = new Product(id, name, price, img, ptype);
                 list.add(product);
-                System.out.println(product);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error : Unable to select all Stock!! " + ex.getMessage());
+        }
+        db.close();
+        return list;
+    }
+    public ArrayList<Product> getFruity() {
+        ArrayList list = new ArrayList();
+        Connection conn = null;
+        Database db = Database.getInstance();
+        conn = db.getConnection();
+        try {
+            String sql = "SELECT * FROM Product WHERE prod_type = 'Fruity'";
+            Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(sql);
+            while (result.next()) {
+                int id = result.getInt("prod_id");
+                String name = result.getString("prod_name");
+                double price = result.getDouble("prod_price");
+                String img = result.getString("prod_img");
+                String ptype = result.getString("prod_type"); 
+
+                Product product = new Product(id, name, price, img, ptype);
+                list.add(product);
             }
         } catch (SQLException ex) {
             System.out.println("Error : Unable to select all Stock!! " + ex.getMessage());
