@@ -396,7 +396,11 @@ public class StockPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-public void SearchStk() {
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        SearchStk();
+    }//GEN-LAST:event_btnSearchActionPerformed
+    public void SearchStk() {
         ProductDao dao = new ProductDao();
         stockList = dao.getStock(txtSearch.getText());
         System.out.println(stockList);
@@ -408,10 +412,6 @@ public void SearchStk() {
             tblStock.setModel(model);
         }
     }
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        SearchStk();
-    }//GEN-LAST:event_btnSearchActionPerformed
-
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         txtSearch.setEnabled(false);
@@ -464,7 +464,7 @@ public void SearchStk() {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        SearchStk();
+//        SearchStk();
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
