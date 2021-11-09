@@ -32,11 +32,22 @@ public class Receipt {
     }
     
     public void addReceiptDetail(int id, Product product , int amount, double price) {
+        for(int row = 0; row < receiptDetail.size(); row++) {
+            ReceiptDetail r = receiptDetail.get(row);
+            if(r.getProduct().getId() == product.getId()) {
+                r.addAmount(amount);
+                return ;
+            }
+        }
         receiptDetail.add(new ReceiptDetail(id, product, amount, price, this));
     }
     
     public void addReceiptDetail(Product product , int amount) {
         addReceiptDetail(-1, product, amount, product.getPrice());
+    }
+    
+    public void deleteReceiptDetail(int row) {
+        receiptDetail.remove(row);
     }
     
     public double getTotal() {
@@ -89,7 +100,16 @@ public class Receipt {
 
     @Override
     public String toString() {
-        return "Receipt{" + "id=" + id + ", created=" + created + ", seller=" + seller + ", customer=" + customer + ", receiptDetail=" + receiptDetail + '}';
+        String str =  "Receipt{" + "id=" + id 
+                + ", created=" + created 
+                + ", seller=" + seller 
+                + ", customer=" + customer
+                + ", total=" + this.getTotal()
+                +"}\n";
+        for(ReceiptDetail r: receiptDetail) {
+            str = str + r.toString() + "\n";
+        }
+        return str;
     }
     
     
