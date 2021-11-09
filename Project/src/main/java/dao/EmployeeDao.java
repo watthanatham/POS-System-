@@ -149,6 +149,7 @@ public class EmployeeDao implements DaoInterface<Employee> {
         conn = db.getConnection();
         int row = 0;
         try {
+            System.out.println(object);
             String sql = "UPDATE Employee SET Em_name = ? , Em_tel = ? , Em_type = ? , Em_timeAt = ? , Em_timeDe = ? , Em_dateAt = ? , Em_salePerDay = ? WHERE Em_id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             
@@ -159,6 +160,7 @@ public class EmployeeDao implements DaoInterface<Employee> {
             stmt.setString(5, object.getTimePM());
             stmt.setString(6, object.getDate());
             stmt.setString(7, object.getSale());
+            stmt.setInt(8, object.getId());
 
             row = stmt.executeUpdate();
 
