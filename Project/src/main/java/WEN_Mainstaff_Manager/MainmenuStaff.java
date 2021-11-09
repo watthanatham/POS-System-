@@ -47,7 +47,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
         try {
             BufferedImage image = ImageIO.read(file);
 
-            lblLogo.setIcon(new ImageIcon(image.getScaledInstance(180, 100, 0)));
+            lblLogo.setIcon(new ImageIcon(image.getScaledInstance(180, 200, 0)));
         } catch (IOException ex) {
 
         }
@@ -204,7 +204,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
             .addGroup(jPanelTopLayout.createSequentialGroup()
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(scrMain2, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE))
         );
         jPanelTopLayout.setVerticalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
