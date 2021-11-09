@@ -38,7 +38,7 @@ public class ProductDao implements DaoInterface<Product> {
                 id = result.getInt(1);
             }
         } catch (SQLException ex) {
-            System.out.println("Error : to create product!!");
+            System.out.println("Error : to create Stock!!");
         }
         db.close();
         return id;

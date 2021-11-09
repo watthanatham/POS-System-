@@ -86,7 +86,7 @@ public class Product {
         return "Product" + "id=" + id + ", name=" + name + ", price=" + price + "\n";
     }
 
-    public static ArrayList<Product> genProductList() {
+    public static ArrayList<Product> getProductList() {
         ArrayList<Product> productList = new ArrayList<>();
         productList.add(new Product(1, "Americano", 50, "1.jpg"));
         productList.add(new Product(2, "Espresso", 60, "2.jpg"));
