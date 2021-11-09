@@ -318,7 +318,7 @@ public class MainmenuManager extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCustomerManagementActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        // TODO add your handling code here:
+      scrMain2.setViewportView(new MainMenuManagerPanel());
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
