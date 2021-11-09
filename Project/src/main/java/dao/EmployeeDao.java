@@ -83,6 +83,37 @@ public class EmployeeDao implements DaoInterface<Employee> {
         return list;
 
     }
+    
+        public ArrayList<Employee> getSearch(String search) {
+        ArrayList list = new ArrayList();
+        Connection conn = null;
+        Database db = Database.getInstance();
+        conn = db.getConnection();
+        
+        try {
+            String sql = "SELECT * FROM Employee WHERE Em_name = \""+ search+"\" ";
+           Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(sql);
+            while(result.next()){          
+                int id = result.getInt("Em_id");
+                String name = result.getString("Em_name");
+                String telephone = result.getString("Em_tel");
+                String type = result.getString("Em_type");
+                String timeAM = result.getString("Em_timeAt");
+                String timePM = result.getString("Em_timeDe");
+                String data = result.getString("Em_dateAt");
+                String sale = result.getString("Em_salePerDay");
+
+                Employee employee = new Employee(id,name,telephone,type,timeAM,timePM,data,sale);
+                list.add(employee);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println("Error Search Name from User");
+        } 
+        db.close();
+        return list;
+    }
 
     @Override
     public Employee get(int id) {

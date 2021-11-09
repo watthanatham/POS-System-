@@ -5,7 +5,9 @@
  */
 package Ploy;
 
+import Jeab.UserManagementPanel;
 import dao.EmployeeDao;
+import dao.UserDao;
 import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -38,9 +40,9 @@ public class EmployeePanel extends javax.swing.JPanel {
         txtName.setEnabled(false);
         txtTelephone.setEnabled(false);
         cbbType.setEnabled(false);
-        sntimeAt.setEnabled(false);
-        sntimeDe.setEnabled(false);
-        sndataAt.setEnabled(false);
+        txtTimeAt.setEnabled(false);
+        txtTimeDe.setEnabled(false);
+        txtData.setEnabled(false);
         txtSale.setEnabled(false);
 
         btnSave.setEnabled(false);
@@ -73,16 +75,18 @@ public class EmployeePanel extends javax.swing.JPanel {
         } else {
             cbbType.setSelectedIndex(1);
         }
-        
+        txtTimeAt.setText(editedEmployee.getTimeAM());
+        txtTimeDe.setText(editedEmployee.getTimePM());
+        txtData.setText(editedEmployee.getDate());
         txtSale.setText(editedEmployee.getSale());
         
         lblid.setEnabled(true);
         txtName.setEnabled(true);
         txtTelephone.setEnabled(true);
         cbbType.setEnabled(true);
-        sntimeAt.setEnabled(true);;
-        sntimeDe.setEnabled(true);
-        sndataAt.setEnabled(true);
+        txtTimeAt.setEnabled(true);;
+        txtTimeDe.setEnabled(true);
+        txtData.setEnabled(true);
         txtSale.setEnabled(true);
 
         btnSave.setEnabled(true);
@@ -93,6 +97,9 @@ public class EmployeePanel extends javax.swing.JPanel {
         editedEmployee.setName(txtName.getText());
         editedEmployee.setTel(txtTelephone.getText());
         editedEmployee.setType(cbbType.getSelectedItem().toString());
+        editedEmployee.setTimeAM(txtTimeAt.getText());
+        editedEmployee.setTimePM(txtTimeDe.getText());
+        editedEmployee.setDate(txtData.getText());
         editedEmployee.setSale(txtSale.getText());
     }
 
@@ -121,13 +128,15 @@ public class EmployeePanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         lblid = new javax.swing.JLabel();
         cbbType = new javax.swing.JComboBox<>();
-        sntimeAt = new javax.swing.JSpinner();
-        sntimeDe = new javax.swing.JSpinner();
-        sndataAt = new javax.swing.JSpinner();
+        txtTimeAt = new javax.swing.JTextField();
+        txtTimeDe = new javax.swing.JTextField();
+        txtData = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         scProctPane = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
 
@@ -143,6 +152,7 @@ public class EmployeePanel extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(0, 102, 204));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +160,7 @@ public class EmployeePanel extends javax.swing.JPanel {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(204, 204, 204));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,16 +225,15 @@ public class EmployeePanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(2, 2, 2)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(sntimeAt)
+                                .addComponent(txtTimeAt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(sntimeDe, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTimeDe, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sndataAt, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(83, 83, 83)
                         .addComponent(btnSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -288,12 +298,13 @@ public class EmployeePanel extends javax.swing.JPanel {
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sntimeAt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sntimeDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sndataAt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTimeAt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTimeDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        btnAdd.setBackground(new java.awt.Color(0, 51, 204));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,6 +312,7 @@ public class EmployeePanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(204, 0, 0));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,10 +320,19 @@ public class EmployeePanel extends javax.swing.JPanel {
             }
         });
 
+        btnEdit.setBackground(new java.awt.Color(0, 153, 0));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setBackground(new java.awt.Color(0, 51, 204));
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
             }
         });
 
@@ -320,7 +341,10 @@ public class EmployeePanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSearch)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEdit)
@@ -337,6 +361,12 @@ public class EmployeePanel extends javax.swing.JPanel {
                     .addComponent(btnDelete)
                     .addComponent(btnEdit))
                 .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addContainerGap())
         );
 
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
@@ -414,9 +444,9 @@ public class EmployeePanel extends javax.swing.JPanel {
         txtName.setText("");
         txtTelephone.setText("");
         cbbType.setEnabled(false);
-        sntimeAt.setEnabled(false);
-        sntimeDe.setEnabled(false);
-        sndataAt.setEnabled(false);
+        txtTimeAt.setText("");
+        txtTimeDe.setText("");
+        txtData.setText("");
         txtSale.setText("");
         
         btnSave.setEnabled(false);
@@ -457,6 +487,20 @@ public class EmployeePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbTypeActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+       SearchUser();
+    }//GEN-LAST:event_btnSearchActionPerformed
+    
+    public void SearchUser() {
+        EmployeeDao dao = new EmployeeDao();
+        employeeList = dao.getSearch(txtSearch.getText());
+        if (employeeList .isEmpty()) {
+            loadTable(dao);
+        } else {
+            model = new EmployeeTableModel(employeeList);
+            tblEmployee.setModel(model);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -464,6 +508,7 @@ public class EmployeePanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbbType;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -477,13 +522,14 @@ public class EmployeePanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblid;
     private javax.swing.JScrollPane scProctPane;
-    private javax.swing.JSpinner sndataAt;
-    private javax.swing.JSpinner sntimeAt;
-    private javax.swing.JSpinner sntimeDe;
     private javax.swing.JTable tblEmployee;
+    private javax.swing.JTextField txtData;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtSale;
+    private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtTelephone;
+    private javax.swing.JTextField txtTimeAt;
+    private javax.swing.JTextField txtTimeDe;
     // End of variables declaration//GEN-END:variables
 
     private class EmployeeTableModel extends AbstractTableModel {
