@@ -26,6 +26,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 import model.Product;
 
@@ -50,6 +51,38 @@ public class MainmenuStaff extends javax.swing.JPanel {
         } catch (IOException ex) {
 
         }
+        file = new File("image/home.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblHome.setIcon(new ImageIcon(image.getScaledInstance(30, 30, 0)));
+        } catch (IOException ex) {
+
+        }
+         file = new File("image/pos.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblPos.setIcon(new ImageIcon(image.getScaledInstance(30, 30, 0)));
+        } catch (IOException ex) {
+
+        }
+         file = new File("image/stock.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblStock.setIcon(new ImageIcon(image.getScaledInstance(30, 30, 0)));
+        } catch (IOException ex) {
+
+        }
+         file = new File("image/logout.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblLogout.setIcon(new ImageIcon(image.getScaledInstance(30, 30, 0)));
+        } catch (IOException ex) {
+
+        }
 
     }
 
@@ -62,16 +95,29 @@ public class MainmenuStaff extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelTop = new javax.swing.JPanel();
+        jLabelMainManager = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         scrMenu = new javax.swing.JScrollPane();
         pnlMenu = new javax.swing.JPanel();
         btnHome = new javax.swing.JButton();
         btnPointofsell = new javax.swing.JButton();
         btnStockManagement = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        lblHome = new javax.swing.JLabel();
+        lblStock = new javax.swing.JLabel();
+        lblPos = new javax.swing.JLabel();
+        lblLogout = new javax.swing.JLabel();
         scrMain2 = new javax.swing.JScrollPane();
-        jPanelTop = new javax.swing.JPanel();
-        jLabelMainManager = new javax.swing.JLabel();
-        lblLogo = new javax.swing.JLabel();
+
+        jPanelTop.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelMainManager.setBackground(new java.awt.Color(102, 51, 0));
+        jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelMainManager.setText("Main Menu of Staff");
+
+        lblLogo.setBackground(new java.awt.Color(255, 255, 255));
+        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
 
         pnlMenu.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -90,7 +136,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
             }
         });
 
-        btnStockManagement.setText("Stock Management");
+        btnStockManagement.setText(" Stock Management");
         btnStockManagement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStockManagementActionPerformed(evt);
@@ -103,39 +149,43 @@ public class MainmenuStaff extends javax.swing.JPanel {
         pnlMenu.setLayout(pnlMenuLayout);
         pnlMenuLayout.setHorizontalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMenuLayout.createSequentialGroup()
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPointofsell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStockManagement, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStockManagement, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnPointofsell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(btnHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPointofsell, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPointofsell, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(lblPos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnStockManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStockManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(360, Short.MAX_VALUE))
         );
 
         scrMenu.setViewportView(pnlMenu);
-
-        jPanelTop.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabelMainManager.setBackground(new java.awt.Color(102, 51, 0));
-        jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelMainManager.setText("Main Menu of Staff");
-
-        lblLogo.setBackground(new java.awt.Color(255, 255, 255));
-        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
         jPanelTop.setLayout(jPanelTopLayout);
@@ -147,6 +197,10 @@ public class MainmenuStaff extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelMainManager, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(554, Short.MAX_VALUE))
+            .addGroup(jPanelTopLayout.createSequentialGroup()
+                .addComponent(scrMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrMain2))
         );
         jPanelTopLayout.setVerticalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,27 +209,25 @@ public class MainmenuStaff extends javax.swing.JPanel {
                 .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelMainManager, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTopLayout.createSequentialGroup()
+                        .addComponent(scrMenu)
+                        .addContainerGap())
+                    .addComponent(scrMain2)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(scrMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrMain2))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrMenu)
-                    .addComponent(scrMain2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -200,7 +252,11 @@ public class MainmenuStaff extends javax.swing.JPanel {
     private javax.swing.JButton btnStockManagement;
     private javax.swing.JLabel jLabelMainManager;
     private javax.swing.JPanel jPanelTop;
+    private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblLogout;
+    private javax.swing.JLabel lblPos;
+    private javax.swing.JLabel lblStock;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JScrollPane scrMain2;
     private javax.swing.JScrollPane scrMenu;

@@ -17,12 +17,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="scrMenu" min="-2" pref="177" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="scrMain2" pref="0" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="scrMenu" min="-2" pref="189" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="scrMain2" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
-          <Component id="jPanelTop" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanelTop" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -48,16 +48,26 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnHome" max="32767" attributes="0"/>
+                          <Component id="lblPos" max="32767" attributes="0"/>
+                          <Component id="lblStock" max="32767" attributes="0"/>
+                          <Component id="lblOrder" max="32767" attributes="0"/>
+                          <Component id="lblCus" max="32767" attributes="0"/>
+                          <Component id="lblEmployee" max="32767" attributes="0"/>
+                          <Component id="lblUser" max="32767" attributes="0"/>
+                          <Component id="lblLogout" pref="53" max="32767" attributes="0"/>
+                          <Component id="lblHome" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnEmployeeManagement" alignment="1" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnCustomerManagement" alignment="1" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnOrderManagement" alignment="1" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnStockManagement" alignment="1" pref="0" max="32767" attributes="0"/>
                           <Component id="btnPointofsell" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnStockManagement" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnOrderManagement" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnCustomerManagement" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnEmployeeManagement" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnUserManagement" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnHome" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnUserManagement" alignment="1" pref="120" max="32767" attributes="0"/>
                           <Component id="btnLogout" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -68,21 +78,45 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnHome" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblHome" max="32767" attributes="0"/>
+                          <Component id="btnHome" pref="40" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnPointofsell" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblPos" max="32767" attributes="0"/>
+                          <Component id="btnPointofsell" pref="40" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnStockManagement" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblStock" max="32767" attributes="0"/>
+                          <Component id="btnStockManagement" pref="40" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnOrderManagement" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblOrder" max="32767" attributes="0"/>
+                          <Component id="btnOrderManagement" pref="40" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCustomerManagement" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblCus" max="32767" attributes="0"/>
+                          <Component id="btnCustomerManagement" pref="40" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnEmployeeManagement" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblEmployee" max="32767" attributes="0"/>
+                          <Component id="btnEmployeeManagement" pref="40" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnUserManagement" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblUser" max="32767" attributes="0"/>
+                          <Component id="btnUserManagement" pref="40" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnLogout" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnLogout" pref="40" max="32767" attributes="0"/>
+                          <Component id="lblLogout" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="113" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -141,6 +175,22 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="User Management"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHome">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblPos">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblStock">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblOrder">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCus">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblEmployee">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUser">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblLogout">
             </Component>
           </SubComponents>
         </Container>
