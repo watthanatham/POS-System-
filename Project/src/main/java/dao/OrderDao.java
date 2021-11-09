@@ -52,15 +52,16 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id,Date,UserType,Total FROM [order] ;";
+            String sql = "SELECT Id , No_order , Date , UserType , Total FROM [order] ;";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
                 int id = result.getInt("Id");
+                String no_order = result.getString("No_order");
                 String date = result.getString("Date");
                 String type = result.getString("UserType");
                 double total = result.getDouble("Total");
-                Order order = new Order(id, date, type, total);
+                Order order = new Order(id , no_order , date, type, total);
                 list.add(order);
                 System.out.println(order);
             }
@@ -77,15 +78,16 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id,Date,UserType,Total FROM [order] Where Id = " + id;
+            String sql = "SELECT Id,No_order,Date,UserType,Total FROM [order] Where Id = " + id;
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             if(result.next()) {
                 int orid = result.getInt("ID");
+                String no_order = result.getString("No_order");
                 String date = result.getString("Date");
                 String type = result.getString("UserType");
                 double total = result.getDouble("Total");
-                Order order = new Order(orid, date, type,total);
+                Order order = new Order(orid , no_order , date, type ,total);
                 return order;
             }
         } catch (SQLException ex) {
