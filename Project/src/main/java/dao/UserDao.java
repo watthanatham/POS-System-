@@ -79,7 +79,7 @@ public class UserDao {
         conn = db.getConnection();
         
         try {
-            String sql = "SELECT * FROM User WHERE user_id ="+ search+" ";
+            String sql = "SELECT * FROM User WHERE user_name = \""+ search+"\" ";
            Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while(result.next()){          
@@ -92,7 +92,7 @@ public class UserDao {
             }
             
         } catch (SQLException ex) {
-            System.out.println("Error Select All from User");
+            System.out.println("Error Search Name from User");
         } 
         db.close();
         return list;
