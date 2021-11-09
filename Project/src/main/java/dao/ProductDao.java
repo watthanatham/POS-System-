@@ -51,7 +51,7 @@ public class ProductDao implements DaoInterface<Product> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT * FROM Product";
+            String sql = "SELECT * FROM Product WHERE prod_type = 'Coffee'";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
@@ -76,7 +76,7 @@ public class ProductDao implements DaoInterface<Product> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT * FROM Product WHERE prod_type = 'Fruity'";
+            String sql = "SELECT * FROM Product WHERE prod_type = 'MT'";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
