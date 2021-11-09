@@ -35,7 +35,7 @@ public class MainmenuManager extends javax.swing.JPanel {
         try {
             BufferedImage image = ImageIO.read(file);
 
-            lblLogo.setIcon(new ImageIcon(image.getScaledInstance(180, 100, 0)));
+            lblLogo.setIcon(new ImageIcon(image.getScaledInstance(180, 120, 0)));
         } catch (IOException ex) {
 
         }file = new File("image/home.png");
@@ -298,10 +298,10 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addGap(0, 11, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
