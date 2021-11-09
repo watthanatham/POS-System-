@@ -593,7 +593,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="btnCoffee" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                                      <Component id="btnFruity" min="-2" pref="136" max="-2" attributes="0"/>
+                                      <Component id="btnMT" min="-2" pref="136" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton6" min="-2" pref="140" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -620,7 +620,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jButton6" alignment="1" pref="47" max="32767" attributes="0"/>
-                          <Component id="btnFruity" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnMT" alignment="1" max="32767" attributes="0"/>
                           <Component id="btnCoffee" alignment="1" max="32767" attributes="0"/>
                           <Component id="jButton7" max="32767" attributes="0"/>
                       </Group>
@@ -639,7 +639,7 @@
                 <Container class="javax.swing.JPanel" name="productsPanel">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="99" green="cc" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
 
@@ -675,7 +675,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCoffeeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnFruity">
+            <Component class="javax.swing.JButton" name="btnMT">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="66" red="cc" type="rgb"/>
@@ -686,10 +686,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Fruity"/>
+                <Property name="text" type="java.lang.String" value="Milk &amp; Tea"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFruityActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMTActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton6">

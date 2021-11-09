@@ -87,7 +87,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         jScrollPane3 = new javax.swing.JScrollPane();
         productsPanel = new javax.swing.JPanel();
         btnCoffee = new javax.swing.JButton();
-        btnFruity = new javax.swing.JButton();
+        btnMT = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -385,7 +385,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        productsPanel.setBackground(new java.awt.Color(255, 255, 255));
+        productsPanel.setBackground(new java.awt.Color(255, 204, 153));
 
         javax.swing.GroupLayout productsPanelLayout = new javax.swing.GroupLayout(productsPanel);
         productsPanel.setLayout(productsPanelLayout);
@@ -410,13 +410,13 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
             }
         });
 
-        btnFruity.setBackground(new java.awt.Color(204, 102, 0));
-        btnFruity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnFruity.setForeground(new java.awt.Color(255, 255, 255));
-        btnFruity.setText("Fruity");
-        btnFruity.addActionListener(new java.awt.event.ActionListener() {
+        btnMT.setBackground(new java.awt.Color(204, 102, 0));
+        btnMT.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnMT.setForeground(new java.awt.Color(255, 255, 255));
+        btnMT.setText("Milk & Tea");
+        btnMT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFruityActionPerformed(evt);
+                btnMTActionPerformed(evt);
             }
         });
 
@@ -462,7 +462,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(btnCoffee)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnFruity, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnMT, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -482,7 +482,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                    .addComponent(btnFruity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCoffee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -548,9 +548,9 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         add.setVisible(true);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
-    private void btnFruityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFruityActionPerformed
+    private void btnMTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTActionPerformed
         ProductDao dao = new ProductDao();
-        productList = dao.getFruity();
+        productList = dao.getMT();
         productsPanel.removeAll();
         productsPanel.revalidate();
         productsPanel.repaint();
@@ -562,7 +562,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
             productsPanel.add(p);
             
         }
-    }//GEN-LAST:event_btnFruityActionPerformed
+    }//GEN-LAST:event_btnMTActionPerformed
 
     private void btnCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCoffeeActionPerformed
         ProductDao dao = new ProductDao();
@@ -583,7 +583,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCoffee;
-    private javax.swing.JButton btnFruity;
+    private javax.swing.JButton btnMT;
     private javax.swing.JButton btnMembership;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton jButton1;

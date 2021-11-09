@@ -70,7 +70,7 @@ public class ProductDao implements DaoInterface<Product> {
         db.close();
         return list;
     }
-    public ArrayList<Product> getFruity() {
+    public ArrayList<Product> getMT() {
         ArrayList list = new ArrayList();
         Connection conn = null;
         Database db = Database.getInstance();
