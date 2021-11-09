@@ -6,9 +6,6 @@
 package bank;
 
 import dao.ProductDao;
-//import java.sql.Connection;
-//import java.sql.ResultSet;
-//import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
@@ -16,7 +13,7 @@ import model.Product;
 
 /**
  *
- * 
+ *
  */
 public class StockPanel extends javax.swing.JPanel {
 
@@ -48,13 +45,6 @@ public class StockPanel extends javax.swing.JPanel {
         stockList = dao.getAll();
         model = new StockTableModel(stockList);
         tblStock.setModel(model);
-//        tblProduct.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-//            @Override
-//            public void valueChanged(ListSelectionEvent e){
-//                editedProduct = productList.get(tblProduct.getSelectedRow());
-//                loadProductToForm();
-//            }
-//        });
     }
 
     public void loadStockToForm() {
@@ -184,6 +174,11 @@ public class StockPanel extends javax.swing.JPanel {
         txtPrice.setBackground(new java.awt.Color(241, 237, 237));
         txtPrice.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
         txtPrice.setText(" ");
+        txtPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPriceActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
         jLabel5.setText("Price :");
@@ -401,24 +396,22 @@ public class StockPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        SearchStk();
-
-    }//GEN-LAST:event_btnSearchActionPerformed
-
-    public void SearchStk() {
+public void SearchStk() {
         ProductDao dao = new ProductDao();
         stockList = dao.getStock(txtSearch.getText());
         System.out.println(stockList);
         if (stockList.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No Data !!!");
+            JOptionPane.showMessageDialog(this, "No Data");
             loadTable(dao);
         } else {
             model = new StockTableModel(stockList);
             tblStock.setModel(model);
         }
     }
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        SearchStk();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         txtSearch.setEnabled(false);
@@ -452,10 +445,10 @@ public class StockPanel extends javax.swing.JPanel {
         ProductDao dao = new ProductDao();
         if (editedStock.getId() >= 0) {
             dao.update(editedStock);
-            JOptionPane.showMessageDialog(null, "Edit Success !!!");
+            JOptionPane.showMessageDialog(null, "Edit Success");
         } else {
             dao.add(editedStock);
-            JOptionPane.showMessageDialog(null, "Add Success !!!");
+            JOptionPane.showMessageDialog(null, "Add Success");
         }
         refershTable();
         clearEditForm();
@@ -471,8 +464,12 @@ public class StockPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
+        SearchStk();
     }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPriceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

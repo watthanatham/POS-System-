@@ -8,11 +8,13 @@ package WEN_Mainstaff_Manager;
 import Noom.CustomerPanel;
 import Pae.OrderPanel;
 import bank.StockPanel;
+import WEN_Mainstaff_Manager.MainMenuStaffPanel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import bank.TestStockDialog;
 import dao.ProductDao;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +26,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 import model.Product;
 
@@ -33,30 +36,14 @@ import model.Product;
  */
 public class MainmenuStaff extends javax.swing.JPanel {
 
-    private ArrayList<Product> productList;
-    String[] columnName = {"No", "Product Name", "Quantity (price)"};
-    private MainmenuStaffTableModel model;
-
     /**
      * Creates new form WenPanel
      */
     public MainmenuStaff() {
+
         initComponents();
-        Datetime();
-        ProductDao dao = new ProductDao();
-        //System.out.println(dao.getMainmenuProduct());
-
-        loadTable(dao);
-
-        File file = new File("image/best seller.png");
-        try {
-            BufferedImage image = ImageIO.read(file);
-
-            lblimage1.setIcon(new ImageIcon(image));
-        } catch (IOException ex) {
-
-        }
-        file = new File("image/logo.jpg");
+        scrMain2.setViewportView(new MainMenuStaffPanel());
+        File file = new File("image/logo.png");
         try {
             BufferedImage image = ImageIO.read(file);
 
@@ -64,14 +51,39 @@ public class MainmenuStaff extends javax.swing.JPanel {
         } catch (IOException ex) {
 
         }
+        file = new File("image/home.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
 
-    }
+            lblHome.setIcon(new ImageIcon(image.getScaledInstance(30, 30, 0)));
+        } catch (IOException ex) {
 
-    public void Datetime() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println(dtf.format(now));
-        lblTime.setText(dtf.format(now));
+        }
+         file = new File("image/pos.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblPos.setIcon(new ImageIcon(image.getScaledInstance(30, 30, 0)));
+        } catch (IOException ex) {
+
+        }
+         file = new File("image/stock.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblStock.setIcon(new ImageIcon(image.getScaledInstance(30, 30, 0)));
+        } catch (IOException ex) {
+
+        }
+         file = new File("image/logout.png");
+        try {
+            BufferedImage image = ImageIO.read(file);
+
+            lblLogout.setIcon(new ImageIcon(image.getScaledInstance(30, 30, 0)));
+        } catch (IOException ex) {
+
+        }
+
     }
 
     /**
@@ -83,33 +95,53 @@ public class MainmenuStaff extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        scrMenu = new javax.swing.JScrollPane();
-        pnlMenu = new javax.swing.JPanel();
-        btnHome = new javax.swing.JButton();
-        btnPointofsell = new javax.swing.JButton();
-        btnStockManagement = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
-        scrMain2 = new javax.swing.JScrollPane();
-        jPanelMain = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabelTimestamp = new javax.swing.JLabel();
-        lblimage1 = new javax.swing.JLabel();
-        jPanelTime = new javax.swing.JPanel();
-        lblTime = new javax.swing.JLabel();
-        jpanelTable = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblProduct = new javax.swing.JTable();
         jPanelTop = new javax.swing.JPanel();
         jLabelMainManager = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
+        scrMain2 = new javax.swing.JScrollPane();
+        jPanelMenu = new javax.swing.JPanel();
+        btnHome = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnStockManagement = new javax.swing.JButton();
+        btnPointofsell = new javax.swing.JButton();
+        lblHome = new javax.swing.JLabel();
+        lblPos = new javax.swing.JLabel();
+        lblStock = new javax.swing.JLabel();
+        lblLogout = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(204, 204, 204));
+
+        jPanelTop.setBackground(new java.awt.Color(153, 102, 0));
+
+        jLabelMainManager.setBackground(new java.awt.Color(102, 51, 0));
+        jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelMainManager.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMainManager.setText("Main Menu of Staff");
+
+        lblLogo.setBackground(new java.awt.Color(255, 255, 255));
+        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
+
+        jPanelMenu.setBackground(new java.awt.Color(255, 204, 153));
 
         btnHome.setText("Home");
         btnHome.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
+            }
+        });
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        btnStockManagement.setText(" Stock Management");
+        btnStockManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStockManagementActionPerformed(evt);
             }
         });
 
@@ -120,165 +152,45 @@ public class MainmenuStaff extends javax.swing.JPanel {
             }
         });
 
-        btnStockManagement.setText("Stock Management");
-        btnStockManagement.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStockManagementActionPerformed(evt);
-            }
-        });
-
-        btnLogout.setText("Logout");
-
-        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
-        pnlMenu.setLayout(pnlMenuLayout);
-        pnlMenuLayout.setHorizontalGroup(
-            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
+        jPanelMenu.setLayout(jPanelMenuLayout);
+        jPanelMenuLayout.setHorizontalGroup(
+            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMenuLayout.createSequentialGroup()
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnPointofsell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPointofsell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStockManagement, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnStockManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        pnlMenuLayout.setVerticalGroup(
-            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMenuLayout.createSequentialGroup()
+        jPanelMenuLayout.setVerticalGroup(
+            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPointofsell, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblPos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPointofsell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnStockManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnStockManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogout)
+                    .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(434, Short.MAX_VALUE))
         );
-
-        scrMenu.setViewportView(pnlMenu);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"2020-10-08", "10:10:59", "17:00:00"},
-                {"2020-10-08", "08:00:00", "17:00:00"},
-                {"2020-10-08", "09:00:01", "17:00:00"},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Date", "Time In", "Time Out"
-            }
-        ));
-        jTable1.setToolTipText("");
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jTable1);
-
-        jLabelTimestamp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelTimestamp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTimestamp.setText("Timestamp");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabelTimestamp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTimestamp, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
-        );
-
-        lblTime.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTime.setText("dateTime");
-
-        javax.swing.GroupLayout jPanelTimeLayout = new javax.swing.GroupLayout(jPanelTime);
-        jPanelTime.setLayout(jPanelTimeLayout);
-        jPanelTimeLayout.setHorizontalGroup(
-            jPanelTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-        );
-        jPanelTimeLayout.setVerticalGroup(
-            jPanelTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTimeLayout.createSequentialGroup()
-                .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
-        );
-
-        tblProduct.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tblProduct);
-
-        javax.swing.GroupLayout jpanelTableLayout = new javax.swing.GroupLayout(jpanelTable);
-        jpanelTable.setLayout(jpanelTableLayout);
-        jpanelTableLayout.setHorizontalGroup(
-            jpanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-        );
-        jpanelTableLayout.setVerticalGroup(
-            jpanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
-        jPanelMain.setLayout(jPanelMainLayout);
-        jPanelMainLayout.setHorizontalGroup(
-            jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMainLayout.createSequentialGroup()
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanelTime, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jpanelTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblimage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(481, Short.MAX_VALUE))
-        );
-        jPanelMainLayout.setVerticalGroup(
-            jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMainLayout.createSequentialGroup()
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblimage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(777, Short.MAX_VALUE))
-        );
-
-        scrMain2.setViewportView(jPanelMain);
-
-        jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelMainManager.setText("Main Menu of Staff");
 
         javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
         jPanelTop.setLayout(jPanelTopLayout);
@@ -288,8 +200,11 @@ public class MainmenuStaff extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelMainManager, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(554, Short.MAX_VALUE))
+                .addComponent(jLabelMainManager, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelTopLayout.createSequentialGroup()
+                .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelTopLayout.setVerticalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,36 +213,28 @@ public class MainmenuStaff extends javax.swing.JPanel {
                 .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelMainManager, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrMain2)
+                    .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(scrMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrMenu)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        scrMain2.setViewportView(jPanelMain);
-
+      scrMain2.setViewportView(new MainMenuStaffPanel());
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnPointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointofsellActionPerformed
@@ -335,8 +242,12 @@ public class MainmenuStaff extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPointofsellActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
-        scrMain2.setViewportView(new StockPanel());
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnStockManagementActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -345,73 +256,17 @@ public class MainmenuStaff extends javax.swing.JPanel {
     private javax.swing.JButton btnPointofsell;
     private javax.swing.JButton btnStockManagement;
     private javax.swing.JLabel jLabelMainManager;
-    private javax.swing.JLabel jLabelTimestamp;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelMain;
-    private javax.swing.JPanel jPanelTime;
+    private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelTop;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JPanel jpanelTable;
+    private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblTime;
-    private javax.swing.JLabel lblimage1;
-    private javax.swing.JPanel pnlMenu;
+    private javax.swing.JLabel lblLogout;
+    private javax.swing.JLabel lblPos;
+    private javax.swing.JLabel lblStock;
     private javax.swing.JScrollPane scrMain2;
-    private javax.swing.JScrollPane scrMenu;
-    private javax.swing.JTable tblProduct;
     // End of variables declaration//GEN-END:variables
 
     private void dispose() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void loadTable(ProductDao dao) {
-        productList = dao.getMainmenuProduct();
-        model = new MainmenuStaffTableModel(productList);
-        tblProduct.setModel(model);
-    }
-
-    private class MainmenuStaffTableModel extends AbstractTableModel {
-
-        private int numberid = 1;
-        private final ArrayList<Product> data;
-
-        public MainmenuStaffTableModel(ArrayList<Product> data) {
-            this.data = data;
-        }
-
-        @Override
-        public int getRowCount() {
-            return this.data.size();
-        }
-
-        @Override
-        public int getColumnCount() {
-            return 3;
-        }
-
-        @Override
-        public Object getValueAt(int rowIndex, int columnIndex) {
-            Product product = this.data.get(rowIndex);
-            if (columnIndex == 0) {
-                return numberid++;
-            }
-            if (columnIndex == 1) {
-                return product.getName();
-            }
-            if (columnIndex == 2) {
-                return product.getAmount();
-            }
-            return "";
-
-        }
-
-        @Override
-        public String getColumnName(int column) {
-            return columnName[column];
-        }
-
     }
 }

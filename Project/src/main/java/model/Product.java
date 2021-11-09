@@ -6,25 +6,27 @@
 package model;
 
 import java.util.ArrayList;
+
 /**
  *
- * 
+ *
  */
 public class Product {
+
     private int id;
     private String name;
     private double price;
     private int amount;
     private String image;
-    
-    public Product(int id, String name ,double price, int amount) {
+
+    public Product(int id, String name, double price, int amount) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.amount = amount;
     }
- 
-    public Product(int id, String name ,double price, String image) {
+
+    public Product(int id, String name, double price, String image) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -34,7 +36,7 @@ public class Product {
     public Product() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public int getId() {
         return id;
     }
@@ -74,30 +76,25 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
-
+    
     @Override
     public String toString() {
         return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", amount=" + amount + '}';
     }
+
     public String toList() {
-        return "Product" + "id=" + id + ", name=" + name + ", price=" + price+"\n";
+        return "Product" + "id=" + id + ", name=" + name + ", price=" + price + "\n";
     }
-    
 
     public static ArrayList<Product> genProductList() {
-        ArrayList<Product> list = new ArrayList<>();
-        list.add(new Product(1, "Americano", 30, "1.jpg"));
-        list.add(new Product(2, "Espresso", 30, "2.jpg"));
-        list.add(new Product(3, "Cappuccino", 40, "3.jpg"));
-        list.add(new Product(4, "Latte", 40, "4.jpg"));
-        list.add(new Product(5, "Mocha", 40, "5.jpg"));
-        list.add(new Product(6, "IcedTea", 35, "6.jpg"));
-        return list;
+        ArrayList<Product> productList = new ArrayList<>();
+        productList.add(new Product(1, "Americano", 50, "1.jpg"));
+        productList.add(new Product(2, "Espresso", 60, "2.jpg"));
+        productList.add(new Product(3, "Mocca", 55, "3.jpg"));
+        productList.add(new Product(4, "Black Coffee Honey", 65, "4.jpg"));
+        productList.add(new Product(5, "All Day", 60, "5.jpg"));
+        productList.add(new Product(6, "Latte", 60, "6.jpg"));
+        return productList;
     }
-    
-    
-        
-    
 
-   
 }

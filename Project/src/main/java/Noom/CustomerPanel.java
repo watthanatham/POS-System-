@@ -52,6 +52,7 @@ public class CustomerPanel extends javax.swing.JPanel {
         txtPurshase.setVisible(false);
         btnSave.setVisible(false);
         btnCancel.setVisible(false);
+        btnBack.setVisible(false);
 
     }
 
@@ -480,11 +481,16 @@ public class CustomerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        btnBack.setVisible(true);
         search();
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-            //loadCustomerToForm();
+        CustomerDao dao = new CustomerDao();
+        initForm();
+        loadTable(dao);
+        btnBack.setVisible(false);
+
     }//GEN-LAST:event_btnBackActionPerformed
 
     public void search() {
