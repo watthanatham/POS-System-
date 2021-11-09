@@ -32,7 +32,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
      */
     public PosPanel() {
         initComponents();
-        productList = Product.genProductList();
+        productList = Product.getProductList();
         int productSize = productList.size();
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
         for(Product product: productList) {

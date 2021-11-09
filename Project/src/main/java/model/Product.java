@@ -86,15 +86,15 @@ public class Product {
         return "Product" + "id=" + id + ", name=" + name + ", price=" + price + "\n";
     }
 
-//    public static ArrayList<Product> getProductList() {
-//        ArrayList<Product> productList = new ArrayList<>();
-//        productList.add(new Product(1, "Americano", 50, "1.jpg"));
-//        productList.add(new Product(2, "Espresso", 60, "2.jpg"));
-//        productList.add(new Product(3, "Mocca", 55, "3.jpg"));
-//        productList.add(new Product(4, "Black Coffee Honey", 65, "4.jpg"));
-//        productList.add(new Product(5, "All Day", 60, "5.jpg"));
-//        productList.add(new Product(6, "Latte", 60, "6.jpg"));
-//        return productList;
-//    }
+    public static ArrayList<Product> getProductList() {
+        ArrayList<Product> productList = new ArrayList<>();
+        productList.add(new Product(1, "Americano", 50, "1.jpg"));
+        productList.add(new Product(2, "Espresso", 60, "2.jpg"));
+        productList.add(new Product(3, "Mocca", 55, "3.jpg"));
+       productList.add(new Product(4, "Black Coffee Honey", 65, "4.jpg"));
+        productList.add(new Product(5, "All Day", 60, "5.jpg"));
+        productList.add(new Product(6, "Latte", 60, "6.jpg"));
+        return productList;
+    }
 
 }
