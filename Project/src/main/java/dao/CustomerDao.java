@@ -26,28 +26,23 @@ public class CustomerDao implements DaoInterface<Customer> {
         Connection conn = null;
         Database db = Database.getInstance();
         conn = db.getConnection();
-        int no = -1;
+        int id = -1;
         try {
-            String sql = "INSERT INTO Customer (CUS_ID, CUS_NAME, "
-                    + "CUS_TELE, CUS_POINT, CUS_PURCHASES) "
-                    + "VALUES (?, ?, ?, ?, ?)";
+            System.out.println(object);
+            String sql = "INSERT INTO Customer (CUS_Name,CUS_TELE) VALUES (?,?);";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, object.getId());
-            stmt.setString(2, object.getName());
-            stmt.setString(3, object.getTel());
-            stmt.setDouble(4, object.getPoint());
-            stmt.setInt(5, object.getPurshase());
-
+            stmt.setString(1, object.getName());
+            stmt.setString(2, object.getTel());
             int row = stmt.executeUpdate();
             ResultSet result = stmt.getGeneratedKeys();
             if (result.next()) {
-                no = result.getInt(1);
+                id = result.getInt(1);
             }
         } catch (SQLException ex) {
-            System.out.println("Error : to create customer!!");
+            System.out.println("Error" + ex.getMessage());
         }
         db.close();
-        return no;
+        return id;
     }
 
     @Override

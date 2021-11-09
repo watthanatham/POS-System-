@@ -25,6 +25,13 @@ public class Customer {
         this.tel = tel;
     }
 
+    public Customer(int newid, String name, String tel) {
+        this.id = id;
+        this.name = name;
+        this.tel = tel;
+    }
+
+
     public int getNo() {
         return no;
     }
