@@ -84,8 +84,36 @@ public class CustomerDao implements DaoInterface<Customer> {
         return list;
 
     }
-
-    public ArrayList<Customer> getsearch(String name) {
+//    public ArrayList<Customer> getID(String id) {
+//        ArrayList list = new ArrayList();
+//        Connection conn = null;
+//        Database db = Database.getInstance();
+//        conn = db.getConnection();
+//
+//        try {
+//
+//            String sql = "SELECT * FROM Customer WHERE CUS_ID = \'" + id + "\',";
+//            Statement stmt = conn.createStatement();
+//            ResultSet result = stmt.executeQuery(sql);
+//            while (result.next()) {
+//                int cno = result.getInt("CUS_NO");
+//                String cid = result.getString("CUS_ID");
+//                String cname = result.getString("CUS_NAME");
+//                String ctel = result.getString("CUS_TELE");
+//                double cpoint = result.getDouble("CUS_POINT");
+//                int cpurshase = result.getInt("CUS_PURCHASES");
+//                Customer customer = new Customer(cno, cid, cname, ctel, cpoint, cpurshase);
+//                list.add(customer);
+//
+//            }
+//        } catch (SQLException ex) {
+//            System.out.println("Error : Unable to select product name " + id + "!!");
+//        }
+//        db.close();
+//        return list;
+//
+//    }
+    public ArrayList<Customer> getNAME(String name) {
         ArrayList list = new ArrayList();
         Connection conn = null;
         Database db = Database.getInstance();
@@ -114,6 +142,35 @@ public class CustomerDao implements DaoInterface<Customer> {
         return list;
 
     }
+//    public ArrayList<Customer> getTELE(String tele) {
+//        ArrayList list = new ArrayList();
+//        Connection conn = null;
+//        Database db = Database.getInstance();
+//        conn = db.getConnection();
+//
+//        try {
+//
+//            String sql = "SELECT * FROM Customer WHERE CUS_TELE = \'" + tele + "\'";
+//            Statement stmt = conn.createStatement();
+//            ResultSet result = stmt.executeQuery(sql);
+//            while (result.next()) {
+//                int cno = result.getInt("CUS_NO");
+//                String cid = result.getString("CUS_ID");
+//                String cname = result.getString("CUS_NAME");
+//                String ctel = result.getString("CUS_TELE");
+//                double cpoint = result.getDouble("CUS_POINT");
+//                int cpurshase = result.getInt("CUS_PURCHASES");
+//                Customer customer = new Customer(cno, cid, cname, ctel, cpoint, cpurshase);
+//                list.add(customer);
+//
+//            }
+//        } catch (SQLException ex) {
+//            System.out.println("Error : Unable to select product name " + tele + "!!");
+//        }
+//        db.close();
+//        return list;
+//
+//    }
 
     @Override
     public Customer get(int no) {

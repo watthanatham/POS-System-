@@ -140,6 +140,7 @@ public class CustomerPanel extends javax.swing.JPanel {
         txtSearch = new javax.swing.JTextField();
         btnAdd1 = new javax.swing.JButton();
         JSearch = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
         scProctPane = new javax.swing.JScrollPane();
         tblCustomer = new javax.swing.JTable();
 
@@ -241,7 +242,7 @@ public class CustomerPanel extends javax.swing.JPanel {
                 .addComponent(JPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,6 +330,15 @@ public class CustomerPanel extends javax.swing.JPanel {
         JSearch.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JSearch.setText("Search Data");
 
+        btnBack.setBackground(new java.awt.Color(204, 0, 51));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -340,6 +350,8 @@ public class CustomerPanel extends javax.swing.JPanel {
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdd1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBack)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -358,7 +370,8 @@ public class CustomerPanel extends javax.swing.JPanel {
                     .addComponent(btnEdit)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd1)
-                    .addComponent(JSearch))
+                    .addComponent(JSearch)
+                    .addComponent(btnBack))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -463,26 +476,31 @@ public class CustomerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtPurshaseActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-       
+
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         search();
     }//GEN-LAST:event_btnAdd1ActionPerformed
-   
-    public void search(){
-       /* CustomerDao dao = new CustomerDao();
-        customerList = dao.get();
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+            //loadCustomerToForm();
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    public void search() {
+        CustomerDao dao = new CustomerDao();
+        customerList = dao.getNAME(txtSearch.getText());
+
         System.out.println(customerList);
         if (customerList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No Data !!!");
             loadTable(dao);
         } else {
             model = new CustomerTableModel(customerList);
-           tblCustomer.setModel(model);
-        }*/
+            tblCustomer.setModel(model);
+        }
     }
-    
+
     public void refershTable() {
         CustomerDao dao = new CustomerDao();
         ArrayList<Customer> newList = dao.getAll();
@@ -514,6 +532,7 @@ public class CustomerPanel extends javax.swing.JPanel {
     private javax.swing.JLabel JTelePhone;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdd1;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
