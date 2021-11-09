@@ -26,8 +26,8 @@ public class Receipt {
         this.customer = customer;
     }
 
-    public Receipt(Date created, User seller, Customer customer) {
-        this(-1, created, seller, customer);
+    public Receipt(User seller, Customer customer) {
+        this(-1, null, seller, customer);
     }
     
     

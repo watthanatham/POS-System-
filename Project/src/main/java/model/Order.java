@@ -11,7 +11,7 @@ package model;
  */
 public class Order {
     private int Id;
-    private String no_order;
+    private int no_order;
     private String date;
     private String Usertype;
     private double total;
@@ -23,10 +23,10 @@ public class Order {
     public void setId(int Id) {
         this.Id = Id;
     }
-     public String getNo_order() {
+     public int getNo_order() {
         return no_order;
     }
-     public void setNo_order(String no_order){
+     public void setNo_order(int no_order){
          this.no_order = no_order;
      }
 
@@ -54,7 +54,7 @@ public class Order {
         this.total = total;
     }
 
-    public Order(int Id,String No_order ,String date, String Usertype, double total) {
+    public Order(int Id,int no_order ,String date, String Usertype, double total) {
         this.Id = Id;
         this.no_order = no_order;
         this.date = date;

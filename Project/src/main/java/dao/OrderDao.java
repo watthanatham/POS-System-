@@ -52,12 +52,12 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id , No_order , Date , UserType , Total FROM [order] ;";
+            String sql = "SELECT * FROM [Order] ;";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
                 int id = result.getInt("Id");
-                String no_order = result.getString("No_order");
+                int no_order = result.getInt("No_order");
                 String date = result.getString("Date");
                 String type = result.getString("UserType");
                 double total = result.getDouble("Total");
@@ -83,7 +83,7 @@ public class OrderDao implements DaoInterface<Order>{
             ResultSet result = stmt.executeQuery(sql);
             if(result.next()) {
                 int orid = result.getInt("ID");
-                String no_order = result.getString("No_order");
+                int no_order = result.getInt("No_order");
                 String date = result.getString("Date");
                 String type = result.getString("UserType");
                 double total = result.getDouble("Total");
