@@ -34,8 +34,6 @@ public class Customer {
         this.name = name;
         this.tel = tel;
     }
-    
-
 
     public int getNo() {
         return no;

@@ -5,18 +5,21 @@
  */
 package Chang;
 
+import dao.CustomerDao;
+import java.util.ArrayList;
+import model.Customer;
+
 /**
  *
  * @author watan
  */
 public class Membership extends javax.swing.JFrame {
-
+    private Customer customer;
+    //private final ArrayList<Customer> customerList;
     /**
      * Creates new form Membership
      */
-    public Membership() {
-        initComponents();
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -208,6 +211,11 @@ public class Membership extends javax.swing.JFrame {
             }
         });
     }
+   /*public Membership() {
+        initComponents();
+        Customer dao = new Customer();
+        customerList = dao.get
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
