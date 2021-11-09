@@ -133,7 +133,10 @@ public class MainmenuManager extends javax.swing.JPanel {
         lblLogout = new javax.swing.JLabel();
         lblPos = new javax.swing.JLabel();
 
+        jPanelTop.setBackground(new java.awt.Color(153, 102, 0));
+
         jLabelMainManager.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelMainManager.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMainManager.setText("Main Menu of Manager");
 
         javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
@@ -155,6 +158,8 @@ public class MainmenuManager extends javax.swing.JPanel {
                     .addComponent(jLabelMainManager, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanelMenu.setBackground(new java.awt.Color(255, 204, 153));
 
         btnHome.setText("Home");
         btnHome.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -258,9 +263,9 @@ public class MainmenuManager extends javax.swing.JPanel {
                         .addGap(5, 5, 5)
                         .addComponent(btnOrderManagement))
                     .addGroup(jPanelMenuLayout.createSequentialGroup()
-                        .addComponent(lblStock, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                        .addComponent(lblStock, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)))
+                        .addComponent(lblOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblCus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -277,7 +282,7 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
