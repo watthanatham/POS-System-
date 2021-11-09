@@ -26,6 +26,10 @@ public class Receipt {
         this.customer = customer;
         receiptDetail = new ArrayList<>();
     }
+    /*public Receipt(int id, User seller) {
+        this.id = id;
+        this.seller = seller;
+    }*/
 
     public Receipt(User seller, Customer customer) {
         this(-1, null, seller, customer);
