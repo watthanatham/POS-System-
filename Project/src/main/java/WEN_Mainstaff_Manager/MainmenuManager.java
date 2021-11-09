@@ -334,7 +334,7 @@ public class MainmenuManager extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUserManagementActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 

@@ -26,6 +26,13 @@ public class TestManager extends javax.swing.JDialog {
         this.pack();
   
     }
+    public TestManager(){
+        initComponents();
+        MainmenuManager panel = new MainmenuManager();
+        this.add(panel);
+        this.pack();
+
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.

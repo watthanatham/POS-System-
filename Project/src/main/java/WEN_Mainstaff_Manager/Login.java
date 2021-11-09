@@ -23,7 +23,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         edtError.setVisible(false);
-        
+
         File file = new File("image/logo.png");
         try {
             BufferedImage image = ImageIO.read(file);
@@ -185,16 +185,28 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-       String username = edtName.getText();
-       String password = edtPassword.getText();
-       
-       if(username.equals("admin")&&(password.equals("123"))){
-           System.out.println("Manager");
-       }else if (username.equals("staff")&&(password.equals("123"))){
-           System.out.println("Staff");
-       }else{
-           edtError.setVisible(true);
-       }
+        String username = edtName.getText();
+        String password = edtPassword.getText();
+
+        if (username.equals("admin") && (password.equals("123"))) {
+            this.dispose();
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                new TestManager().setVisible(true);
+                }
+            });
+
+            System.out.println("Manager");
+        } else if (username.equals("staff") && (password.equals("123"))) {
+           this.dispose();
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                new TestStaff().setVisible(true);
+                }
+            });
+        } else {
+            edtError.setVisible(true);
+        }
     }//GEN-LAST:event_btnOKActionPerformed
 
     /**

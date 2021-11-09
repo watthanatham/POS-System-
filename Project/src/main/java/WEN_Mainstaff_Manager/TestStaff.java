@@ -26,6 +26,13 @@ public class TestStaff extends javax.swing.JDialog {
         this.pack();
   
     }
+    public TestStaff(){
+         initComponents();
+        MainmenuStaff panel = new MainmenuStaff();
+        this.add(panel);
+        this.pack();
+    }
+   
 
     /** This method is called from within the constructor to
      * initialize the form.
