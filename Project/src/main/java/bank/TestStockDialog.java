@@ -11,7 +11,7 @@ package bank;
  */
 public class TestStockDialog extends javax.swing.JDialog {
 
-    /** Creates new form TestDialog */
+   
     public TestStockDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

@@ -5,7 +5,7 @@
  */
 package model;
 
-import java.util.ArrayList;
+
 
 /**
  *
@@ -20,10 +20,11 @@ public class Product {
     private String image;
     private String type;
 
-    public Product(int id, String name, double price, int amount) {
+    public Product(int id, String name, double price, String type, int amount) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.type = type;
         this.amount = amount;
     }
 
@@ -33,12 +34,17 @@ public class Product {
         this.price = price;
         this.image = image;
         this.type = type;
+
     }
 
     public Product(int id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    public Product(int id, String name, double price, String img, String ptype, int amount) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {
@@ -72,7 +78,7 @@ public class Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-    
+
     public String getImage() {
         return image;
     }
@@ -80,15 +86,21 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
-    
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", amount=" + amount + '}';
+        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", type=" + type + ", amount=" + amount + '}';
     }
 
     public String toList() {
         return "Product" + "id=" + id + ", name=" + name + ", price=" + price + "\n";
     }
-
-
 }

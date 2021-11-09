@@ -28,11 +28,12 @@ public class TestSelectProduct {
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
-                int id = result.getInt("Product_ID");
-                String name = result.getString("Product_Name");
-                double price = result.getDouble("Product_Price");
-                int amount = result.getInt("Product_Amount");
-                Product product = new Product(id, name, price, amount);
+                int id = result.getInt("prod_id");
+                String name = result.getString("prod_name");
+                double price = result.getDouble("prod_price");
+                String type = result.getString("prod_type");
+                int amount = result.getInt("prod_amount");
+                Product product = new Product(id, name, price, type,amount);
                 System.out.println(product);
             }
         } catch (SQLException ex) {
