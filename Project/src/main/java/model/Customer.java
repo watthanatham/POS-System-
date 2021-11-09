@@ -19,6 +19,12 @@ public class Customer {
     private Double point;
     private int Purshase;
 
+    public Customer(int cno, String cid, String cname, String ctel) {
+        this.id = id;
+        this.name = name;
+        this.tel = tel;
+    }
+
     public int getNo() {
         return no;
     }
@@ -75,7 +81,6 @@ public class Customer {
         this.point = point;
         this.Purshase = Purshase;
     }
-
     @Override
     public String toString() {
         return "Customer{" + "no=" + no + ", id=" + id + ", name=" + name + ", tel=" + tel + ", point=" + point + ", purshase=" + Purshase + '}';
