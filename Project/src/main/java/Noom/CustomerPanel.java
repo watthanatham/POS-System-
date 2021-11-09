@@ -333,7 +333,7 @@ public class CustomerPanel extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(204, 0, 51));
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("back");
+        btnBack.setText("Clear");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
