@@ -95,6 +95,31 @@ public class ProductDao implements DaoInterface<Product> {
         db.close();
         return list;
     }
+    public ArrayList<Product> getBakery() {
+        ArrayList list = new ArrayList();
+        Connection conn = null;
+        Database db = Database.getInstance();
+        conn = db.getConnection();
+        try {
+            String sql = "SELECT * FROM Product WHERE prod_type = 'Bakery'";
+            Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(sql);
+            while (result.next()) {
+                int id = result.getInt("prod_id");
+                String name = result.getString("prod_name");
+                double price = result.getDouble("prod_price");
+                String img = result.getString("prod_img");
+                String ptype = result.getString("prod_type"); 
+
+                Product product = new Product(id, name, price, img, ptype);
+                list.add(product);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error : Unable to select all Stock!! " + ex.getMessage());
+        }
+        db.close();
+        return list;
+    }
 
     public ArrayList<Product> getId(String id) {
         ArrayList list = new ArrayList();
