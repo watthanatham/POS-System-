@@ -47,7 +47,7 @@ public class MainmenuStaff extends javax.swing.JPanel {
         try {
             BufferedImage image = ImageIO.read(file);
 
-            lblLogo.setIcon(new ImageIcon(image.getScaledInstance(180, 100, 0)));
+            lblLogo.setIcon(new ImageIcon(image));
         } catch (IOException ex) {
 
         }
