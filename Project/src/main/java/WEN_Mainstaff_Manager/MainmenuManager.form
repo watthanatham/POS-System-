@@ -31,7 +31,7 @@
               <Component id="jPanelTop" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="scrMain2" pref="488" max="32767" attributes="0"/>
+                  <Component id="scrMain2" pref="493" max="32767" attributes="0"/>
                   <Component id="jPanelMenu" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -141,40 +141,37 @@
                           <Component id="lblPos" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblStock" max="32767" attributes="0"/>
+                      <Component id="btnStockManagement" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnOrderManagement" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOrder" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="btnStockManagement" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Component id="btnOrderManagement" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lblStock" pref="121" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblOrder" pref="122" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnCustomerManagement" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCus" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblCus" max="32767" attributes="0"/>
-                      <Component id="btnCustomerManagement" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnEmployeeManagement" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEmployee" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblEmployee" max="32767" attributes="0"/>
-                      <Component id="btnEmployeeManagement" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnUserManagement" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblUser" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblUser" max="32767" attributes="0"/>
-                      <Component id="btnUserManagement" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblLogout" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnLogout" max="32767" attributes="0"/>
-                      <Component id="lblLogout" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
