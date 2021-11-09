@@ -123,6 +123,11 @@ public class Membership extends javax.swing.JFrame {
 
         btnCancel.setBackground(new java.awt.Color(255, 51, 51));
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,6 +182,10 @@ public class Membership extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -211,11 +220,11 @@ public class Membership extends javax.swing.JFrame {
             }
         });
     }
-   /*public Membership() {
+   public Membership() {
         initComponents();
-        Customer dao = new Customer();
-        customerList = dao.get
-    }*/
+        //Customer dao = new Customer();
+        //customerList = dao.get
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
