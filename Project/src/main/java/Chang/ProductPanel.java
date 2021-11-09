@@ -70,6 +70,8 @@ public class ProductPanel extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 153));
+
         btnImage.setText("Image");
         btnImage.setMaximumSize(new java.awt.Dimension(200, 200));
         btnImage.setMinimumSize(new java.awt.Dimension(200, 200));
@@ -89,7 +91,9 @@ public class ProductPanel extends javax.swing.JPanel {
             }
         });
 
+        btnMinus.setBackground(new java.awt.Color(255, 0, 0));
         btnMinus.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        btnMinus.setForeground(new java.awt.Color(255, 255, 255));
         btnMinus.setText("-");
         btnMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +101,9 @@ public class ProductPanel extends javax.swing.JPanel {
             }
         });
 
+        btnPlus.setBackground(new java.awt.Color(0, 204, 0));
         btnPlus.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        btnPlus.setForeground(new java.awt.Color(255, 255, 255));
         btnPlus.setText("+");
         btnPlus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
