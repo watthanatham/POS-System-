@@ -24,10 +24,67 @@ public class Receipt {
         this.created = created;
         this.seller = seller;
         this.customer = customer;
+        receiptDetail = new ArrayList<>();
     }
 
     public Receipt(User seller, Customer customer) {
         this(-1, null, seller, customer);
+    }
+    
+    public void addReceiptDetail(int id, Product product , int amount, double price) {
+        receiptDetail.add(new ReceiptDetail(id, product, amount, price, this));
+    }
+    
+    public void addReceiptDetail(Product product , int amount, double price) {
+        addReceiptDetail(-1, product, amount, price);
+    }
+    
+    public double getTotal() {
+        double total = 0;
+        for(ReceiptDetail r : receiptDetail) {
+            total = total + r.getTotal();
+        }
+        return total;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public User getSeller() {
+        return seller;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public ArrayList<ReceiptDetail> getReceiptDetail() {
+        return receiptDetail;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public void setSeller(User seller) {
+        this.seller = seller;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setReceiptDetail(ArrayList<ReceiptDetail> receiptDetail) {
+        this.receiptDetail = receiptDetail;
     }
     
     
