@@ -68,7 +68,7 @@ public class Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
+    
     public String getImage() {
         return image;
     }
@@ -76,7 +76,7 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
-
+    
     @Override
     public String toString() {
         return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", amount=" + amount + '}';

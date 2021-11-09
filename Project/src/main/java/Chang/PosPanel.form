@@ -179,6 +179,7 @@
                         <Column editable="true" title="Amount" type="java.lang.Object"/>
                       </Table>
                     </Property>
+                    <Property name="autoResizeMode" type="int" value="3"/>
                   </Properties>
                 </Component>
               </SubComponents>

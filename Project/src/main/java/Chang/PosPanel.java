@@ -5,6 +5,8 @@
  */
 package Chang;
 
+import Chang.ProductPanel.OnBuyProductListener;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
@@ -15,9 +17,10 @@ import model.Product;
  *
  * @author watan
  */
-public class PosPanel extends javax.swing.JPanel {
+public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener{
 
     private final ArrayList<Product> productList;
+    private final ArrayList<Product> selectProduct = new ArrayList();
 
     /**
      * Creates new form PosPanel
@@ -28,10 +31,13 @@ public class PosPanel extends javax.swing.JPanel {
         int productSize = productList.size();
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
         for(Product product: productList) {
-            productsPanel.add(new ProductPanel(product));
+            ProductPanel p = new ProductPanel(product);
+            p.addOnBuyProductListener(this);     
+            productsPanel.add(p);
+            
         }
+        System.out.println(productList);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,6 +107,7 @@ public class PosPanel extends javax.swing.JPanel {
                 "No.", "Product Name", "Price", "Qty", "Amount"
             }
         ));
+        tblProducts.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
         jScrollPane1.setViewportView(tblProducts);
 
         jPanel2.setBackground(new java.awt.Color(202, 128, 54));
@@ -319,16 +326,25 @@ public class PosPanel extends javax.swing.JPanel {
     private javax.swing.JPanel productsPanel;
     private javax.swing.JTable tblProducts;
     // End of variables declaration//GEN-END:variables
-}
-class ProductTableModel extends AbstractTableModel {
-     
+
+    @Override
+    public void buy(Product product, int amount) {
+        if(!selectProduct.contains(product)) {
+            selectProduct.add(product);
+        }else {
+            int pList = selectProduct.indexOf(product);
+            selectProduct.set(pList, product);
+        }
+    }
+
+    private class ProductTableModel extends AbstractTableModel {
      private final ArrayList<Product>data;
-     String [] columnName = {"ID","Name","Price"};
+     String [] columnName = {"ID","Name","Price","Qty","Amount"};
+     
      
      public ProductTableModel(ArrayList<Product> data) {
          this.data = data;
      }
-
     @Override
     public int getRowCount() {
         return this.data.size();
@@ -350,6 +366,10 @@ class ProductTableModel extends AbstractTableModel {
         }
         if(columnIndex == 2) {
             return product.getPrice();
+        }if(columnIndex == 3) {
+            return product.getAmount();
+        }if(columnIndex == 4) {
+            return product.getAmount() * product.getPrice();
         } 
         return "";
     }
@@ -358,5 +378,9 @@ class ProductTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         return columnName[column];
     }
-     
- }
+    private void loadListTableModel() {
+        ProductTableModel model = new ProductTableModel(selectProduct);
+        tblProducts.setModel(model);
+    }
+    }
+}

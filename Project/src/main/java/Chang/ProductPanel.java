@@ -168,7 +168,7 @@ public class ProductPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnMinusActionPerformed
 
     private void btnImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImageActionPerformed
-        System.out.print("Product Panel: " + product + "Amount: " + amount);
+        //System.out.print("Product Panel: " + product + "Amount: " + amount);
         for(OnBuyProductListener subscriber: subscribers) {
             subscriber.buy(product, amount);
         }
