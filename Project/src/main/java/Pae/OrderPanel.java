@@ -7,6 +7,7 @@ package Pae;
 
 import dao.OrderDao;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
@@ -53,7 +54,7 @@ public class OrderPanel extends javax.swing.JPanel {
         if (editedOrder.getId() >= 0) {
             lblid.setText("" + editedOrder.getId());
         }
-        lblno_order.setText("" + editedOrder.getNo_order());
+        lblno_order.setText("" + editedOrder.getOrder_id());
         lbldate.setText("" + editedOrder.getDate());
         txttype.setText("" + editedOrder.getUsertype());
         txttotal.setText("" + editedOrder.getTotal());
@@ -124,6 +125,8 @@ public class OrderPanel extends javax.swing.JPanel {
             }
         });
 
+        btnseach.setBackground(new java.awt.Color(0, 51, 204));
+        btnseach.setForeground(new java.awt.Color(255, 255, 255));
         btnseach.setText("Seach");
         btnseach.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +134,8 @@ public class OrderPanel extends javax.swing.JPanel {
             }
         });
 
+        btnadd.setBackground(new java.awt.Color(0, 51, 204));
+        btnadd.setForeground(new java.awt.Color(255, 255, 255));
         btnadd.setText("Add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +143,8 @@ public class OrderPanel extends javax.swing.JPanel {
             }
         });
 
+        btnedit.setBackground(new java.awt.Color(0, 153, 0));
+        btnedit.setForeground(new java.awt.Color(255, 255, 255));
         btnedit.setText("Edit");
         btnedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +152,8 @@ public class OrderPanel extends javax.swing.JPanel {
             }
         });
 
+        btndelete.setBackground(new java.awt.Color(204, 0, 0));
+        btndelete.setForeground(new java.awt.Color(255, 255, 255));
         btndelete.setText("Delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,9 +174,9 @@ public class OrderPanel extends javax.swing.JPanel {
                 .addComponent(btnadd)
                 .addGap(14, 14, 14)
                 .addComponent(btnedit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addComponent(btndelete)
-                .addGap(17, 17, 17))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,6 +193,8 @@ public class OrderPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnSave.setBackground(new java.awt.Color(0, 102, 204));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,13 +320,27 @@ public class OrderPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnseachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnseachActionPerformed
-        // TODO add your handling code here:
+       searchorder();
     }//GEN-LAST:event_btnseachActionPerformed
 
     private void txtseachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtseachActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtseachActionPerformed
 
+    public void searchorder() {
+        OrderDao dao = new OrderDao();
+       orderList = dao.getOrderid(txtseach.getColumns());
+
+        System.out.println(orderList);
+       if (orderList.isEmpty()) {
+           JOptionPane.showMessageDialog(this, "No Data !!!");
+           loadTable(dao);
+       } else {
+            model = new OrderPanel.OrderTableModel(orderList);
+            tblOrder.setModel(model);
+       }
+   }
+    
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
 
             editedOrder = new Order(-1, -1 ," "," ", 0);
@@ -412,7 +437,7 @@ public class OrderPanel extends javax.swing.JPanel {
     private class OrderTableModel extends AbstractTableModel {
 
         private final ArrayList<Order> data;
-        String[] columName = {"ID", "No_order" , "Date", "Type", "Total"};
+        String[] columName = {"ID", "Order_id" , "Date", "Type", "Total"};
 
         public OrderTableModel(ArrayList<Order> data) {
             this.data = data;
@@ -435,7 +460,7 @@ public class OrderPanel extends javax.swing.JPanel {
                 return order.getId();
             }
             if(columnIndex == 1){
-                return order.getNo_order();
+                return order.getOrder_id();
             }
             if (columnIndex == 2) {
                 return order.getDate();

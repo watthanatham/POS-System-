@@ -11,7 +11,7 @@ package model;
  */
 public class Order {
     private int Id;
-    private int no_order;
+    private int order_id;
     private String date;
     private String Usertype;
     private double total;
@@ -23,11 +23,11 @@ public class Order {
     public void setId(int Id) {
         this.Id = Id;
     }
-     public int getNo_order() {
-        return no_order;
+     public int getOrder_id() {
+        return order_id;
     }
-     public void setNo_order(int no_order){
-         this.no_order = no_order;
+     public void setOrder_id(int order_id){
+         this.order_id = order_id;
      }
 
     public String getDate() {
@@ -54,13 +54,9 @@ public class Order {
         this.total = total;
     }
 
-
-    public Order(int Id,int no_order ,String date, String Usertype, double total) {
-
-    public Order(int Id,String no_order ,String date, String Usertype, double total) {
-
+    public Order(int Id,int order_id ,String date, String Usertype, double total) {
         this.Id = Id;
-        this.no_order = no_order;
+        this.order_id = order_id;
         this.date = date;
         this.Usertype = Usertype;
         this.total = total;
@@ -68,7 +64,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "Id=" + Id +",no_order=" + no_order +", date=" + date + ", Usertype=" + Usertype + ", total=" + total + '}';
+        return "Order{" + "Id=" + Id +",no_order=" + order_id +", date=" + date + ", Usertype=" + Usertype + ", total=" + total + '}';
     }
     
     
