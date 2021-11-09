@@ -423,7 +423,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         jButton6.setBackground(new java.awt.Color(204, 102, 0));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Ice Cream");
+        jButton6.setText("Bakery");
 
         jButton7.setBackground(new java.awt.Color(204, 102, 0));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
