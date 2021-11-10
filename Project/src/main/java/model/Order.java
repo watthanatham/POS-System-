@@ -5,23 +5,39 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author 66945
  */
 public class Order {
-    private int Id;
+    private int id;
+    private Date created;
     private int order_id;
+    private User seller;
+    private Customer customer;
     private String date;
     private String Usertype;
     private double total;
+    private ArrayList<DetailOrder> detailorder;
+    
+     public Order(int id,Date created,double total, User seller, Customer customer) {
+        this.id = id;
+        this.created = created;
+        this.total = total;
+        this.seller = seller;
+        this.customer = customer;
+        this.detailorder = new ArrayList<>();
+    }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int Id) {
-        this.Id = Id;
+        this.id = Id;
     }
      public int getOrder_id() {
         return order_id;
@@ -55,7 +71,7 @@ public class Order {
     }
 
     public Order(int Id,int order_id ,String date, String Usertype, double total) {
-        this.Id = Id;
+        this.id = Id;
         this.order_id = order_id;
         this.date = date;
         this.Usertype = Usertype;
@@ -64,7 +80,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "Id=" + Id +",no_order=" + order_id +", date=" + date + ", Usertype=" + Usertype + ", total=" + total + '}';
+        return "Order{" + "Id=" + id +",no_order=" + order_id +", date=" + date + ", Usertype=" + Usertype + ", total=" + total + '}';
     }
     
     
