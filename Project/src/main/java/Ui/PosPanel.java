@@ -62,17 +62,17 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         loadTable();
         defaultValue();
         moneySummaryUpdate();
-        //loadButton();
+        loadButton();
     }
 
-    /*private void loadButton() {
+    private void loadButton() {
         if (selectProduct.size() > 0 && cash - sumTotal >= 0) {
             btnPrint.setEnabled(true);
         } else {
             btnPrint.setEnabled(false);
         }
 
-    }*/
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -678,6 +678,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         int index = selectProduct.indexOf(product);
         if (amount == 0) {
             selectProduct.remove(index);
+            defaultValue();
         }
         loadTable();
         loadTotal();
