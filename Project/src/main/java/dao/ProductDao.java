@@ -323,12 +323,10 @@ public class ProductDao implements DaoInterface<Product> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT prod_id,\n"
-                    + "       prod_name,\n"
-                    + "       prod_price,\n"
-                    + "       prod_type\n"
-                    + "       prod_amount\n"
-                    + "  FROM Product Order by prod_amount asc ;";
+            String sql = "SELECT * FROM Product "
+                    +"ORDER BY prod_amount DESC;";
+                 
+                 
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {

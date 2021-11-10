@@ -5,6 +5,11 @@
  */
 package WEN_Mainstaff_Manager;
 
+import Chang.PosPanel;
+import Jeab.UserManagementPanel;
+import Noom.CustomerPanel;
+import Pae.OrderPanel;
+import Ploy.EmployeePanel;
 import bank.StockPanel;
 import bank.TestStockDialog;
 import dao.ProductDao;
@@ -288,8 +293,7 @@ public class MainmenuManager extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrMain2)
-                .addContainerGap())
+                .addComponent(scrMain2))
             .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -298,23 +302,21 @@ public class MainmenuManager extends javax.swing.JPanel {
                 .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrMain2, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 11, Short.MAX_VALUE))))
+                    .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 506, Short.MAX_VALUE)
+                    .addComponent(scrMain2)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointofsellActionPerformed
-        // TODO add your handling code here:
+        scrMain2.setViewportView(new PosPanel());
     }//GEN-LAST:event_btnPointofsellActionPerformed
 
     private void btnOrderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderManagementActionPerformed
-        // TODO add your handling code here:
+        scrMain2.setViewportView(new OrderPanel());
     }//GEN-LAST:event_btnOrderManagementActionPerformed
 
     private void btnCustomerManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerManagementActionPerformed
-        // TODO add your handling code here:
+        scrMain2.setViewportView(new CustomerPanel());
     }//GEN-LAST:event_btnCustomerManagementActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -322,15 +324,15 @@ public class MainmenuManager extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
-        // TODO add your handling code here:
+        scrMain2.setViewportView(new StockPanel());
     }//GEN-LAST:event_btnStockManagementActionPerformed
 
     private void btnEmployeeManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeManagementActionPerformed
-        // TODO add your handling code here:
+        scrMain2.setViewportView(new EmployeePanel());
     }//GEN-LAST:event_btnEmployeeManagementActionPerformed
 
     private void btnUserManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserManagementActionPerformed
-        // TODO add your handling code here:
+        scrMain2.setViewportView(new UserManagementPanel());
     }//GEN-LAST:event_btnUserManagementActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
