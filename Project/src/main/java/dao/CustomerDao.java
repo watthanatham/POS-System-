@@ -44,6 +44,28 @@ public class CustomerDao implements DaoInterface<Customer> {
         db.close();
         return id;
     }
+    public Customer getFromTel(String telephone) {
+        Connection conn = null;
+        Database db = Database.getInstance();
+        conn = db.getConnection();
+        try {
+            String sql = "SELECT CUS_ID,CUS_NAME,CUS_TELE FROM Customer WHERE CUS_TELE=" + telephone;
+            Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(sql);
+            if (result.next()) {
+                int cid = result.getInt("CUS_ID");
+                String name = result.getString("CUS_NAME");
+                String tel = result.getString("CUS_TELE");
+                Customer cus = new Customer(cid, name,tel);
+                db.close();
+                return cus;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+        db.close();
+        return null;
+    }
 
     @Override
     public ArrayList<Customer> getAll() {
@@ -79,28 +101,7 @@ public class CustomerDao implements DaoInterface<Customer> {
         return list;
 
     }
-    public Customer getFromTel(String telephone) {
-        Connection conn = null;
-        Database db = Database.getInstance();
-        conn = db.getConnection();
-        try {
-            String sql = "SELECT CUS_ID,CUS_NAME,CUS_TELE FROM Customer WHERE CUS_TELE=" + telephone;
-            Statement stmt = conn.createStatement();
-            ResultSet result = stmt.executeQuery(sql);
-            if (result.next()) {
-                int cid = result.getInt("CUS_ID");
-                String name = result.getString("CUS_NAME");
-                String tel = result.getString("CUS_TELE");
-                Customer cus = new Customer(cid, name,tel);
-                db.close();
-                return cus;
-            }
-        } catch (SQLException ex) {
-            System.out.println("Error" + ex.getMessage());
-        }
-        db.close();
-        return null;
-    }
+    
 //    public ArrayList<Customer> getID(String id) {
 //        ArrayList list = new ArrayList();
 //        Connection conn = null;

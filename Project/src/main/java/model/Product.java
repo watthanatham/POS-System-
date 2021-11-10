@@ -5,8 +5,6 @@
  */
 package model;
 
-
-
 /**
  *
  *
@@ -50,10 +48,6 @@ public class Product {
         this.name = name;
         this.price = price;
     }
-
-   
-
-  
 
     public int getId() {
         return id;
@@ -101,6 +95,13 @@ public class Product {
 
     public void setType(String type) {
         this.type = type;
+    }
+    public int getTotal(){
+        return (int) (price*amount);
+    }
+    public int addAmount(){
+        amount++;
+        return amount;
     }
 
     @Override

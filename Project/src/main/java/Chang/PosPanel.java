@@ -561,8 +561,8 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     }//GEN-LAST:event_btnReceiveActionPerformed
 
     private void btnMembershipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMembershipActionPerformed
-        Membership member = new Membership();
-        member.setVisible(true);
+        //Membership member = new Membership();
+        //member.setVisible(true);
     }//GEN-LAST:event_btnMembershipActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
