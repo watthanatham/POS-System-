@@ -95,14 +95,12 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         txtTextTotal = new javax.swing.JLabel();
         txtTextMember = new javax.swing.JLabel();
         txtTextName = new javax.swing.JLabel();
-        txtTextDis = new javax.swing.JLabel();
         txtLine = new javax.swing.JLabel();
         txtTextTal = new javax.swing.JLabel();
         txtTextCash = new javax.swing.JLabel();
         txtTextChange = new javax.swing.JLabel();
         txtTTSales = new javax.swing.JLabel();
         txtName = new javax.swing.JLabel();
-        txtDiscount = new javax.swing.JLabel();
         txtTotalMoney = new javax.swing.JLabel();
         txtCash = new javax.swing.JLabel();
         txtChange = new javax.swing.JLabel();
@@ -200,9 +198,6 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         txtTextName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtTextName.setText("Name :");
 
-        txtTextDis.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtTextDis.setText("Discount :");
-
         txtLine.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtLine.setText("----------------------------------------------------------");
 
@@ -220,9 +215,6 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
         txtName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtName.setText("NA");
-
-        txtDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtDiscount.setText("THB 0.00");
 
         txtTotalMoney.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTotalMoney.setText("THB 0.00");
@@ -246,30 +238,23 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
                             .addComponent(txtLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTextDis)
                                     .addComponent(txtTextTal)
                                     .addComponent(txtTextCash)
-                                    .addComponent(txtTextChange))
+                                    .addComponent(txtTextChange)
+                                    .addComponent(txtTextName))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                            .addGap(11, 11, 11)
-                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                                    .addComponent(txtDiscount)
-                                                    .addGap(33, 33, 33))
-                                                .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addComponent(txtTotalMoney))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtChange)
-                                            .addComponent(txtCash))))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtTotalMoney)
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(txtChange)
+                                                    .addComponent(txtCash))))
+                                        .addGap(26, 26, 26))
+                                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(txtTextName)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(txtTextTotal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -285,15 +270,11 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
                     .addComponent(txtTTSales))
                 .addGap(18, 18, 18)
                 .addComponent(txtTextMember)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTextName)
                     .addComponent(txtName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTextDis)
-                    .addComponent(txtDiscount))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txtLine)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -555,7 +536,6 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     private void btnReceiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiveActionPerformed
         cash = Double.parseDouble(JOptionPane.showInputDialog(this, "Input money receive", null));
         //refresh();
-        receive(cash);
         moneySummaryUpdate();
     }//GEN-LAST:event_btnReceiveActionPerformed
 
@@ -651,13 +631,11 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     private javax.swing.JTable tblProducts;
     private javax.swing.JLabel txtCash;
     private javax.swing.JLabel txtChange;
-    private javax.swing.JLabel txtDiscount;
     private javax.swing.JLabel txtLine;
     private javax.swing.JLabel txtName;
     private javax.swing.JLabel txtTTSales;
     private javax.swing.JLabel txtTextCash;
     private javax.swing.JLabel txtTextChange;
-    private javax.swing.JLabel txtTextDis;
     private javax.swing.JLabel txtTextMember;
     private javax.swing.JLabel txtTextName;
     private javax.swing.JLabel txtTextTal;
@@ -687,20 +665,12 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     public void loadTotal() {
 
         for (Product p : selectProduct) {
-            total += p.getAmount() * p.getPrice();
+            total = p.getAmount() * p.getPrice();
         }
         moneySummaryUpdate();
 
     }
 
-    public void receive(double cash) {
-        double sum = 0;
-
-        for (Product p : selectProduct) {
-            sum += p.getAmount() * p.getPrice();
-        }
-        sum = cash - sum;
-    }
 
     public void loadTable() {
         ProductTableModel model = new ProductTableModel(selectProduct);
@@ -772,12 +742,10 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         sumTotal = 0;
         change = 0;
         txtName.setText("NA");
-        txtDiscount.setText("THB 0.00");
     }
 
     private void moneySummaryUpdate() {
         txtTTSales.setText("THB " + total);
-        txtDiscount.setText("THB " + cusDiscount);
         txtTotalMoney.setText("THB " + total);
         txtCash.setText("THB " + cash);
         txtChange.setText("THB " + (cash - total));
