@@ -13,6 +13,7 @@ import Ploy.EmployeePanel;
 import bank.StockPanel;
 import bank.TestStockDialog;
 import dao.ProductDao;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -112,8 +113,21 @@ public class MainmenuManager extends javax.swing.JPanel {
         } catch (IOException ex) {
 
         }
+        
 
     }
+    public void refreshbtn(){
+        btnPointofsell.setBackground(new Color(240,240,240));
+        btnCustomerManagement.setBackground(new Color(240,240,240));
+        btnEmployeeManagement.setBackground(new Color(240,240,240));
+        btnHome.setBackground(new Color(240,240,240));
+        btnLogout.setBackground(new Color(240,240,240));
+        btnStockManagement.setBackground(new Color(240,240,240));
+        btnUserManagement.setBackground(new Color(240,240,240));
+        btnOrderManagement.setBackground(new Color(240,240,240));
+        
+    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -195,21 +209,22 @@ public class MainmenuManager extends javax.swing.JPanel {
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTopLayout.createSequentialGroup()
                 .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabelMainManager, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelTopLayout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanelTopLayout.createSequentialGroup()
-                                    .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel3))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel4))))
-                            .addGap(1, 1, 1)))
+                    .addGroup(jPanelTopLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelMainManager, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelTopLayout.createSequentialGroup()
+                                .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanelTopLayout.createSequentialGroup()
+                                        .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel3))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4))))
+                                .addGap(1, 1, 1))))
                     .addGroup(jPanelTopLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -360,34 +375,50 @@ public class MainmenuManager extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointofsellActionPerformed
+        refreshbtn();
+        btnPointofsell.setBackground(new Color(255,153,102));
         scrMain2.setViewportView(new PosPanel());
+        
     }//GEN-LAST:event_btnPointofsellActionPerformed
 
     private void btnOrderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderManagementActionPerformed
+        refreshbtn();
+        btnOrderManagement.setBackground(new Color(255,153,102));
         scrMain2.setViewportView(new OrderPanel());
     }//GEN-LAST:event_btnOrderManagementActionPerformed
 
     private void btnCustomerManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerManagementActionPerformed
+        refreshbtn();
+        btnCustomerManagement.setBackground(new Color(255,153,102));
         scrMain2.setViewportView(new CustomerPanel());
     }//GEN-LAST:event_btnCustomerManagementActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-      scrMain2.setViewportView(new MainMenuManagerPanel());
+        refreshbtn();
+        btnHome.setBackground(new Color(255,153,102));
+        scrMain2.setViewportView(new MainMenuManagerPanel());
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
+        refreshbtn();
+        btnStockManagement.setBackground(new Color(255,153,102));
         scrMain2.setViewportView(new StockPanel());
     }//GEN-LAST:event_btnStockManagementActionPerformed
 
     private void btnEmployeeManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeManagementActionPerformed
+        refreshbtn();
+        btnEmployeeManagement.setBackground(new Color(255,153,102));
         scrMain2.setViewportView(new EmployeePanel());
     }//GEN-LAST:event_btnEmployeeManagementActionPerformed
 
     private void btnUserManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserManagementActionPerformed
+        refreshbtn();
+        btnUserManagement.setBackground(new Color(255,153,102));
         scrMain2.setViewportView(new UserManagementPanel());
     }//GEN-LAST:event_btnUserManagementActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        
         System.exit(0);
     }//GEN-LAST:event_btnLogoutActionPerformed
 

@@ -82,6 +82,8 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(255, 153, 51));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Password  : ");
@@ -89,6 +91,9 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Username :");
 
+        edtPassword.setToolTipText("");
+
+        btnCancel.setBackground(new java.awt.Color(255, 102, 102));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +101,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnOK.setBackground(new java.awt.Color(0, 153, 51));
         btnOK.setText("OK");
         btnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,10 +256,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel edtError;
     private javax.swing.JTextField edtName;
     private javax.swing.JPasswordField edtPassword;
-    private javax.swing.JTextField edtUsername;
-    private javax.swing.JTextField edtUsername1;
-    private javax.swing.JTextField edtUsername2;
-    private javax.swing.JTextField edtUsername3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

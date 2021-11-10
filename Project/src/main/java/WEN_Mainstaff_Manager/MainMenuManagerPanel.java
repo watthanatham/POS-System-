@@ -89,6 +89,8 @@ String[] columnName = {"No", "Product Name", "Quantity (price)"};
         jPanel6 = new javax.swing.JPanel();
         lblimageYear = new javax.swing.JLabel();
 
+        jpanelMainStaff.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(

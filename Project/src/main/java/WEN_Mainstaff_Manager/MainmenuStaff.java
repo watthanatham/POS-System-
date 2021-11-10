@@ -15,6 +15,7 @@ import java.util.Date;
 
 import bank.TestStockDialog;
 import dao.ProductDao;
+import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -92,6 +93,13 @@ public class MainmenuStaff extends javax.swing.JPanel {
         } catch (IOException ex) {
 
         }
+    }
+    public void refreshbtn(){
+        btnPointofsell.setBackground(new Color(240,240,240));
+        btnHome.setBackground(new Color(240,240,240));
+        btnLogout.setBackground(new Color(240,240,240));
+        btnStockManagement.setBackground(new Color(240,240,240));
+        
     }
 
     /**
@@ -284,14 +292,20 @@ public class MainmenuStaff extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-      scrMain2.setViewportView(new MainMenuStaffPanel());
+        refreshbtn();
+        btnHome.setBackground(new Color(255,153,102));
+        scrMain2.setViewportView(new MainMenuStaffPanel());
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnPointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointofsellActionPerformed
+        refreshbtn();
+        btnPointofsell.setBackground(new Color(255,153,102));
         scrMain2.setViewportView(new PosPanel());
     }//GEN-LAST:event_btnPointofsellActionPerformed
 
     private void btnStockManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockManagementActionPerformed
+        refreshbtn();
+        btnStockManagement.setBackground(new Color(255,153,102));
         scrMain2.setViewportView(new StockPanel());
     }//GEN-LAST:event_btnStockManagementActionPerformed
 
