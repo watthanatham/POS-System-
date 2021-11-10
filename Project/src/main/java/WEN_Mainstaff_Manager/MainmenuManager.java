@@ -181,7 +181,7 @@ public class MainmenuManager extends javax.swing.JPanel {
         jLabel3.setText("Natthawut");
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Manager");
+        jLabel4.setText(" Manager");
 
         javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
         jPanelTop.setLayout(jPanelTopLayout);

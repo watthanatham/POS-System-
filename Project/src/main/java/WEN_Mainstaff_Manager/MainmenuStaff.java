@@ -314,7 +314,8 @@ public class MainmenuStaff extends javax.swing.JPanel {
     }//GEN-LAST:event_btnStockManagementActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-      System.exit(0);
+       System.exit(0);
+        
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 
