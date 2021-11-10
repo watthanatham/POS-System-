@@ -19,6 +19,7 @@ public class Manager extends javax.swing.JFrame {
     public Manager() {
         initComponents();
         scrMain.setViewportView(new MainmenuManager());
+        setSize(1480, 900);
     }
 
     /**

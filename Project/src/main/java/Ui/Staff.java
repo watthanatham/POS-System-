@@ -19,6 +19,7 @@ public class Staff extends javax.swing.JFrame {
     public Staff() {
         initComponents();
         scrMain.setViewportView(new MainmenuStaff());
+        setSize(1400, 670);
     }
 
     /**
