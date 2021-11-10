@@ -21,6 +21,7 @@ import model.Product;
  */
 public class CustomerDao implements DaoInterface<Customer> {
 
+
     @Override
     public int add(Customer object) {
         Connection conn = null;

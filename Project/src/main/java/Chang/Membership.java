@@ -5,6 +5,10 @@
  */
 package Chang;
 
+import dao.CustomerDao;
+import java.util.ArrayList;
+import model.Customer;
+
 /**
  *
  * @author watan
@@ -14,8 +18,15 @@ public class Membership extends javax.swing.JFrame {
     /**
      * Creates new form Membership
      */
+    
+    private Customer customer;
+    private final ArrayList<Customer> customerList;
+     private final ArrayList<CustomerObserver> customerSelect = new ArrayList();
+    
     public Membership() {
         initComponents();
+        CustomerDao dao = new CustomerDao();
+        customerList = dao.getAll();
     }
 
     /**
@@ -37,10 +48,11 @@ public class Membership extends javax.swing.JFrame {
         txtName = new javax.swing.JLabel();
         txtTel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        edtTel = new javax.swing.JTextField();
+        inputTel = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        txtNotFound = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,7 +137,7 @@ public class Membership extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Telephone number:");
 
-        edtTel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        inputTel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         btnSearch.setBackground(new java.awt.Color(102, 153, 255));
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,6 +151,10 @@ public class Membership extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cancel");
 
+        txtNotFound.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNotFound.setForeground(new java.awt.Color(255, 0, 0));
+        txtNotFound.setText("Not Found");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -150,7 +166,7 @@ public class Membership extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(edtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(inputTel, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSearch)
                         .addGap(125, 125, 125))
@@ -158,10 +174,15 @@ public class Membership extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(261, 261, 261)
-                .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(261, 261, 261)
+                        .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(311, 311, 311)
+                        .addComponent(txtNotFound)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -173,11 +194,13 @@ public class Membership extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(edtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(inputTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNotFound)
+                .addGap(17, 17, 17)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -238,7 +261,7 @@ public class Membership extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOk;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JTextField edtTel;
+    private javax.swing.JTextField inputTel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -249,6 +272,45 @@ public class Membership extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel txtName;
+    private javax.swing.JLabel txtNotFound;
     private javax.swing.JLabel txtTel;
     // End of variables declaration//GEN-END:variables
+    private void checkMember(String tel){
+        customerList.forEach((Customer c) -> {
+            if(c.getTel().equals(tel)){
+                customer = c;
+            }
+        });
+        if(customer != null){
+            showMember(customer);
+            if(!customer.getTel().equals(inputTel.getText())){
+                txtNotFound.setVisible(true);
+                txtNotFound.setText("Not found "+inputTel.getText());
+                defaultInfo();
+                btnOk.setEnabled(false);
+            }else{
+                btnOk.setEnabled(true);
+            }
+        }else{
+            txtNotFound.setVisible(true);
+            txtNotFound.setText("Not found "+inputTel.getText());
+            defaultInfo();
+            btnOk.setEnabled(false);
+        }
+    }
+    private void showMember(Customer member) {
+        txtName.setText(member.getName());
+        txtTel.setText(member.getTel());
+    }
+    private void defaultInfo() {
+        txtName.setText("NA");
+        txtTel.setText("NA");
+    }
+    public interface CustomerObserver{
+        public void select(Customer customer);
+    }
+    public void addSelect(CustomerObserver o){
+        customerSelect.add(o);
+    }
 }
+

@@ -561,8 +561,8 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     }//GEN-LAST:event_btnReceiveActionPerformed
 
     private void btnMembershipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMembershipActionPerformed
-        //Membership member = new Membership();
-        //member.setVisible(true);
+        Membership member = new Membership();
+        member.setVisible(true);
     }//GEN-LAST:event_btnMembershipActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
@@ -674,6 +674,16 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
             selectProduct.remove(index);
         }
         loadTable();
+        loadTotal();
+    }
+    public void loadTotal() {
+        double sum = 0;
+        
+        for(Product p: selectProduct ) {
+            sum+=p.getAmount()*p.getPrice();
+        }
+        txtTTSales.setText("THB "+ sum);
+        txtTotalMoney.setText("THB "+ sum);
     }
     public void loadTable() {
         ProductTableModel model = new ProductTableModel(selectProduct);
