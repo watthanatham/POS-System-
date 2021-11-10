@@ -344,7 +344,7 @@ public class StockPanel extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnEdit.setBackground(new java.awt.Color(51, 204, 0));
+        btnEdit.setBackground(new java.awt.Color(0, 153, 51));
         btnEdit.setFont(new java.awt.Font("Angsana New", 0, 18)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit");
