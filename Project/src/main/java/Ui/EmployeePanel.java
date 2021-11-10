@@ -6,6 +6,7 @@
 package Ui;
 
 import dao.EmployeeDao;
+import dao.ProductDao;
 import dao.UserDao;
 import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
@@ -136,6 +137,7 @@ public class EmployeePanel extends javax.swing.JPanel {
         btnEdit = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
+        btnShowall = new javax.swing.JButton();
         scProctPane = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
 
@@ -337,6 +339,14 @@ public class EmployeePanel extends javax.swing.JPanel {
             }
         });
 
+        btnShowall.setBackground(new java.awt.Color(0, 51, 204));
+        btnShowall.setText("Show");
+        btnShowall.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowallActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -345,6 +355,8 @@ public class EmployeePanel extends javax.swing.JPanel {
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnShowall)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -366,7 +378,8 @@ public class EmployeePanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
+                    .addComponent(btnSearch)
+                    .addComponent(btnShowall))
                 .addContainerGap())
         );
 
@@ -492,6 +505,15 @@ public class EmployeePanel extends javax.swing.JPanel {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
        SearchUser();
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnShowallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowallActionPerformed
+        // TODO add your handling code here:
+         EmployeeDao dao = new EmployeeDao();
+        initForm();
+        loadTable(dao);
+        txtSearch.setText("");
+         btnShowall.setVisible(false);
+    }//GEN-LAST:event_btnShowallActionPerformed
     
     public void SearchUser() {
         EmployeeDao dao = new EmployeeDao();
@@ -511,6 +533,7 @@ public class EmployeePanel extends javax.swing.JPanel {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnShowall;
     private javax.swing.JComboBox<String> cbbType;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
