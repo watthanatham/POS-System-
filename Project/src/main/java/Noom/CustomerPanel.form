@@ -78,7 +78,7 @@
                   <Component id="JPurshase" min="-2" pref="143" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtPurshase" min="-2" pref="113" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="196" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="204" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -280,9 +280,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtSearch">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
-            </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Text Cursor"/>
