@@ -398,7 +398,7 @@ public class StockPanel extends javax.swing.JPanel {
                 .addGap(21, 21, 21))
         );
 
-        tblStock.setFont(new java.awt.Font("Angsana New", 1, 18)); // NOI18N
+        tblStock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tblStock.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},

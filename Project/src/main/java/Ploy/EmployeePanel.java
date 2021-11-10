@@ -369,6 +369,7 @@ public class EmployeePanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        tblEmployee.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
