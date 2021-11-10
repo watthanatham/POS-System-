@@ -155,7 +155,7 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSave.setBackground(new java.awt.Color(0, 102, 204));
+        btnSave.setBackground(new java.awt.Color(0, 51, 204));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +224,7 @@ public class CustomerPanel extends javax.swing.JPanel {
                 .addComponent(JPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 204, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
