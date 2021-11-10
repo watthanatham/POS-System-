@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ploy;
+package Ui;
 
-import Jeab.UserManagementPanel;
 import dao.EmployeeDao;
 import dao.UserDao;
 import java.util.ArrayList;

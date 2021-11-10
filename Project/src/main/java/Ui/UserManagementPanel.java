@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Jeab;
+package Ui;
 
 import dao.UserDao;
 import java.util.ArrayList;

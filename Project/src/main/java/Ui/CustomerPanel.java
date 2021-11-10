@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Noom;
+package Ui;
 
 import dao.CustomerDao;
 import java.util.ArrayList;

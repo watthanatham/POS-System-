@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WEN_Mainstaff_Manager;
+package Ui;
 
-import Chang.PosPanel;
-import Noom.CustomerPanel;
-import Pae.OrderPanel;
-import bank.StockPanel;
-import WEN_Mainstaff_Manager.MainMenuStaffPanel;
+import Ui.MainMenuStaffPanel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import bank.TestStockDialog;
 import dao.ProductDao;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;

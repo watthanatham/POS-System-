@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Chang;
+package Ui;
 
-import Chang.Membership.CustomerObserver;
-import Chang.ProductPanel.OnBuyProductListener;
+import Ui.ReceiptOrder;
+import Ui.Membership.CustomerObserver;
+import Ui.ProductPanel.OnBuyProductListener;
 import dao.ProductDao;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -61,17 +62,17 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         loadTable();
         defaultValue();
         moneySummaryUpdate();
-        loadButton();
+        //loadButton();
     }
 
-    private void loadButton() {
+    /*private void loadButton() {
         if (selectProduct.size() > 0 && cash - sumTotal >= 0) {
             btnPrint.setEnabled(true);
         } else {
             btnPrint.setEnabled(false);
         }
 
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.

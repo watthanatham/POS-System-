@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Chang;
+package Ui;
 
-import Noom.CustomerPanel;
+import Ui.CustomerPanel;
 import dao.CustomerDao;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

@@ -3,15 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WEN_Mainstaff_Manager;
+package Ui;
 
-import Chang.PosPanel;
-import Jeab.UserManagementPanel;
-import Noom.CustomerPanel;
-import Pae.OrderPanel;
-import Ploy.EmployeePanel;
-import bank.StockPanel;
-import bank.TestStockDialog;
+import Ui.MainMenuManagerPanel;
 import dao.ProductDao;
 import java.awt.Color;
 import java.awt.image.BufferedImage;

@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package WEN_Mainstaff_Manager;
+package Ui;
 
+import Ui.MainmenuManager;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 

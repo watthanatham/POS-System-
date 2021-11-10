@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Chang;
+package Ui;
 
 import dao.OrderDao;
 import java.awt.image.BufferedImage;
@@ -354,9 +354,10 @@ public class ReceiptOrder extends javax.swing.JFrame {
                     .addComponent(txtCash)
                     .addComponent(jLabel24))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(txtChange))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtChange)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel26)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel28)
                 .addGap(34, 34, 34)
