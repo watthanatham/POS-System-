@@ -77,7 +77,7 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id,order_id,Date,UserType,Total FROM [order] Where Id = '" + order_id + "'";
+            String sql = "SELECT Id,Date,UserType,Total FROM [order] Where Id = '" + order_id + "'";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
@@ -103,7 +103,7 @@ public class OrderDao implements DaoInterface<Order>{
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT Id,order_id,Date,UserType,Total FROM [order] Where Id = " + id;
+            String sql = "SELECT Id,Date,UserType,Total FROM [order] Where Id = " + id;
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             if(result.next()) {

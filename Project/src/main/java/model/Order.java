@@ -15,7 +15,7 @@ import java.util.Date;
 public class Order {
     private int id;
     private Date created;
-    private int order_id;
+//    private int order_id;
     private User seller;
     private Customer customer;
     private String date;
@@ -67,12 +67,12 @@ public class Order {
     public  void addDetailOrder(Product product){
         addDetailOrder(-1, product);
     }
-     public int getOrder_id() {
-        return order_id;
-    }
-     public void setOrder_id(int order_id){
-         this.order_id = order_id;
-     }
+//     public int getOrder_id() {
+//        return order_id;
+//    }
+//     public void setOrder_id(int order_id){
+//         this.order_id = order_id;
+//     }
 
     public String getDate() {
         return date;
@@ -107,7 +107,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "Id=" + id +",no_order=" + order_id +", date=" + date + ", Usertype=" + Usertype + ", total=" + total + '}';
+        return "Order{" + "Id=" + id  +", date=" + date + ", Usertype=" + Usertype + ", total=" + total + '}';
     }
     
     
