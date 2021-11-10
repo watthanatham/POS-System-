@@ -54,7 +54,13 @@ public class StockPanel extends javax.swing.JPanel {
         }
         txtName.setText(editedStock.getName());
         txtPrice.setText("" + editedStock.getPrice());
-        txtPrice.setText("" + editedStock.getType());
+        if (editedStock.getType().equals("Coffee")) {
+            jComboBoxType.setSelectedIndex(0);
+        } else if(editedStock.getType().equals("MT")){
+            jComboBoxType.setSelectedIndex(1);
+        }else{
+            jComboBoxType.setSelectedIndex(2);
+        }
         txtAmount.setText("" + editedStock.getAmount());
         enabledTrue();
     }
@@ -63,6 +69,7 @@ public class StockPanel extends javax.swing.JPanel {
         lblId.setEnabled(true);
         txtName.setEnabled(true);
         txtPrice.setEnabled(true);
+        jComboBoxType.setEnabled(true);
         txtAmount.setEnabled(true);
         btnSave.setEnabled(true);
         btnCancel.setEnabled(true);
@@ -72,6 +79,7 @@ public class StockPanel extends javax.swing.JPanel {
     public void loadFromToStock() {
         editedStock.setName(txtName.getText());
         editedStock.setPrice(Double.parseDouble(txtPrice.getText()));
+        editedStock.setType(jComboBoxType.getSelectedItem().toString());
         editedStock.setAmount((int) Double.parseDouble(txtAmount.getText()));
     }
 
@@ -89,6 +97,7 @@ public class StockPanel extends javax.swing.JPanel {
         lblId.setText("");
         txtName.setText("");
         txtPrice.setText("");
+        jComboBoxType.setEnabled(false);
         txtAmount.setText("");
         txtSearch.setText("");
         initForm();
@@ -122,6 +131,7 @@ public class StockPanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         Type = new javax.swing.JLabel();
         jComboBoxType = new javax.swing.JComboBox<>();
+        btnShowAll = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -243,6 +253,16 @@ public class StockPanel extends javax.swing.JPanel {
             }
         });
 
+        btnShowAll.setBackground(new java.awt.Color(255, 51, 51));
+        btnShowAll.setFont(new java.awt.Font("Angsana New", 0, 18)); // NOI18N
+        btnShowAll.setForeground(new java.awt.Color(255, 255, 255));
+        btnShowAll.setText("Show All");
+        btnShowAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowAllActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -256,6 +276,8 @@ public class StockPanel extends javax.swing.JPanel {
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnShowAll)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,11 +343,12 @@ public class StockPanel extends javax.swing.JPanel {
                             .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9))
-                    .addComponent(btnSearch, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnShowAll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -498,6 +521,14 @@ public class StockPanel extends javax.swing.JPanel {
        
     }//GEN-LAST:event_jComboBoxTypeActionPerformed
 
+    private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
+        btnShowAll.setEnabled(false);
+        ProductDao dao = new ProductDao();
+        initForm();
+        loadTable(dao);
+        txtSearch.setText("");
+    }//GEN-LAST:event_btnShowAllActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Type;
@@ -507,6 +538,7 @@ public class StockPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnShowAll;
     private javax.swing.JComboBox<String> jComboBoxType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
