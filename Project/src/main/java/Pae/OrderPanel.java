@@ -55,7 +55,6 @@ public class OrderPanel extends javax.swing.JPanel {
         if (editedOrder.getId() >= 0) {
             lblid.setText("" + editedOrder.getId());
         }
-        lblno_order.setText("" + editedOrder.getOrder_id());
         lbldate.setText("" + editedOrder.getDate());
         txttype.setText("" + editedOrder.getUsertype());
         txttotal.setText("" + editedOrder.getTotal());
@@ -481,16 +480,13 @@ public class OrderPanel extends javax.swing.JPanel {
             if (columnIndex == 0) {
                 return order.getId();
             }
-            if(columnIndex == 1){
-                return order.getOrder_id();
-            }
-            if (columnIndex == 2) {
+            if (columnIndex == 1) {
                 return order.getDate();
             }
-            if (columnIndex == 3) {
+            if (columnIndex == 2) {
                 return order.getUsertype();
             }
-            if (columnIndex == 4) {
+            if (columnIndex == 3) {
                 return order.getTotal();
             }
             return "";
