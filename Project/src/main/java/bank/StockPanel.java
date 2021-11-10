@@ -246,7 +246,7 @@ public class StockPanel extends javax.swing.JPanel {
         Type.setFont(new java.awt.Font("Angsana New", 1, 24)); // NOI18N
         Type.setText("Type : ");
 
-        jComboBoxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coffee", "MT", "Bakery" }));
         jComboBoxType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTypeActionPerformed(evt);

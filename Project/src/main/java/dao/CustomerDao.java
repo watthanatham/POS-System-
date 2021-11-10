@@ -75,8 +75,7 @@ public class CustomerDao implements DaoInterface<Customer> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT CUS_NO,\n"
-                    + "CUS_ID,\n"
+            String sql = "SELECT CUS_ID,\n"
                     + "CUS_NAME,\n"
                     + "CUS_TELE,\n"
                     + "CUS_POINT,\n"
@@ -85,13 +84,13 @@ public class CustomerDao implements DaoInterface<Customer> {
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
-                int no = result.getInt("CUS_NO");
-                String id = result.getString("CUS_ID");
+
+                int id = result.getInt("CUS_ID");
                 String name = result.getString("CUS_NAME");
                 String tel = result.getString("CUS_TELE");
                 double point = result.getDouble("CUS_POINT");
                 int purshase = result.getInt("CUS_PURCHASES");
-                Customer customer = new Customer(no, id, name, tel, point, purshase);
+                Customer customer = new Customer(id, name, tel, point, purshase);
                 list.add(customer);
                 System.out.println(customer);
             }
@@ -144,13 +143,13 @@ public class CustomerDao implements DaoInterface<Customer> {
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
-                int cno = result.getInt("CUS_NO");
-                String cid = result.getString("CUS_ID");
+            
+                int cid = result.getInt("CUS_ID");
                 String cname = result.getString("CUS_NAME");
                 String ctel = result.getString("CUS_TELE");
                 double cpoint = result.getDouble("CUS_POINT");
                 int cpurshase = result.getInt("CUS_PURCHASES");
-                Customer customer = new Customer(cno, cid, cname, ctel, cpoint, cpurshase);
+                Customer customer = new Customer(cid, cname, ctel, cpoint, cpurshase);
                 list.add(customer);
 
             }
@@ -173,11 +172,10 @@ public class CustomerDao implements DaoInterface<Customer> {
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
-                int cno = result.getInt("CUS_NO");
-                String cid = result.getString("CUS_ID");
+                int cid = result.getInt("CUS_ID");
                 String cname = result.getString("CUS_NAME");
                 String ctel = result.getString("CUS_TELE");
-                Customer customer = new Customer(cno, cid, cname, ctel);
+                Customer customer = new Customer(cid, cname, ctel);
                 list.add(customer);
 
             }
@@ -195,17 +193,16 @@ public class CustomerDao implements DaoInterface<Customer> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT CUS_NO, CUS_ID, CUS_NAME, CUS_TELE, CUS_POINT, CUS_PURCHASES FROM Customer WHERE CUS_NO =" + no;
+            String sql = "SELECT CUS_ID, CUS_NAME, CUS_TELE, CUS_POINT, CUS_PURCHASES FROM Customer WHERE CUS_NO =" + no;
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             if (result.next()) {
-                int pno = result.getInt("CUS_NO");
-                String pid = result.getString("CUS_ID");
+                int pid = result.getInt("CUS_ID");
                 String pname = result.getString("CUS_NAME");
                 String ptel = result.getString("CUS_TELE");
                 double ppoint = result.getDouble("CUS_POINT");
                 int ppurshase = result.getInt("CUS_PURCHASE");
-                Customer customer = new Customer(pno, pid, pname, ptel, ppoint, ppurshase);
+                Customer customer = new Customer(pid, pname, ptel, ppoint, ppurshase);
                 return customer;
             }
         } catch (SQLException ex) {
@@ -215,19 +212,19 @@ public class CustomerDao implements DaoInterface<Customer> {
     }
 
     @Override
-    public int delete(int no) {
+    public int delete(int id) {
         Connection conn = null;
         Database db = Database.getInstance();
         conn = db.getConnection();
         int row = 0;
 
         try {
-            String sql = "DELETE FROM Customer WHERE CUS_NO = ?";
+            String sql = "DELETE FROM Customer WHERE CUS_ID = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, no);
+            stmt.setInt(1, id);
             row = stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println("Error : Unable to delete Customer No " + no + "!!");
+            System.out.println("Error : Unable to delete Customer No " + id + "!!");
         }
 
         db.close();
@@ -241,15 +238,13 @@ public class CustomerDao implements DaoInterface<Customer> {
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE Customer SET CUS_ID = ?, CUS_NAME = ?, CUS_TELE = ? , CUS_POINT = ? , CUS_PURCHASES = ? WHERE CUS_NO = ?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-
-            stmt.setString(1, object.getId());
-            stmt.setString(2, object.getName());
-            stmt.setString(3, object.getTel());
-            stmt.setDouble(4, object.getPoint());
-            stmt.setInt(5, object.getPurshase());
-            stmt.setInt(6, object.getNo());
+            String sql = "UPDATE Customer SET CUS_NAME = ?, CUS_TELE = ? , CUS_POINT = ? , CUS_PURCHASES = ? WHERE CUS_ID = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);           
+            stmt.setString(1, object.getName());
+            stmt.setString(2, object.getTel());
+            stmt.setDouble(3, object.getPoint());
+            stmt.setInt(4, object.getPurshase());
+            stmt.setInt(5, object.getId());
             row = stmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error : Unable to update Customer " + object + "!!");

@@ -375,13 +375,13 @@ public class ProductDao implements DaoInterface<Product> {
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "UPDATE Product SET prod_name = ?, prod_price = ?,prod_amount = ? WHERE prod_id = ?";
+            String sql = "UPDATE Product SET prod_name = ?, prod_price = ?,prod_type = ?,prod_amount = ? WHERE prod_id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, object.getName());
             stmt.setDouble(2, object.getPrice());
-//            stmt.setString(3, object.getType());
-            stmt.setInt(3, object.getAmount());
-            stmt.setInt(4, object.getId());
+            stmt.setString(3, object.getType());
+            stmt.setInt(4, object.getAmount());
+            stmt.setInt(5, object.getId());
             row = stmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error : Unable to update Stock " + object + "!!");

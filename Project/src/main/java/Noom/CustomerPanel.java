@@ -20,7 +20,7 @@ import model.Customer;
 public class CustomerPanel extends javax.swing.JPanel {
 
     private ArrayList<Customer> customerList;
-    String[] columnName = {"No", "Customer_ID", "Name", "TelePhone", "Point", "Number of Purshase"};
+    String[] columnName = {"Customer_ID", "Name", "TelePhone", "Point", "Number of Purshase"};
     private CustomerTableModel model;
     Customer editedCustomer;
 
@@ -37,7 +37,6 @@ public class CustomerPanel extends javax.swing.JPanel {
 
     public void initForm() {
         JNo.setVisible(false);
-        JId.setVisible(false);
         JName.setVisible(false);
         JTelePhone.setVisible(false);
         JPoint.setVisible(false);
@@ -45,7 +44,6 @@ public class CustomerPanel extends javax.swing.JPanel {
         btnSave.setVisible(false);
         btnCancel.setVisible(false);
         lblID.setVisible(false);
-        txtCustomer_ID.setVisible(false);
         txtName.setVisible(false);
         txtTelePhone.setVisible(false);
         txtPoint.setVisible(false);
@@ -54,19 +52,18 @@ public class CustomerPanel extends javax.swing.JPanel {
         btnCancel.setVisible(false);
         btnBack.setVisible(false);
 
+
     }
 
     public void initFromTrue() {
         JNo.setVisible(true);
-        JId.setVisible(true);
         JName.setVisible(true);
         JTelePhone.setVisible(true);
         JPoint.setVisible(true);
         JPurshase.setVisible(true);
         btnSave.setVisible(true);
         btnCancel.setVisible(true);
-        lblID.setVisible(true);
-        txtCustomer_ID.setVisible(true);
+        lblID.setVisible(true);        
         txtName.setVisible(true);
         txtTelePhone.setVisible(true);
         txtPoint.setVisible(true);
@@ -90,10 +87,10 @@ public class CustomerPanel extends javax.swing.JPanel {
     }
 
     public void loadCustomerToForm() {
-        if (editedCustomer.getNo() >= 0) {
-            lblID.setText("" + editedCustomer.getNo());
+        if (editedCustomer.getId() >= 0) {
+            lblID.setText("" + editedCustomer.getId());
         }
-        txtCustomer_ID.setText("" + editedCustomer.getId());
+
         txtName.setText("" + editedCustomer.getName());
         txtTelePhone.setText("" + editedCustomer.getTel());
         txtPoint.setText("" + editedCustomer.getPoint());
@@ -103,7 +100,7 @@ public class CustomerPanel extends javax.swing.JPanel {
     }
 
     public void loadFormToCustomer() {
-        editedCustomer.setId(txtCustomer_ID.getText());
+       
         editedCustomer.setName(txtName.getText());
         editedCustomer.setTel(txtTelePhone.getText());
         editedCustomer.setPoint(Double.parseDouble(txtPoint.getText()));
@@ -122,8 +119,6 @@ public class CustomerPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         JNo = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
-        JId = new javax.swing.JLabel();
-        txtCustomer_ID = new javax.swing.JTextField();
         JName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
@@ -135,7 +130,6 @@ public class CustomerPanel extends javax.swing.JPanel {
         txtPurshase = new javax.swing.JTextField();
         JPurshase = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
@@ -152,15 +146,6 @@ public class CustomerPanel extends javax.swing.JPanel {
         JNo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JNo.setText("No :");
 
-        JId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JId.setText("Customer_ID ");
-
-        txtCustomer_ID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCustomer_IDActionPerformed(evt);
-            }
-        });
-
         JName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JName.setText("Name ");
 
@@ -170,7 +155,7 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSave.setBackground(new java.awt.Color(0, 102, 204));
+        btnSave.setBackground(new java.awt.Color(0, 51, 204));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -224,10 +209,6 @@ public class CustomerPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCustomer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JName, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,11 +224,11 @@ public class CustomerPanel extends javax.swing.JPanel {
                 .addComponent(JPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPurshase, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -262,9 +243,7 @@ public class CustomerPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(JNo)
-                            .addComponent(JId)
                             .addComponent(JName)
-                            .addComponent(txtCustomer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JTelePhone)
                             .addComponent(txtTelePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,15 +260,6 @@ public class CustomerPanel extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
-
-        btnAdd.setBackground(new java.awt.Color(0, 51, 204));
-        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
 
         btnDelete.setBackground(new java.awt.Color(204, 0, 0));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
@@ -309,7 +279,6 @@ public class CustomerPanel extends javax.swing.JPanel {
             }
         });
 
-        txtSearch.setForeground(new java.awt.Color(204, 204, 204));
         txtSearch.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtSearch.setDisabledTextColor(new java.awt.Color(204, 204, 204));
@@ -354,8 +323,6 @@ public class CustomerPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBack)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAdd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEdit)
                 .addGap(1, 1, 1)
                 .addComponent(btnDelete)
@@ -366,7 +333,6 @@ public class CustomerPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
                     .addComponent(btnDelete)
                     .addComponent(btnEdit)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -415,10 +381,6 @@ public class CustomerPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCustomer_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomer_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCustomer_IDActionPerformed
-
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
@@ -430,7 +392,7 @@ public class CustomerPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         loadFormToCustomer();
         CustomerDao dao = new CustomerDao();
-        if (editedCustomer.getNo() >= 0) {
+        if (editedCustomer.getId() >= 0) {
             dao.update(editedCustomer);
         } else {
             dao.add(editedCustomer);
@@ -441,17 +403,12 @@ public class CustomerPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        editedCustomer = new Customer(-1, "", "", "", 0.0, 0);
-        loadCustomerToForm();
-    }//GEN-LAST:event_btnAddActionPerformed
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
         if (tblCustomer.getSelectedRow() >= 0) {
             CustomerDao dao = new CustomerDao();
             editedCustomer = customerList.get(tblCustomer.getSelectedRow());
-            dao.delete(editedCustomer.getNo());
+            dao.delete(editedCustomer.getId());
         }
         refershTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -489,6 +446,7 @@ public class CustomerPanel extends javax.swing.JPanel {
         CustomerDao dao = new CustomerDao();
         initForm();
         loadTable(dao);
+        txtSearch.setText("");
         btnBack.setVisible(false);
 
     }//GEN-LAST:event_btnBackActionPerformed
@@ -519,7 +477,6 @@ public class CustomerPanel extends javax.swing.JPanel {
     public void clearEditForm() {
         editedCustomer = null;
         lblID.setText("");
-        txtCustomer_ID.setText("");
         txtName.setText("");
         txtTelePhone.setText("");
         txtPoint.setText("");
@@ -529,14 +486,12 @@ public class CustomerPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JId;
     private javax.swing.JLabel JName;
     private javax.swing.JLabel JNo;
     private javax.swing.JLabel JPoint;
     private javax.swing.JLabel JPurshase;
     private javax.swing.JLabel JSearch;
     private javax.swing.JLabel JTelePhone;
-    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCancel;
@@ -548,7 +503,6 @@ public class CustomerPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblID;
     private javax.swing.JScrollPane scProctPane;
     private javax.swing.JTable tblCustomer;
-    private javax.swing.JTextField txtCustomer_ID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPoint;
     private javax.swing.JTextField txtPurshase;
@@ -571,31 +525,29 @@ public class CustomerPanel extends javax.swing.JPanel {
 
         @Override
         public int getColumnCount() {
-            return 6;
+            return 5;
         }
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             Customer customer = this.data.get(rowIndex);
-            if (columnIndex == 0) {
-                return customer.getNo();
-            }
-            if (columnIndex == 1) {
+           if (columnIndex == 0) {
                 return customer.getId();
             }
-            if (columnIndex == 2) {
+            if (columnIndex == 1) {
                 return customer.getName();
             }
-            if (columnIndex == 3) {
+            if (columnIndex == 2) {
                 return customer.getTel();
             }
-            if (columnIndex == 4) {
+            if (columnIndex == 3) {
                 return customer.getPoint();
             }
-            if (columnIndex == 5) {
+            if (columnIndex == 4) {
                 return customer.getPurshase();
             }
             return "";
+
 
         }
 
