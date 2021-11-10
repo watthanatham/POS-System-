@@ -101,6 +101,8 @@ public class ProductDao implements DaoInterface<Product> {
         return list;
     }
     
+    
+    
     public ArrayList<Product> getCoffee() {
         ArrayList list = new ArrayList();
         Connection conn = null;
@@ -108,7 +110,6 @@ public class ProductDao implements DaoInterface<Product> {
         conn = db.getConnection();
         try {
             String sql = "SELECT * FROM Product WHERE prod_type = 'Coffee'";
-            
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
@@ -116,10 +117,9 @@ public class ProductDao implements DaoInterface<Product> {
                 String name = result.getString("prod_name");
                 double price = result.getDouble("prod_price");
                 String img = result.getString("prod_img");
-                String type = result.getString("prod_type");
-                int amount = result.getInt("prod_amount");
+                String ptype = result.getString("prod_type"); 
 
-                Product product = new Product(id, name, price, type, amount);
+                Product product = new Product(id, name, price, img, ptype);
                 list.add(product);
             }
         } catch (SQLException ex) {
@@ -143,10 +143,9 @@ public class ProductDao implements DaoInterface<Product> {
                 String name = result.getString("prod_name");
                 double price = result.getDouble("prod_price");
                 String img = result.getString("prod_img");
-                String type = result.getString("prod_type");
-                int amount = result.getInt("prod_amount");
+                String ptype = result.getString("prod_type"); 
 
-                Product product = new Product(id, name, price, type, amount);
+                Product product = new Product(id, name, price, img, ptype);
                 list.add(product);
             }
         } catch (SQLException ex) {
@@ -170,9 +169,9 @@ public class ProductDao implements DaoInterface<Product> {
                 String name = result.getString("prod_name");
                 double price = result.getDouble("prod_price");
                 String img = result.getString("prod_img");
-                String type = result.getString("prod_type");
-                int amount = result.getInt("prod_amount");
-                Product product = new Product(id, name, price, type, amount);
+                String ptype = result.getString("prod_type"); 
+
+                Product product = new Product(id, name, price, img, ptype);
                 list.add(product);
             }
         } catch (SQLException ex) {
@@ -181,7 +180,7 @@ public class ProductDao implements DaoInterface<Product> {
         db.close();
         return list;
     }
-
+    
     public ArrayList<Product> getId(String id) {
         ArrayList list = new ArrayList();
         Connection conn = null;
