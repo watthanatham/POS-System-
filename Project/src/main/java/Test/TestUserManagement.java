@@ -3,25 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ui;
+package Test;
 
-import Ui.CustomerPanel;
-
+import Ui.UserManagementPanel;
 
 /**
  *
- * @author saharudseerakoon
+ * @author sirip
  */
-public class TestCustomerDialog extends javax.swing.JDialog {
+public class TestUserManagement extends javax.swing.JDialog {
 
     /**
-     * Creates new form TestCustomerDialog
+     * Creates new form TestUserManagement
      */
-    public TestCustomerDialog(java.awt.Frame parent, boolean modal) {
+    public TestUserManagement(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        CustomerPanel panel = new CustomerPanel();
-        this.add(panel);
+        UserManagementPanel panelUsMa = new UserManagementPanel();
+        this.add(panelUsMa);
         this.pack();
     }
 
@@ -56,20 +55,27 @@ public class TestCustomerDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TestCustomerDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestUserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TestCustomerDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestUserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TestCustomerDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestUserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TestCustomerDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestUserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TestCustomerDialog dialog = new TestCustomerDialog(new javax.swing.JFrame(), true);
+                TestUserManagement dialog = new TestUserManagement(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
