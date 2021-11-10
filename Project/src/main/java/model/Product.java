@@ -27,6 +27,14 @@ public class Product {
         this.type = type;
         this.amount = amount;
     }
+   
+    public Product(String name, double price, String type, int amount) {
+        
+        this.name = name;
+        this.price = price;
+        this.type = type;
+        this.amount = amount;
+    }
 
     public Product(int id, String name, double price, String image, String type) {
         this.id = id;

@@ -426,7 +426,7 @@ public class StockPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSearchActionPerformed
     public void SearchStk() {
         ProductDao dao = new ProductDao();
-        stockList = dao.getStock(txtSearch.getText());
+        stockList = dao.getName(txtSearch.getText());
         if (stockList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No Data");
             loadTable(dao);
