@@ -439,7 +439,7 @@ public class StockPanel extends javax.swing.JPanel {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         txtSearch.setEnabled(false);
         if (tblStock.getSelectedRow() >= 0) {
-            editedStock = new Product(-1, "", 0.0 , "", 0);
+            editedStock = new Product(-1, "", 0.0 ,"", 0);
             loadStockToForm();
         }
     }//GEN-LAST:event_btnAddActionPerformed

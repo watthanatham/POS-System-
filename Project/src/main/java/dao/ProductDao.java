@@ -52,7 +52,7 @@ public class ProductDao implements DaoInterface<Product> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT * FROM Product WHERE prod_name = \""+ search+"\" ";
+            String sql = "SELECT * FROM Product WHERE prod_name = \"" + search + "\" ";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
@@ -63,7 +63,7 @@ public class ProductDao implements DaoInterface<Product> {
                 int amount = result.getInt("prod_amount");
                 Product product = new Product(id, name, price, type, amount);
                 list.add(product);
-                
+
             }
         } catch (SQLException ex) {
             System.out.println("Error : Search Stock " + ex.getMessage());
@@ -80,7 +80,34 @@ public class ProductDao implements DaoInterface<Product> {
         conn = db.getConnection();
         try {
 //            String sql = "SELECT * FROM Product WHERE prod_type = 'Coffee'";
-            String sql = "SELECT * FROM Product";
+            String sql = "SELECT * FROM Product ";
+            Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(sql);
+            while (result.next()) {
+                int id = result.getInt("prod_id");
+                String name = result.getString("prod_name");
+                double price = result.getDouble("prod_price");
+                String img = result.getString("prod_img");
+                String type = result.getString("prod_type");
+                int amount = result.getInt("prod_amount");
+
+                Product product = new Product(id, name, price, type, amount);
+                list.add(product);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error : Unable to select all Stock!! " + ex.getMessage());
+        }
+        db.close();
+        return list;
+    }
+    public ArrayList<Product> getCoffee() {
+        ArrayList list = new ArrayList();
+        Connection conn = null;
+        Database db = Database.getInstance();
+        conn = db.getConnection();
+        try {
+            String sql = "SELECT * FROM Product WHERE prod_type = 'Coffee'";
+            
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {

@@ -588,7 +588,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
     private void btnCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCoffeeActionPerformed
         ProductDao dao = new ProductDao();
-        productList = dao.getAll();
+        productList = dao.getCoffee();
         productsPanel.removeAll();
         productsPanel.revalidate();
         productsPanel.repaint();
