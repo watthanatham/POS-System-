@@ -210,15 +210,9 @@ public class MainmenuStaff extends javax.swing.JPanel {
                     .addComponent(lblStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD:Project/src/main/java/WEN_Mainstaff_Manager/MainmenuStaff.java
-                    .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogout))
-                .addContainerGap(381, Short.MAX_VALUE))
-=======
                     .addComponent(btnLogout)
                     .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(393, Short.MAX_VALUE))
->>>>>>> a33a8b113e368ec0ea4c9ddad220b035d4dfecea:Project/src/main/java/Ui/MainmenuStaff.java
         );
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

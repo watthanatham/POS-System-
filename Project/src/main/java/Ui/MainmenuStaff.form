@@ -186,13 +186,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD:Project/src/main/java/WEN_Mainstaff_Manager/MainmenuStaff.form
-                          <Component id="lblLogout" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="btnLogout" alignment="0" min="-2" max="-2" attributes="0"/>
-=======
                           <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                           <Component id="lblLogout" min="-2" pref="23" max="-2" attributes="0"/>
->>>>>>> a33a8b113e368ec0ea4c9ddad220b035d4dfecea:Project/src/main/java/Ui/MainmenuStaff.form
                       </Group>
                       <EmptySpace pref="393" max="32767" attributes="0"/>
                   </Group>
