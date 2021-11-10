@@ -557,6 +557,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
     private void btnReceiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiveActionPerformed
         cash = Double.parseDouble(JOptionPane.showInputDialog(this,"Input money receive", null));
+        receive(cash);
         moneySummaryUpdate();
     }//GEN-LAST:event_btnReceiveActionPerformed
 
@@ -613,8 +614,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         for(Product product: productList) {
             ProductPanel p = new ProductPanel(product);
             p.addOnBuyProductListener(this);     
-            productsPanel.add(p);
-            
+            productsPanel.add(p);           
         }
     }//GEN-LAST:event_btnBakeryActionPerformed
 
@@ -684,6 +684,17 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         }
         txtTTSales.setText("THB "+ sum);
         txtTotalMoney.setText("THB "+ sum);
+        txtCash.setText("THB "+cash);
+        
+    }
+    public void receive(double cash) {
+        double sum = 0;
+        
+        for(Product p: selectProduct ) {
+            sum+=p.getAmount()*p.getPrice();
+        }
+        sum = cash - sum;
+        txtChange.setText("THB "+ sum);
     }
     public void loadTable() {
         ProductTableModel model = new ProductTableModel(selectProduct);
@@ -745,13 +756,10 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         txtDiscount.setText("THB 0.00");
     }
      private void moneySummaryUpdate() {
-
         txtTTSales.setText("THB "+total);
         txtDiscount.setText("THB "+cusDiscount);
         txtTotalMoney.setText("THB "+sumTotal);
         txtCash.setText("THB "+cash);
-        txtChange.setText("THB "+(cash - sumTotal));
-        loadButton();
         
     }
     public void clearList() {

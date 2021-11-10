@@ -5,8 +5,10 @@
  */
 package Chang;
 
+import Noom.CustomerPanel;
 import dao.CustomerDao;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.Customer;
 
 /**
@@ -20,13 +22,18 @@ public class Membership extends javax.swing.JFrame {
      */
     
     private Customer customer;
-    private final ArrayList<Customer> customerList;
-     private final ArrayList<CustomerObserver> customerSelect = new ArrayList();
+    private ArrayList<Customer> customerList;
+    private CustomerDao dao = new CustomerDao();
+     
     
     public Membership() {
         initComponents();
         CustomerDao dao = new CustomerDao();
         customerList = dao.getAll();
+    }
+    private void initDisabledButton() {
+        txtNotFound.setVisible(false);
+        btnOk.setEnabled(false);
     }
 
     /**
@@ -138,10 +145,20 @@ public class Membership extends javax.swing.JFrame {
         jLabel2.setText("Telephone number:");
 
         inputTel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        inputTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputTelActionPerformed(evt);
+            }
+        });
 
         btnSearch.setBackground(new java.awt.Color(102, 153, 255));
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         btnOk.setBackground(new java.awt.Color(0, 102, 51));
         btnOk.setForeground(new java.awt.Color(255, 255, 255));
@@ -223,6 +240,21 @@ public class Membership extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String tele = inputTel.getText();
+        customerList = dao.getTELE(tele);
+        if(customerList.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No Data");
+        }else {
+            model = new CustomerPanel.CustomerTableModel(customerList);
+            tblCustomer.setModel(model);
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void inputTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputTelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -298,6 +330,13 @@ public class Membership extends javax.swing.JFrame {
             btnOk.setEnabled(false);
         }
     }
+    public void SearchMember() {
+        if(customerList.isEmpty()) {
+            txtNotFound.setText("Not found "+inputTel.getText());
+        }else {
+            
+        }
+    }
     private void showMember(Customer member) {
         txtName.setText(member.getName());
         txtTel.setText(member.getTel());
@@ -308,9 +347,6 @@ public class Membership extends javax.swing.JFrame {
     }
     public interface CustomerObserver{
         public void select(Customer customer);
-    }
-    public void addSelect(CustomerObserver o){
-        customerSelect.add(o);
     }
 }
 
