@@ -71,10 +71,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtseach" min="-2" pref="225" max="-2" attributes="0"/>
+                  <Component id="txtsearch" min="-2" pref="225" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnseach" min="-2" pref="71" max="-2" attributes="0"/>
-                  <EmptySpace pref="382" max="32767" attributes="0"/>
+                  <Component id="btnsearch" min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnclean" min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace pref="301" max="32767" attributes="0"/>
                   <Component id="btnadd" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="btnedit" min="-2" max="-2" attributes="0"/>
@@ -95,8 +97,9 @@
                           <Component id="btnedit" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtseach" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="btnseach" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="txtsearch" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnsearch" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnclean" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -105,12 +108,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="txtseach">
+        <Component class="javax.swing.JTextField" name="txtsearch">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtseachActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtsearchActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnseach">
+        <Component class="javax.swing.JButton" name="btnsearch">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="33" red="0" type="rgb"/>
@@ -121,7 +124,7 @@
             <Property name="text" type="java.lang.String" value="Seach"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnseachActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsearchActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnadd">
@@ -164,6 +167,20 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndeleteActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnclean">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="33" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Clean"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncleanActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

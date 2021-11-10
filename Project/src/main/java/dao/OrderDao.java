@@ -72,7 +72,7 @@ public class OrderDao implements DaoInterface<Order>{
         return list;
     }
     
-    public ArrayList<Order> getOrderid(int order_id) {
+    public ArrayList<Order> getOrderid(String order_id) {
         ArrayList list = new ArrayList();
         Connection conn = null;
         Database db = Database.getInstance();

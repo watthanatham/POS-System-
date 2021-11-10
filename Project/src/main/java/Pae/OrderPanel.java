@@ -5,6 +5,7 @@
  */
 package Pae;
 
+import dao.CustomerDao;
 import dao.OrderDao;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -87,11 +88,12 @@ public class OrderPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        txtseach = new javax.swing.JTextField();
-        btnseach = new javax.swing.JButton();
+        txtsearch = new javax.swing.JTextField();
+        btnsearch = new javax.swing.JButton();
         btnadd = new javax.swing.JButton();
         btnedit = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
+        btnclean = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblid = new javax.swing.JLabel();
         lblno_order = new javax.swing.JLabel();
@@ -119,18 +121,18 @@ public class OrderPanel extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        txtseach.addActionListener(new java.awt.event.ActionListener() {
+        txtsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtseachActionPerformed(evt);
+                txtsearchActionPerformed(evt);
             }
         });
 
-        btnseach.setBackground(new java.awt.Color(0, 51, 204));
-        btnseach.setForeground(new java.awt.Color(255, 255, 255));
-        btnseach.setText("Seach");
-        btnseach.addActionListener(new java.awt.event.ActionListener() {
+        btnsearch.setBackground(new java.awt.Color(0, 51, 204));
+        btnsearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnsearch.setText("Seach");
+        btnsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnseachActionPerformed(evt);
+                btnsearchActionPerformed(evt);
             }
         });
 
@@ -161,16 +163,27 @@ public class OrderPanel extends javax.swing.JPanel {
             }
         });
 
+        btnclean.setBackground(new java.awt.Color(0, 51, 204));
+        btnclean.setForeground(new java.awt.Color(255, 255, 255));
+        btnclean.setText("Clean");
+        btnclean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncleanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtseach, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnseach, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
+                .addComponent(btnsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnclean, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
                 .addComponent(btnadd)
                 .addGap(14, 14, 14)
                 .addComponent(btnedit)
@@ -188,8 +201,9 @@ public class OrderPanel extends javax.swing.JPanel {
                         .addComponent(btndelete)
                         .addComponent(btnedit))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtseach, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnseach, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnclean, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -319,17 +333,17 @@ public class OrderPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnseachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnseachActionPerformed
+    private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
        searchorder();
-    }//GEN-LAST:event_btnseachActionPerformed
+    }//GEN-LAST:event_btnsearchActionPerformed
 
-    private void txtseachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtseachActionPerformed
+    private void txtsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtseachActionPerformed
+    }//GEN-LAST:event_txtsearchActionPerformed
 
     public void searchorder() {
         OrderDao dao = new OrderDao();
-       orderList = dao.getOrderid(txtseach.getColumns());
+       orderList = dao.getOrderid(txtsearch.getText());
 
         System.out.println(orderList);
        if (orderList.isEmpty()) {
@@ -382,6 +396,13 @@ public class OrderPanel extends javax.swing.JPanel {
         clearEditForm();
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    private void btncleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncleanActionPerformed
+           OrderDao dao = new OrderDao();
+        initForm();
+        loadTable(dao);
+        btnclean.setEnabled(false);
+    }//GEN-LAST:event_btncleanActionPerformed
+
     public void refershTable() {
         OrderDao dao = new OrderDao();
         ArrayList<Order> newList = dao.getAll();
@@ -413,9 +434,10 @@ public class OrderPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnadd;
+    private javax.swing.JButton btnclean;
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnedit;
-    private javax.swing.JButton btnseach;
+    private javax.swing.JButton btnsearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -429,7 +451,7 @@ public class OrderPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblid;
     private javax.swing.JLabel lblno_order;
     private javax.swing.JTable tblOrder;
-    private javax.swing.JTextField txtseach;
+    private javax.swing.JTextField txtsearch;
     private javax.swing.JTextField txttotal;
     private javax.swing.JTextField txttype;
     // End of variables declaration//GEN-END:variables
