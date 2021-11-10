@@ -139,6 +139,8 @@ public class EmployeePanel extends javax.swing.JPanel {
         scProctPane = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Employee_ID ");
 
