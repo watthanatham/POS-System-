@@ -58,7 +58,7 @@ public class Membership extends javax.swing.JFrame {
         inputTel = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         txtNotFound = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -145,6 +145,7 @@ public class Membership extends javax.swing.JFrame {
         jLabel2.setText("Telephone number:");
 
         inputTel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        inputTel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inputTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputTelActionPerformed(evt);
@@ -163,10 +164,20 @@ public class Membership extends javax.swing.JFrame {
         btnOk.setBackground(new java.awt.Color(0, 102, 51));
         btnOk.setForeground(new java.awt.Color(255, 255, 255));
         btnOk.setText("OK");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cancel");
+        btnCancel.setBackground(new java.awt.Color(255, 0, 0));
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         txtNotFound.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNotFound.setForeground(new java.awt.Color(255, 0, 0));
@@ -196,7 +207,7 @@ public class Membership extends javax.swing.JFrame {
                         .addGap(261, 261, 261)
                         .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(jButton1))
+                        .addComponent(btnCancel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(311, 311, 311)
                         .addComponent(txtNotFound)))
@@ -222,7 +233,7 @@ public class Membership extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
 
@@ -241,19 +252,23 @@ public class Membership extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        String tele = inputTel.getText();
-        customerList = dao.getTELE(tele);
-        if(customerList.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No Data");
-        }else {
-            model = new CustomerPanel.CustomerTableModel(customerList);
-            tblCustomer.setModel(model);
-        }
+        checkMember(inputTel.getText());
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void inputTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputTelActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        customerSelect.forEach((CustomerObserver o) -> {
+            o.select(customer);
+        });
+        this.dispose();
+    }//GEN-LAST:event_btnOkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,10 +306,10 @@ public class Membership extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnOk;
     private javax.swing.JButton btnSearch;
     private javax.swing.JTextField inputTel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -313,29 +328,22 @@ public class Membership extends javax.swing.JFrame {
                 customer = c;
             }
         });
-        if(customer != null){
+        /*if(customer != null){
             showMember(customer);
             if(!customer.getTel().equals(inputTel.getText())){
                 txtNotFound.setVisible(true);
                 txtNotFound.setText("Not found "+inputTel.getText());
                 defaultInfo();
-                btnOk.setEnabled(false);
-            }else{
                 btnOk.setEnabled(true);
+            }else{
+                btnOk.setEnabled(false);
             }
         }else{
             txtNotFound.setVisible(true);
             txtNotFound.setText("Not found "+inputTel.getText());
             defaultInfo();
             btnOk.setEnabled(false);
-        }
-    }
-    public void SearchMember() {
-        if(customerList.isEmpty()) {
-            txtNotFound.setText("Not found "+inputTel.getText());
-        }else {
-            
-        }
+        }*/
     }
     private void showMember(Customer member) {
         txtName.setText(member.getName());
@@ -348,5 +356,9 @@ public class Membership extends javax.swing.JFrame {
     public interface CustomerObserver{
         public void select(Customer customer);
     }
+        public void addSelect(CustomerObserver o){
+        customerSelect.add(o);
+    }
+    private final ArrayList<CustomerObserver> customerSelect = new ArrayList();
 }
 

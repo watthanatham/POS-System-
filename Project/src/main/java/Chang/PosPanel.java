@@ -12,6 +12,7 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import model.Product;
 
 
@@ -557,7 +558,10 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
     private void btnReceiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiveActionPerformed
         cash = Double.parseDouble(JOptionPane.showInputDialog(this,"Input money receive", null));
+        getCoffee();
+        //refresh();
         receive(cash);
+        refresh();
         moneySummaryUpdate();
     }//GEN-LAST:event_btnReceiveActionPerformed
 
@@ -572,6 +576,10 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnMTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTActionPerformed
+        getMT();
+    }//GEN-LAST:event_btnMTActionPerformed
+
+    private void getMT() {
         ProductDao dao = new ProductDao();
         productList = dao.getMT();
         productsPanel.removeAll();
@@ -581,13 +589,17 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
         for(Product product: productList) {
             ProductPanel p = new ProductPanel(product);
-            p.addOnBuyProductListener(this);     
+            p.addOnBuyProductListener(this);
             productsPanel.add(p);
             
         }
-    }//GEN-LAST:event_btnMTActionPerformed
+    }
 
     private void btnCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCoffeeActionPerformed
+        getCoffee();
+    }//GEN-LAST:event_btnCoffeeActionPerformed
+
+    private void getCoffee() {
         ProductDao dao = new ProductDao();
         productList = dao.getCoffee();
         productsPanel.removeAll();
@@ -597,11 +609,11 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
         for(Product product: productList) {
             ProductPanel p = new ProductPanel(product);
-            p.addOnBuyProductListener(this);     
+            p.addOnBuyProductListener(this);
             productsPanel.add(p);
             
         }
-    }//GEN-LAST:event_btnCoffeeActionPerformed
+    }
 
     private void btnBakeryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBakeryActionPerformed
         ProductDao dao = new ProductDao();
@@ -764,5 +776,5 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     }
     public void clearList() {
         selectProduct.clear();
-    }
+    }  
 }
