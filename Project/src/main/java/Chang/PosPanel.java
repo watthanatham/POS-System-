@@ -5,22 +5,26 @@
  */
 package Chang;
 
+import Chang.Membership.CustomerObserver;
 import Chang.ProductPanel.OnBuyProductListener;
 import dao.ProductDao;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
+import model.Customer;
+import model.Order;
 import model.Product;
-
+import model.User;
 
 /**
  *
  * @author watan
  */
-public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener{
+public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener, CustomerObserver {
 
     private ArrayList<Product> productList;
     private final ArrayList<Product> selectProduct = new ArrayList();
@@ -31,6 +35,7 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     private double cash = 0;
     private double sumTotal = 0;
     private double change = 0;
+
     /**
      * Creates new form PosPanel
      */
@@ -39,34 +44,35 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         ProductDao dao = new ProductDao();
         productList = dao.getCoffee();
         int productSize = productList.size();
-        productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
-        for(Product product: productList) {
+        productsPanel.setLayout(new GridLayout(productSize / 3 + productSize % 3, 2));
+        for (Product product : productList) {
             ProductPanel p = new ProductPanel(product);
-            p.addOnBuyProductListener(this);     
+            p.addOnBuyProductListener(this);
             productsPanel.add(p);
-            
+
         }
         System.out.println(productList);
     }
-    
-     private void refresh() {
-         if(selectProduct != null) {
-             clearList();
-         }
-         //usePromotion();
-         loadTable();
-         defaultValue();
-         moneySummaryUpdate();
-         loadButton();
-     }
-     private void loadButton() {
-        if(selectProduct.size() > 0 && cash - sumTotal >= 0){
+
+    public void refresh() {
+        if (selectProduct != null) {
+            clearList();
+        }
+        loadTable();
+        defaultValue();
+        moneySummaryUpdate();
+        loadButton();
+    }
+
+    private void loadButton() {
+        if (selectProduct.size() > 0 && cash - sumTotal >= 0) {
             btnPrint.setEnabled(true);
-        }else{
+        } else {
             btnPrint.setEnabled(false);
         }
-        
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,7 +92,6 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         txtTextTotal = new javax.swing.JLabel();
-        txtTextPromo = new javax.swing.JLabel();
         txtTextMember = new javax.swing.JLabel();
         txtTextName = new javax.swing.JLabel();
         txtTextDis = new javax.swing.JLabel();
@@ -95,7 +100,6 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         txtTextCash = new javax.swing.JLabel();
         txtTextChange = new javax.swing.JLabel();
         txtTTSales = new javax.swing.JLabel();
-        txtPromo = new javax.swing.JLabel();
         txtName = new javax.swing.JLabel();
         txtDiscount = new javax.swing.JLabel();
         txtTotalMoney = new javax.swing.JLabel();
@@ -189,10 +193,6 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         txtTextTotal.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtTextTotal.setText("Total Sales (Exc. Tax):");
 
-        txtTextPromo.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        txtTextPromo.setForeground(new java.awt.Color(255, 153, 51));
-        txtTextPromo.setText("Promotion");
-
         txtTextMember.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtTextMember.setText("-----------------------       Member     -------------------------");
 
@@ -216,10 +216,6 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
 
         txtTTSales.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtTTSales.setText("THB 0.00");
-
-        txtPromo.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        txtPromo.setForeground(new java.awt.Color(255, 153, 0));
-        txtPromo.setText("0%");
 
         txtName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtName.setText("NA");
@@ -274,28 +270,19 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
                         .addComponent(txtTextName)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(txtTextPromo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtPromo)
-                        .addGap(65, 65, 65))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(txtTextTotal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtTTSales)
-                        .addGap(30, 30, 30))))
+                        .addGap(41, 41, 41))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTextTotal)
                     .addComponent(txtTTSales))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTextPromo)
-                    .addComponent(txtPromo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txtTextMember)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -553,21 +540,29 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        // TODO add your handling code here:
+        Customer customer = new Customer(5,"watt","911");
+        User user = new User(4,"admin","Manager","1234");
+        Order order  = new Order(1,new Date(),total, user, customer);
+        for(Product p : selectProduct) {
+            order.addDetailOrder(-1,p);
+        }
+        ReceiptOrder recp = new ReceiptOrder(order,total,cash,this);
+        recp.setVisible(true);
+        refresh();
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnReceiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiveActionPerformed
-        cash = Double.parseDouble(JOptionPane.showInputDialog(this,"Input money receive", null));
-        getCoffee();
+        cash = Double.parseDouble(JOptionPane.showInputDialog(this, "Input money receive", null));
         //refresh();
         receive(cash);
-        refresh();
         moneySummaryUpdate();
     }//GEN-LAST:event_btnReceiveActionPerformed
 
     private void btnMembershipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMembershipActionPerformed
         Membership member = new Membership();
+        member.addSelect(this);
         member.setVisible(true);
+        
     }//GEN-LAST:event_btnMembershipActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
@@ -586,12 +581,12 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         productsPanel.revalidate();
         productsPanel.repaint();
         int productSize = productList.size();
-        productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
-        for(Product product: productList) {
+        productsPanel.setLayout(new GridLayout(productSize / 3 + productSize % 3, 2));
+        for (Product product : productList) {
             ProductPanel p = new ProductPanel(product);
             p.addOnBuyProductListener(this);
             productsPanel.add(p);
-            
+
         }
     }
 
@@ -599,19 +594,19 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         getCoffee();
     }//GEN-LAST:event_btnCoffeeActionPerformed
 
-    private void getCoffee() {
+    public void getCoffee() {
         ProductDao dao = new ProductDao();
         productList = dao.getCoffee();
         productsPanel.removeAll();
         productsPanel.revalidate();
         productsPanel.repaint();
         int productSize = productList.size();
-        productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
-        for(Product product: productList) {
+        productsPanel.setLayout(new GridLayout(productSize / 3 + productSize % 3, 2));
+        for (Product product : productList) {
             ProductPanel p = new ProductPanel(product);
             p.addOnBuyProductListener(this);
             productsPanel.add(p);
-            
+
         }
     }
 
@@ -622,11 +617,11 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         productsPanel.revalidate();
         productsPanel.repaint();
         int productSize = productList.size();
-        productsPanel.setLayout(new GridLayout(productSize/3+productSize%3, 2));
-        for(Product product: productList) {
+        productsPanel.setLayout(new GridLayout(productSize / 3 + productSize % 3, 2));
+        for (Product product : productList) {
             ProductPanel p = new ProductPanel(product);
-            p.addOnBuyProductListener(this);     
-            productsPanel.add(p);           
+            p.addOnBuyProductListener(this);
+            productsPanel.add(p);
         }
     }//GEN-LAST:event_btnBakeryActionPerformed
 
@@ -658,14 +653,12 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     private javax.swing.JLabel txtDiscount;
     private javax.swing.JLabel txtLine;
     private javax.swing.JLabel txtName;
-    private javax.swing.JLabel txtPromo;
     private javax.swing.JLabel txtTTSales;
     private javax.swing.JLabel txtTextCash;
     private javax.swing.JLabel txtTextChange;
     private javax.swing.JLabel txtTextDis;
     private javax.swing.JLabel txtTextMember;
     private javax.swing.JLabel txtTextName;
-    private javax.swing.JLabel txtTextPromo;
     private javax.swing.JLabel txtTextTal;
     private javax.swing.JLabel txtTextTotal;
     private javax.swing.JLabel txtTotalMoney;
@@ -675,89 +668,101 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
     public void buy(Product product, int amount) {
         System.out.println(product);
         product.setAmount(amount);
-        if(!selectProduct.contains(product)) {
+        if (!selectProduct.contains(product)) {
             selectProduct.add(product);
-        }else {
+        } else {
             int pList = selectProduct.indexOf(product);
             selectProduct.set(pList, product);
         }
         int index = selectProduct.indexOf(product);
-        if(amount == 0) {
+        if (amount == 0) {
             selectProduct.remove(index);
         }
         loadTable();
         loadTotal();
     }
+
     public void loadTotal() {
-        double sum = 0;
-        
-        for(Product p: selectProduct ) {
-            sum+=p.getAmount()*p.getPrice();
+
+        for (Product p : selectProduct) {
+            total += p.getAmount() * p.getPrice();
         }
-        txtTTSales.setText("THB "+ sum);
-        txtTotalMoney.setText("THB "+ sum);
-        txtCash.setText("THB "+cash);
-        
+        moneySummaryUpdate();
+
     }
+
     public void receive(double cash) {
         double sum = 0;
-        
-        for(Product p: selectProduct ) {
-            sum+=p.getAmount()*p.getPrice();
+
+        for (Product p : selectProduct) {
+            sum += p.getAmount() * p.getPrice();
         }
         sum = cash - sum;
-        txtChange.setText("THB "+ sum);
     }
+
     public void loadTable() {
         ProductTableModel model = new ProductTableModel(selectProduct);
         tblProducts.setModel(model);
+        
     }
+
+    @Override
+    public void select(Customer customer) {
+        System.out.println(customer);
+        txtName.setText(customer.getName());
+    }
+
     private class ProductTableModel extends AbstractTableModel {
-     private final ArrayList<Product>data;
-     String [] columnName = {"ID","Name","Price","Qty","Amount"};
-     
-     
-     public ProductTableModel(ArrayList<Product> data) {
-         this.data = data;
-     }
-    @Override
-    public int getRowCount() {
-        return this.data.size();
-    }
 
-    @Override
-    public int getColumnCount() {
-        return 5;
-    }
+        private final ArrayList<Product> data;
+        String[] columnName = {"ID", "Name", "Price", "Qty", "Amount"};
 
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        Product product = this.data.get(rowIndex);
-        if(columnIndex == 0) {
-            return product.getId();
+        public ProductTableModel(ArrayList<Product> data) {
+            this.data = data;
         }
-        if(columnIndex == 1) {
-            return product.getName();
+
+        @Override
+        public int getRowCount() {
+            return this.data.size();
         }
-        if(columnIndex == 2) {
-            return product.getPrice();
-        }if(columnIndex == 3) {
-            return product.getAmount();
-        }if(columnIndex == 4) {
-            return product.getAmount() * product.getPrice();
-        } 
-        return "";
+
+        @Override
+        public int getColumnCount() {
+            return 5;
+        }
+
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            Product product = this.data.get(rowIndex);
+            if (columnIndex == 0) {
+                return product.getId();
+            }
+            if (columnIndex == 1) {
+                return product.getName();
+            }
+            if (columnIndex == 2) {
+                return product.getPrice();
+            }
+            if (columnIndex == 3) {
+                return product.getAmount();
+            }
+            if (columnIndex == 4) {
+                return product.getAmount() * product.getPrice();
+            }
+            return "";
+        }
+
+        @Override
+        public String getColumnName(int column) {
+            return columnName[column];
+        }
+
+        private void loadListTableModel() {
+            ProductTableModel model = new ProductTableModel(selectProduct);
+            tblProducts.setModel(model);
+        }
     }
 
-    @Override
-    public String getColumnName(int column) {
-        return columnName[column];
-    }
-    private void loadListTableModel() {
-        ProductTableModel model = new ProductTableModel(selectProduct);
-        tblProducts.setModel(model);
-    }
-    }
     private void defaultValue() {
         total = 0;
         cusDiscount = 0;
@@ -767,14 +772,17 @@ public class PosPanel extends javax.swing.JPanel implements OnBuyProductListener
         txtName.setText("NA");
         txtDiscount.setText("THB 0.00");
     }
-     private void moneySummaryUpdate() {
-        txtTTSales.setText("THB "+total);
-        txtDiscount.setText("THB "+cusDiscount);
-        txtTotalMoney.setText("THB "+sumTotal);
-        txtCash.setText("THB "+cash);
-        
+
+    private void moneySummaryUpdate() {
+        txtTTSales.setText("THB " + total);
+        txtDiscount.setText("THB " + cusDiscount);
+        txtTotalMoney.setText("THB " + total);
+        txtCash.setText("THB " + cash);
+        txtChange.setText("THB " + (cash - total));
+
     }
+
     public void clearList() {
         selectProduct.clear();
-    }  
+    }
 }

@@ -38,6 +38,8 @@ public class TestProductDialog extends javax.swing.JDialog implements ProductPan
         productsPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setFocusableWindowState(false);
 
         productsPanel.setLayout(new java.awt.GridLayout(10, 2));
         jScrollPane1.setViewportView(productsPanel);

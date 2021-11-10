@@ -357,7 +357,7 @@ public class OrderPanel extends javax.swing.JPanel {
     
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
 
-            editedOrder = new Order(-1, -1 ," "," ", 0);
+            editedOrder = new Order(-1 ," "," ", 0);
        loadOrderToForm();
     }//GEN-LAST:event_btnaddActionPerformed
 

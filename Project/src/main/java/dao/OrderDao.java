@@ -57,11 +57,10 @@ public class OrderDao implements DaoInterface<Order>{
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
                 int id = result.getInt("Id");
-                int order_id = result.getInt("Order_id");
                 String date = result.getString("Date");
                 String type = result.getString("UserType");
                 double total = result.getDouble("Total");
-                Order order = new Order(id , order_id , date, type, total);
+                Order order = new Order(id , date, type, total);
                 list.add(order);
                 System.out.println(order);
             }
@@ -83,11 +82,10 @@ public class OrderDao implements DaoInterface<Order>{
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
                 int aid = result.getInt("Id");
-                int aorder_id = result.getInt("Order_id");
                 String adate = result.getString("Date");
                 String atype = result.getString("UserType");
                 double atotal = result.getDouble("Total");
-                Order order = new Order(aid , aorder_id , adate, atype, atotal);
+                Order order = new Order(aid , adate, atype, atotal);
                 list.add(order);
 //                System.out.println(order);
             }
@@ -110,11 +108,10 @@ public class OrderDao implements DaoInterface<Order>{
             ResultSet result = stmt.executeQuery(sql);
             if(result.next()) {
                 int orid = result.getInt("ID");
-                int order_id = result.getInt("Order_id");
                 String date = result.getString("Date");
                 String type = result.getString("UserType");
                 double total = result.getDouble("Total");
-                Order order = new Order(orid , order_id , date, type ,total);
+                Order order = new Order(orid , date, type ,total);
                 return order;
             }
         } catch (SQLException ex) {

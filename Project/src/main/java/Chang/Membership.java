@@ -30,6 +30,7 @@ public class Membership extends javax.swing.JFrame {
         initComponents();
         CustomerDao dao = new CustomerDao();
         customerList = dao.getAll();
+        
     }
     private void initDisabledButton() {
         txtNotFound.setVisible(false);
@@ -61,7 +62,8 @@ public class Membership extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         txtNotFound = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -326,6 +328,7 @@ public class Membership extends javax.swing.JFrame {
         customerList.forEach((Customer c) -> {
             if(c.getTel().equals(tel)){
                 customer = c;
+                showMember(c);
             }
         });
         /*if(customer != null){

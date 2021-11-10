@@ -39,6 +39,34 @@ public class Order {
     public void setId(int Id) {
         this.id = Id;
     }
+    public  void addDetailOrder(int id,Product product,int amount,double price){
+        for (int row = 0; row <detailorder.size(); row++) {
+            DetailOrder d = detailorder.get(row);
+            if(d.getProduct().getId()== product.getId()){
+                d.addAmount(amount); 
+                return;
+            }
+
+        }
+        detailorder.add(new DetailOrder(id,product,amount,price,this));
+    }
+
+
+    public  void addDetailOrder(Product product,int amount ){
+        addDetailOrder(-1, product, amount,product.getPrice());
+    }
+
+    public void setTotal(double total){
+        this.total = total;
+    }
+    //Override Method
+    public  void addDetailOrder(int id,Product product){
+        detailorder.add(new DetailOrder(id,product,product.getAmount(),product.getPrice(),this));
+    }
+    //Override Method
+    public  void addDetailOrder(Product product){
+        addDetailOrder(-1, product);
+    }
      public int getOrder_id() {
         return order_id;
     }
@@ -65,14 +93,13 @@ public class Order {
     public double getTotal() {
         return total;
     }
-
-    public void setTotal(double total) {
-        this.total = total;
+    public ArrayList<DetailOrder> getDetail() {
+        return detailorder;
     }
 
-    public Order(int Id,int order_id ,String date, String Usertype, double total) {
+
+    public Order(int Id,String date, String Usertype, double total) {
         this.id = Id;
-        this.order_id = order_id;
         this.date = date;
         this.Usertype = Usertype;
         this.total = total;
