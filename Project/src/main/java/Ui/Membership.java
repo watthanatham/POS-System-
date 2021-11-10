@@ -30,6 +30,7 @@ public class Membership extends javax.swing.JFrame {
         initComponents();
         CustomerDao dao = new CustomerDao();
         customerList = dao.getAll();
+        txtNotFound.setVisible(false);
         
     }
     private void initDisabledButton() {
@@ -329,6 +330,8 @@ public class Membership extends javax.swing.JFrame {
             if(c.getTel().equals(tel)){
                 customer = c;
                 showMember(c);
+            }else {
+                txtNotFound.setVisible(true);
             }
         });
         /*if(customer != null){
