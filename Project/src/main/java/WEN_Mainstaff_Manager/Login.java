@@ -198,7 +198,7 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                new TestManager().setVisible(true);
+                new Manager().setVisible(true);
                 }
             });
 
@@ -207,7 +207,7 @@ public class Login extends javax.swing.JFrame {
            this.dispose();
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                new TestStaff().setVisible(true);
+                new Staff().setVisible(true);
                 }
             });
         } else {

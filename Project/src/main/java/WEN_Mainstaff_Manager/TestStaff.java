@@ -27,7 +27,7 @@ public class TestStaff extends javax.swing.JDialog {
   
     }
     public TestStaff(){
-         initComponents();
+        initComponents();
         MainmenuStaff panel = new MainmenuStaff();
         this.add(panel);
         this.pack();

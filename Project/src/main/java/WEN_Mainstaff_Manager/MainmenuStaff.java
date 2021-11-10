@@ -38,6 +38,10 @@ import model.Product;
  */
 public class MainmenuStaff extends javax.swing.JPanel {
 
+    static void setViewportView(MainmenuStaff mainmenuStaff) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * Creates new form WenPanel
      */
